@@ -1,0 +1,31 @@
+{
+  "label": "raqa-fr",
+  "runs": 10,
+  "generatedAt": "2026-09-22T02:51:24.038Z",
+  "baseURL": "http://127.0.0.1:8000",
+  "appVersion": null,
+  "tests": {
+    "total": 2,
+    "stablePass": 2,
+    "stableFail": 0,
+    "flaky": 0
+  },
+  "flakinessRatePct": 0,
+  "scenarios": {
+    "total": 2,
+    "flaky": 0,
+    "withStableFailure": 0
+  },
+  "scenarioFlakinessRatePct": 0,
+  "durationMs": {
+    "medianPerTest": 3531.5,
+    "medianSuiteSeconds": 6.269
+  },
+  "byProject": {
+    "chromium-desktop": {
+      "total": 2,
+      "flaky": 0,
+      "flakinessRatePct": 0
+    }
+  }
+}

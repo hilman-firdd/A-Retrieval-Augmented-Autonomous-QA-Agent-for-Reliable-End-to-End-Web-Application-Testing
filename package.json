@@ -1,0 +1,23 @@
+{
+  "name": "ppi27-e2e",
+  "version": "1.0.0",
+  "description": "Playwright E2E suite (baseline B1) untuk Portal Pesantren PERSIS 27 Situaksan - bagian dari riset RAQA",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:ui": "playwright test --ui",
+    "list": "playwright test --list --reporter=list",
+    "report": "playwright show-report results/html/baseline",
+    "runs": "node scripts/run-repeated.js",
+    "metrics": "node scripts/compute-metrics.js",
+    "fdr": "node scripts/fault-detection.js",
+    "env-info": "node scripts/env-info.js"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.56.1",
+    "dotenv": "^16.4.5"
+  },
+  "engines": { "node": ">=18" }
+}

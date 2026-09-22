@@ -1,0 +1,71 @@
+{
+  "label": "local-nofault",
+  "k": 10,
+  "baseURL": "http://127.0.0.1:8000",
+  "appVersion": null,
+  "passthrough": [],
+  "startedAt": "2026-09-21T12:59:57.755Z",
+  "runs": [
+    {
+      "runId": "k01",
+      "exitCode": 1,
+      "seconds": 216.499,
+      "finishedAt": "2026-09-21T13:03:34.256Z"
+    },
+    {
+      "runId": "k02",
+      "exitCode": 1,
+      "seconds": 222.423,
+      "finishedAt": "2026-09-21T13:07:16.681Z"
+    },
+    {
+      "runId": "k03",
+      "exitCode": 1,
+      "seconds": 205.673,
+      "finishedAt": "2026-09-21T13:10:42.354Z"
+    },
+    {
+      "runId": "k04",
+      "exitCode": 1,
+      "seconds": 199.222,
+      "finishedAt": "2026-09-21T13:14:01.577Z"
+    },
+    {
+      "runId": "k05",
+      "exitCode": 1,
+      "seconds": 190.572,
+      "finishedAt": "2026-09-21T13:17:12.150Z"
+    },
+    {
+      "runId": "k06",
+      "exitCode": 1,
+      "seconds": 196.93,
+      "finishedAt": "2026-09-21T13:20:29.080Z"
+    },
+    {
+      "runId": "k07",
+      "exitCode": 1,
+      "seconds": 194.351,
+      "finishedAt": "2026-09-21T13:23:43.431Z"
+    },
+    {
+      "runId": "k08",
+      "exitCode": 1,
+      "seconds": 191.335,
+      "finishedAt": "2026-09-21T13:26:54.766Z"
+    },
+    {
+      "runId": "k09",
+      "exitCode": 1,
+      "seconds": 193.783,
+      "finishedAt": "2026-09-21T13:30:08.550Z"
+    },
+    {
+      "runId": "k10",
+      "exitCode": 1,
+      "seconds": 192.384,
+      "finishedAt": "2026-09-21T13:33:20.935Z"
+    }
+  ],
+  "finishedAt": "2026-09-21T13:33:20.936Z"
+}

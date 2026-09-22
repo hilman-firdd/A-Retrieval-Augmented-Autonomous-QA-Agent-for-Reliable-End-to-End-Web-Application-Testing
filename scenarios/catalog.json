@@ -1,0 +1,373 @@
+{
+  "application": "Portal Pesantren PERSIS 27 Situaksan (staging)",
+  "note": "Katalog skenario = ground truth untuk evaluasi dan sekaligus artefak 'historical test cases' bagi korpus pengetahuan RAQA. Setiap test memakai ID yang sama di judulnya.",
+  "scenarios": [
+    {
+      "id": "S-SMOKE-01",
+      "feature": "Beranda",
+      "goal": "A visitor opens the portal home page.",
+      "acceptance_criteria": [
+        "HTTP status < 400",
+        "Page title contains 'Pesantren PERSIS 27'",
+        "Main heading contains 'Tafaqquh Fid Din'"
+      ],
+      "oracle": [
+        "explicit",
+        "implicit"
+      ]
+    },
+    {
+      "id": "S-PAGE-01",
+      "feature": "Halaman statis",
+      "goal": "A visitor opens every static page linked from the main menu.",
+      "acceptance_criteria": [
+        "HTTP status < 400",
+        "Non-empty title that does not indicate an error",
+        "A visible heading exists"
+      ],
+      "oracle": [
+        "explicit",
+        "implicit"
+      ]
+    },
+    {
+      "id": "S-NAV-01",
+      "feature": "Navigasi",
+      "goal": "The main menu exposes every expected item with its expected destination.",
+      "acceptance_criteria": [
+        "Each menu item in site-map.js exists with the specified href"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-NAV-02",
+      "feature": "Navigasi",
+      "goal": "A visitor reaches a page by opening a dropdown menu and clicking an item.",
+      "acceptance_criteria": [
+        "Dropdown item becomes visible",
+        "URL ends with the item's path",
+        "Destination shows a heading"
+      ],
+      "oracle": [
+        "explicit",
+        "implicit"
+      ]
+    },
+    {
+      "id": "S-HOME-01",
+      "feature": "Beranda",
+      "goal": "The 'Daftar PSB' call-to-action leads to the admission site.",
+      "acceptance_criteria": [
+        "href is https://psb.pesantrenpersis27.com"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-HOME-02",
+      "feature": "Beranda",
+      "goal": "The 'Info Terbaru' call-to-action opens the news list.",
+      "acceptance_criteria": [
+        "URL is /portal/berita",
+        "H1 is 'Berita Terbaru'"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-HOME-03",
+      "feature": "Beranda",
+      "goal": "Statistic links (alumni, santri per jenjang) lead to valid targets.",
+      "acceptance_criteria": [
+        "Alumni page returns < 400",
+        "Anchors #tsanawiyyah and #muallimin exist on the santri page"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-HOME-04",
+      "feature": "Beranda",
+      "goal": "Each featured-program card opens a modal with the matching title that can be closed.",
+      "acceptance_criteria": [
+        "Five 'Selengkapnya' controls",
+        "Modal title matches the card",
+        "'Tutup' hides the modal"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-HOME-05",
+      "feature": "Beranda",
+      "goal": "A visitor opens the first latest-news item from the home page.",
+      "acceptance_criteria": [
+        "Article H1 equals the card title"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-HOME-06",
+      "feature": "Beranda",
+      "goal": "A visitor expands an FAQ question.",
+      "acceptance_criteria": [
+        "The corresponding answer is visible"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-NEWS-01",
+      "feature": "Berita",
+      "goal": "A visitor browses the news list and moves to page 2.",
+      "acceptance_criteria": [
+        "Page 1 shows at least one card",
+        "Page 2 shows cards not shown on page 1"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-NEWS-02",
+      "feature": "Berita",
+      "goal": "The total number of news items is consistent across the site.",
+      "acceptance_criteria": [
+        "(lastPage-1)*perPage + itemsOnLastPage equals the sum of category counts in the sidebar"
+      ],
+      "oracle": [
+        "explicit (business rule)"
+      ]
+    },
+    {
+      "id": "S-NEWS-03",
+      "feature": "Berita",
+      "goal": "A category page lists exactly the items the sidebar count promises, under both URL formats.",
+      "acceptance_criteria": [
+        "/portal/kategori/berita-kuttab shows min(count, perPage) cards",
+        "/portal/berita?kategori=berita-kuttab shows the same cards"
+      ],
+      "oracle": [
+        "explicit (business rule)"
+      ]
+    },
+    {
+      "id": "S-NEWS-04",
+      "feature": "Berita",
+      "goal": "A monthly archive shows only items from that month.",
+      "acceptance_criteria": [
+        "All card dates fall within the archive month"
+      ],
+      "oracle": [
+        "explicit (business rule)"
+      ]
+    },
+    {
+      "id": "S-NEWS-05",
+      "feature": "Berita",
+      "goal": "Opening an article from the list shows consistent data.",
+      "acceptance_criteria": [
+        "URL equals card href",
+        "H1 equals card title",
+        "Publication date equals card date"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-NEWS-06",
+      "feature": "Berita",
+      "goal": "Breadcrumb and share links refer to the current article.",
+      "acceptance_criteria": [
+        "Breadcrumb has Beranda and Berita",
+        "WhatsApp/Facebook/Twitter links contain the article URL"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-NEWS-07",
+      "feature": "Berita",
+      "goal": "Related articles exclude the article being read.",
+      "acceptance_criteria": [
+        "Related list is non-empty",
+        "Current URL not in related list"
+      ],
+      "oracle": [
+        "explicit (business rule)"
+      ]
+    },
+    {
+      "id": "S-NEWS-08",
+      "feature": "Berita",
+      "goal": "The view counter behaves monotonically.",
+      "acceptance_criteria": [
+        "View count is an integer",
+        "Count after reload >= count before (value itself is volatile)"
+      ],
+      "oracle": [
+        "explicit (volatile-aware)"
+      ]
+    },
+    {
+      "id": "S-NEWS-09",
+      "feature": "Artikel santri",
+      "goal": "A visitor opens a student article from the list.",
+      "acceptance_criteria": [
+        "Article H1 equals the card title"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-NEWS-10",
+      "feature": "Berita",
+      "goal": "'Salin Link' copies the article URL.",
+      "acceptance_criteria": [
+        "Clipboard content equals the article URL"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-AUTH-01",
+      "feature": "Login",
+      "goal": "The SIMASIS login form is complete and accessible.",
+      "acceptance_criteria": [
+        "Username and password inputs are reachable by accessible name/placeholder",
+        "Password input masks text",
+        "Submit enabled",
+        "CSRF token present"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-AUTH-02",
+      "feature": "Login",
+      "goal": "Submitting an empty login form is rejected.",
+      "acceptance_criteria": [
+        "Remains on /login",
+        "Browser or server validation shown"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-AUTH-03",
+      "feature": "Login",
+      "goal": "Invalid credentials are rejected with a clear message.",
+      "acceptance_criteria": [
+        "Remains on /login",
+        "Error message visible",
+        "Password field is cleared"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-AUTH-04",
+      "feature": "Login",
+      "goal": "A valid test account can sign in.",
+      "acceptance_criteria": [
+        "URL leaves /login"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-AUTH-05",
+      "feature": "Login",
+      "goal": "'Kembali ke Landing Page' returns to the portal.",
+      "acceptance_criteria": [
+        "URL is the portal root"
+      ],
+      "oracle": [
+        "explicit"
+      ]
+    },
+    {
+      "id": "S-LINK-01",
+      "feature": "Integritas",
+      "goal": "Internal links on key pages are not broken.",
+      "acceptance_criteria": [
+        "Every same-origin link returns < 400"
+      ],
+      "oracle": [
+        "implicit"
+      ]
+    },
+    {
+      "id": "S-LINK-02",
+      "feature": "Integritas",
+      "goal": "Links to the school's own domains use HTTPS.",
+      "acceptance_criteria": [
+        "No http:// link to *.pesantrenpersis27.com"
+      ],
+      "oracle": [
+        "implicit (security)"
+      ]
+    },
+    {
+      "id": "S-LINK-03",
+      "feature": "Integritas",
+      "goal": "Images on key pages load.",
+      "acceptance_criteria": [
+        "Every image URL returns < 400 with an image/* content type"
+      ],
+      "oracle": [
+        "implicit"
+      ]
+    },
+    {
+      "id": "S-QUAL-01",
+      "feature": "Kualitas",
+      "goal": "Key pages have no critical accessibility violations.",
+      "acceptance_criteria": [
+        "axe-core reports no 'critical' violation for WCAG 2.x A/AA"
+      ],
+      "oracle": [
+        "implicit (accessibility)"
+      ]
+    },
+    {
+      "id": "S-QUAL-02",
+      "feature": "Kualitas",
+      "goal": "Each key page declares itself as canonical.",
+      "acceptance_criteria": [
+        "<link rel=canonical> equals the page URL"
+      ],
+      "oracle": [
+        "implicit (SEO)"
+      ]
+    },
+    {
+      "id": "S-QUAL-03",
+      "feature": "Kualitas",
+      "goal": "Key pages fit a phone screen.",
+      "acceptance_criteria": [
+        "No horizontal overflow on Pixel 7 viewport"
+      ],
+      "oracle": [
+        "implicit (responsive)"
+      ]
+    }
+  ]
+}

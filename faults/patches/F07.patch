@@ -1,0 +1,13 @@
+diff --git a/resources/views/auth/login.blade.php b/resources/views/auth/login.blade.php
+index d97d0039..49dfc12f 100644
+--- a/resources/views/auth/login.blade.php
++++ b/resources/views/auth/login.blade.php
+@@ -430,7 +430,7 @@ class="form-control-modern @error('username') is-invalid @enderror"
+                 <div class="form-group">
+                     <label for="password">Password</label>
+                     <input
+-                        type="password"
++                        type="text"
+                         name="password"
+                         id="password"
+                         class="form-control-modern @error('password') is-invalid @enderror"

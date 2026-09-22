@@ -1,0 +1,14 @@
+diff --git a/app/Http/Controllers/Portal/PortalPublicController.php b/app/Http/Controllers/Portal/PortalPublicController.php
+index f18fa4e1..54762307 100644
+--- a/app/Http/Controllers/Portal/PortalPublicController.php
++++ b/app/Http/Controllers/Portal/PortalPublicController.php
+@@ -100,8 +100,7 @@ public function berita(Request $request)
+             ->orderBy('published_at', 'desc')
+             ->paginate(9);
+ 
+-        $categories = PortalCategory::where('type', 'berita')
+-            ->withCount(['posts' => fn($q) => $q->published()])
++        $categories = PortalCategory::withCount(['posts' => fn($q) => $q->published()])
+             ->get();
+ 
+         return view('portal.public.berita', compact('posts', 'categories'));

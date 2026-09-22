@@ -1,0 +1,13 @@
+diff --git a/app/Http/Controllers/Portal/PortalPublicController.php b/app/Http/Controllers/Portal/PortalPublicController.php
+index f18fa4e1..a8fd3bee 100644
+--- a/app/Http/Controllers/Portal/PortalPublicController.php
++++ b/app/Http/Controllers/Portal/PortalPublicController.php
+@@ -160,7 +160,7 @@ public function show($slug)
+ 
+     public function category($slug)
+     {
+-        $category = PortalCategory::where('slug', $slug)->firstOrFail();
++        $category = PortalCategory::where('slug', $slug)->first();
+ 
+         $posts = PortalPost::published()
+             ->where('category_id', $category->id)

@@ -1,0 +1,7 @@
+id,category,description,location,how_to_apply
+F01,Input validation,Hapus validasi field wajib pada form login sehingga isian kosong diteruskan ke server,app/Http/Controllers/Auth/LoginController.php,Hapus aturan 'required' pada validate()
+F02,Business logic,Jumlah posting per kategori di sidebar dihitung termasuk draft,app/Http/Controllers/PortalController.php,Hapus filter status=published pada query count
+F03,Navigation and state,Paginasi halaman 2 menampilkan data halaman 1 (offset salah),app/Http/Controllers/PortalController.php,Ubah offset menjadi (page-2)*perPage
+F04,Navigation and state,Tautan menu NASYATH > ARTIKEL SANTRI mengarah ke /portal/berita,resources/views/partials/nav.blade.php,Ganti href
+F05,Business logic,Artikel Terkait ikut menampilkan artikel yang sedang dibuka,app/Http/Controllers/PortalController.php,Hapus where('id','!=',$post->id)
+F06,Error handling,Halaman arsip bulan tanpa data melempar exception (500),app/Http/Controllers/PortalController.php,Hapus pengecekan koleksi kosong

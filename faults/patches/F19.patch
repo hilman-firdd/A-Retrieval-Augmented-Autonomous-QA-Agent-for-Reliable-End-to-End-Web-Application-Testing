@@ -1,0 +1,13 @@
+diff --git a/app/Http/Controllers/Portal/PortalPublicController.php b/app/Http/Controllers/Portal/PortalPublicController.php
+index f18fa4e1..42dfe30b 100644
+--- a/app/Http/Controllers/Portal/PortalPublicController.php
++++ b/app/Http/Controllers/Portal/PortalPublicController.php
+@@ -173,7 +173,7 @@ public function category($slug)
+ 
+     public function tag($slug)
+     {
+-        $tag = PortalTag::where('slug', $slug)->firstOrFail();
++        $tag = PortalTag::where('slug', $slug)->first();
+ 
+         $posts = $tag->posts()
+             ->published()

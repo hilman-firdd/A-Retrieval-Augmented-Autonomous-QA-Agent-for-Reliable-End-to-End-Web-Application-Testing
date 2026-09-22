@@ -1,0 +1,15 @@
+diff --git a/app/Http/Controllers/Portal/PortalPublicController.php b/app/Http/Controllers/Portal/PortalPublicController.php
+index f18fa4e1..fcbf149a 100644
+--- a/app/Http/Controllers/Portal/PortalPublicController.php
++++ b/app/Http/Controllers/Portal/PortalPublicController.php
+@@ -215,8 +215,8 @@ public function archive($year, $month)
+         abort_if($year < 2000 || $year > 2100 || $month < 1 || $month > 12, 404);
+ 
+         $posts = PortalPost::published()
+-            ->whereYear('published_at', $year)
+-            ->whereMonth('published_at', $month)
++            ->whereYear('published_at', $month)
++            ->whereMonth('published_at', $year)
+             ->with(['category', 'author', 'tags'])
+             ->orderByDesc('published_at')
+             ->paginate(9);

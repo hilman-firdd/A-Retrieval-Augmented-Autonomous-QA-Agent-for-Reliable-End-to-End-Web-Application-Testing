@@ -1,0 +1,17 @@
+diff --git a/resources/views/portal/layouts/public.blade.php b/resources/views/portal/layouts/public.blade.php
+index e509fbfe..dd643fc2 100644
+--- a/resources/views/portal/layouts/public.blade.php
++++ b/resources/views/portal/layouts/public.blade.php
+@@ -913,9 +913,9 @@
+                 <div class="col-lg-2 col-md-4">
+                     <h5>Lembaga</h5>
+                     <ul class="list-unstyled">
+-                        <li class="mb-2"><a href="{{ route('portal.halaman', 'ula') }}">ULA (SD/MI)</a></li>
+-                        <li class="mb-2"><a href="{{ route('portal.halaman', 'tsanawiyyah') }}">Tsanawiyyah</a></li>
+-                        <li class="mb-2"><a href="{{ route('portal.halaman', 'muallimin') }}">Mu'allimin</a></li>
++                        <li class="mb-2"><a href="#">ULA (SD/MI)</a></li>
++                        <li class="mb-2"><a href="#">Tsanawiyyah</a></li>
++                        <li class="mb-2"><a href="#">Mu'allimin</a></li>
+                     </ul>
+                 </div>
+                 <div class="col-lg-3 col-md-4">

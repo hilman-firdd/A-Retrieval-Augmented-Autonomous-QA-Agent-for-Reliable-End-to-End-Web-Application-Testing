@@ -1,0 +1,13 @@
+diff --git a/app/Http/Controllers/Portal/PortalPublicController.php b/app/Http/Controllers/Portal/PortalPublicController.php
+index f18fa4e1..3cb8ec18 100644
+--- a/app/Http/Controllers/Portal/PortalPublicController.php
++++ b/app/Http/Controllers/Portal/PortalPublicController.php
+@@ -97,7 +97,7 @@ public function berita(Request $request)
+                     $query->where('slug', $request->kategori);
+                 });
+             })
+-            ->orderBy('published_at', 'desc')
++            ->orderBy('published_at', 'asc')
+             ->paginate(9);
+ 
+         $categories = PortalCategory::where('type', 'berita')

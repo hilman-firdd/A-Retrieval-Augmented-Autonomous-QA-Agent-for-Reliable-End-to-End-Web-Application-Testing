@@ -1,0 +1,14 @@
+diff --git a/resources/views/portal/public/santri.blade.php b/resources/views/portal/public/santri.blade.php
+index 9ca78e4a..d53017fd 100644
+--- a/resources/views/portal/public/santri.blade.php
++++ b/resources/views/portal/public/santri.blade.php
+@@ -271,9 +271,6 @@
+         const dtOptions = {
+             responsive: true,
+             pageLength: 10,
+-            // Urutan bawaan mengikuti query controller: kelas 1, 2, 3 lalu nama.
+-            // Tanpa ini DataTables otomatis mengurutkan ulang berdasarkan kolom pertama.
+-            order: [[5, 'asc'], [0, 'asc']],
+             lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'Semua']],
+             language: {
+                 search: 'Cari:',

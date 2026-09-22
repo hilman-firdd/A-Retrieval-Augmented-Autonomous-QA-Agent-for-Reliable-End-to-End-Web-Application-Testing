@@ -1,0 +1,3 @@
+scenario_id,project,title,runs,passes,verdict,median_ms,errors
+"S-HOME-01","chromium-desktop","S-HOME-01 The 'Daftar PSB' call-to-action leads to the admission site.","10","10","stable-pass","3438",""
+"S-SMOKE-01","chromium-desktop","S-SMOKE-01 A visitor opens the portal home page.","10","10","stable-pass","3650.5",""

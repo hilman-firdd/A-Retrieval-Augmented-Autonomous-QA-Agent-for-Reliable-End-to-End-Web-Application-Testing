@@ -1,0 +1,13 @@
+diff --git a/app/Http/Controllers/Portal/PortalPublicController.php b/app/Http/Controllers/Portal/PortalPublicController.php
+index f18fa4e1..591d0538 100644
+--- a/app/Http/Controllers/Portal/PortalPublicController.php
++++ b/app/Http/Controllers/Portal/PortalPublicController.php
+@@ -136,7 +136,7 @@ public function show($slug)
+         $post = PortalPost::where('slug', $slug)
+             ->published()
+             ->with(['category', 'author', 'tags'])
+-            ->firstOrFail();
++            ->first();
+ 
+         $post->increment('views');
+ 

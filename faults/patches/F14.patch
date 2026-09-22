@@ -1,0 +1,13 @@
+diff --git a/resources/views/portal/public/show.blade.php b/resources/views/portal/public/show.blade.php
+index 501c25b6..88ccf9b7 100644
+--- a/resources/views/portal/public/show.blade.php
++++ b/resources/views/portal/public/show.blade.php
+@@ -115,7 +115,7 @@
+                         <div class="mt-4 pt-4" style="border-top:1px solid #f0f0f0">
+                             <span style="font-weight:600;font-size:0.88rem">Bagikan:</span>
+                             <div class="d-flex gap-2 mt-2">
+-                                <a href="https://wa.me/?text={{ urlencode($post->title . ' ' . url()->current()) }}" target="_blank" class="btn btn-sm" style="background:#25D366;color:white;border-radius:8px;padding:6px 14px">
++                                <a href="https://wa.me/?text={{ urlencode($post->title) }}" target="_blank" class="btn btn-sm" style="background:#25D366;color:white;border-radius:8px;padding:6px 14px">
+                                     <i class="fab fa-whatsapp me-1"></i>WhatsApp
+                                 </a>
+                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank" class="btn btn-sm" style="background:#1877F2;color:white;border-radius:8px;padding:6px 14px">

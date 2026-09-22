@@ -1,0 +1,71 @@
+{
+  "label": "baseline",
+  "k": 10,
+  "baseURL": "https://staging.pesantrenpersis27.com",
+  "appVersion": null,
+  "passthrough": [],
+  "startedAt": "2026-09-21T12:55:13.580Z",
+  "runs": [
+    {
+      "runId": "k01",
+      "exitCode": 1,
+      "seconds": 243.439,
+      "finishedAt": "2026-09-21T12:59:17.025Z"
+    },
+    {
+      "runId": "k02",
+      "exitCode": 1,
+      "seconds": 250.181,
+      "finishedAt": "2026-09-21T13:03:27.208Z"
+    },
+    {
+      "runId": "k03",
+      "exitCode": 1,
+      "seconds": 243.978,
+      "finishedAt": "2026-09-21T13:07:31.188Z"
+    },
+    {
+      "runId": "k04",
+      "exitCode": 1,
+      "seconds": 317.337,
+      "finishedAt": "2026-09-21T13:12:48.526Z"
+    },
+    {
+      "runId": "k05",
+      "exitCode": 1,
+      "seconds": 247.369,
+      "finishedAt": "2026-09-21T13:16:55.897Z"
+    },
+    {
+      "runId": "k06",
+      "exitCode": 1,
+      "seconds": 308.048,
+      "finishedAt": "2026-09-21T13:22:03.945Z"
+    },
+    {
+      "runId": "k07",
+      "exitCode": 1,
+      "seconds": 247.03,
+      "finishedAt": "2026-09-21T13:26:10.975Z"
+    },
+    {
+      "runId": "k08",
+      "exitCode": 1,
+      "seconds": 222.905,
+      "finishedAt": "2026-09-21T13:29:53.880Z"
+    },
+    {
+      "runId": "k09",
+      "exitCode": 1,
+      "seconds": 281.712,
+      "finishedAt": "2026-09-21T13:34:35.593Z"
+    },
+    {
+      "runId": "k10",
+      "exitCode": 1,
+      "seconds": 345.718,
+      "finishedAt": "2026-09-21T13:40:21.312Z"
+    }
+  ],
+  "finishedAt": "2026-09-21T13:40:21.313Z"
+}

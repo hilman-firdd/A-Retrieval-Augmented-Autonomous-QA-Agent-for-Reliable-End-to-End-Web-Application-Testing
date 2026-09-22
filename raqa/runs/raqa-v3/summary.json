@@ -1,0 +1,14 @@
+{
+  "label": "raqa-v3",
+  "retrieval": true,
+  "maxSteps": 8,
+  "model": "qwen3:4b",
+  "scenarios": 6,
+  "done": 3,
+  "tsrPct": 50,
+  "harPct": 0,
+  "totalSteps": 10,
+  "escalations": 3,
+  "compiledCount": 3,
+  "generatedAt": "2026-09-22T02:46:13.703Z"
+}

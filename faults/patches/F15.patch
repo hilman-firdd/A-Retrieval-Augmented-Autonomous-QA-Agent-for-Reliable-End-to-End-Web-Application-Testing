@@ -1,0 +1,12 @@
+diff --git a/app/Http/Controllers/Portal/PortalPublicController.php b/app/Http/Controllers/Portal/PortalPublicController.php
+index f18fa4e1..96e52171 100644
+--- a/app/Http/Controllers/Portal/PortalPublicController.php
++++ b/app/Http/Controllers/Portal/PortalPublicController.php
+@@ -165,7 +165,6 @@ public function category($slug)
+         $posts = PortalPost::published()
+             ->where('category_id', $category->id)
+             ->with(['author', 'tags'])
+-            ->orderBy('published_at', 'desc')
+             ->paginate(9);
+ 
+         return view('portal.public.category', compact('category', 'posts'));

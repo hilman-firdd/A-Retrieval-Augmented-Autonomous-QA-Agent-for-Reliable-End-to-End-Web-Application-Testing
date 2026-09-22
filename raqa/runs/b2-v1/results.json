@@ -1,0 +1,206 @@
+[
+  {
+    "id": "S-SMOKE-01",
+    "done": false,
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 24.209,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectVisible",
+        "role": "heading",
+        "name": "Pendidikan Adab + Tafaqquh Fid Din",
+        "value": "Pendidikan Adab + Tafaqquh Fid Din",
+        "attribute": "level",
+        "done": false,
+        "citedUnits": [
+          "heading-1"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-01",
+    "done": false,
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 25.973,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Daftar PSB ",
+        "value": "https://psb.pesantrenpersis27.com",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "link:Daftar PSB "
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-06",
+    "done": false,
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 23.214,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "button",
+        "name": "Bisakah pembayaran biaya pesantren dicicil?",
+        "value": "aria-expanded",
+        "attribute": "aria-expanded",
+        "done": false,
+        "citedUnits": [
+          "contentinfo > list > listitem > link"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-02",
+    "done": false,
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 6.533,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "textbox",
+        "name": "Email atau Username",
+        "value": "value",
+        "attribute": "value",
+        "done": false,
+        "citedUnits": [
+          "main > textbox 'Email atau Username'"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-03",
+    "done": false,
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 4.812,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "textbox",
+        "name": "Email atau Username",
+        "value": "email",
+        "attribute": "placeholder",
+        "done": false,
+        "citedUnits": [
+          "main > textbox"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-05",
+    "done": false,
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 5.402,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Kembali ke Landing Page",
+        "value": "href",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "main > link"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "label": "baseline-local",
+  "runs": 10,
+  "generatedAt": "2026-09-21T14:38:48.650Z",
+  "baseURL": "http://127.0.0.1:8000",
+  "appVersion": null,
+  "tests": {
+    "total": 101,
+    "stablePass": 82,
+    "stableFail": 18,
+    "flaky": 1
+  },
+  "flakinessRatePct": 0.99,
+  "scenarios": {
+    "total": 30,
+    "flaky": 1,
+    "withStableFailure": 9
+  },
+  "scenarioFlakinessRatePct": 3.33,
+  "durationMs": {
+    "medianPerTest": 1009.5,
+    "medianSuiteSeconds": 195.6405
+  },
+  "byProject": {
+    "chromium-desktop": {
+      "total": 91,
+      "flaky": 1,
+      "flakinessRatePct": 1.1
+    },
+    "mobile-chrome": {
+      "total": 10,
+      "flaky": 0,
+      "flakinessRatePct": 0
+    }
+  }
+}

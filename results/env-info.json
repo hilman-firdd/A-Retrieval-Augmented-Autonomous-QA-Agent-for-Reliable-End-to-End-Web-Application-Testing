@@ -1,0 +1,9 @@
+{
+  "os": "Darwin 25.6.0 (darwin arm64)",
+  "cpu": "Apple M3 Pro x 11",
+  "memoryGB": 18,
+  "node": "v20.19.0",
+  "playwright": "1.56.1",
+  "axeCore": null,
+  "recordedAt": "2026-09-21T14:39:40.849Z"
+}

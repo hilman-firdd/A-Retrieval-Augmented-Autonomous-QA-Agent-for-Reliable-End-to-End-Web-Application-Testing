@@ -1,0 +1,13 @@
+diff --git a/app/Http/Controllers/Portal/PortalPublicController.php b/app/Http/Controllers/Portal/PortalPublicController.php
+index f18fa4e1..04f3f7d3 100644
+--- a/app/Http/Controllers/Portal/PortalPublicController.php
++++ b/app/Http/Controllers/Portal/PortalPublicController.php
+@@ -203,7 +203,7 @@ public function search(Request $request)
+ 
+     public function halaman($slug)
+     {
+-        $page = PortalPage::where('slug', $slug)->active()->firstOrFail();
++        $page = PortalPage::where('slug', $slug)->active()->first();
+ 
+         return view('portal.public.halaman', compact('page'));
+     }

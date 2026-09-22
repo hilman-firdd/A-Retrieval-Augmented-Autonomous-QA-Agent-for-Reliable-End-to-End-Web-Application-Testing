@@ -1,0 +1,13 @@
+diff --git a/routes/web.php b/routes/web.php
+index dc100b4c..8e8a06af 100644
+--- a/routes/web.php
++++ b/routes/web.php
+@@ -1181,7 +1181,7 @@
+     Route::get('/halaman/alumni', [PortalPublicController::class, 'alumniData'])->name('halaman.alumni');
+     Route::get('/halaman/asatidzah', [PortalPublicController::class, 'asatidzahData'])->name('halaman.asatidzah');
+     Route::get('/halaman/{slug}', [PortalPublicController::class, 'halaman'])->name('halaman');
+-    Route::get('/arsip/{year}/{month}', [PortalPublicController::class, 'archive'])->where(['year' => '[0-9]{4}', 'month' => '[0-9]{1,2}'])->name('archive');
++    Route::get('/arsip/{year}/{month}', [PortalPublicController::class, 'archive'])->name('archive');
+     Route::get('/{slug}', [PortalPublicController::class, 'show'])->name('show');
+ });
+ 

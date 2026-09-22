@@ -1,0 +1,13 @@
+diff --git a/resources/views/portal/layouts/public.blade.php b/resources/views/portal/layouts/public.blade.php
+index e509fbfe..c9b24075 100644
+--- a/resources/views/portal/layouts/public.blade.php
++++ b/resources/views/portal/layouts/public.blade.php
+@@ -952,7 +952,7 @@
+     </footer>
+ 
+     {{-- Back to Top --}}
+-    <button class="back-to-top" id="backToTop" type="button" aria-label="Kembali ke atas"><i class="fas fa-chevron-up"></i></button>
++    <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+ 
+     {{-- Bootstrap JS --}}
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

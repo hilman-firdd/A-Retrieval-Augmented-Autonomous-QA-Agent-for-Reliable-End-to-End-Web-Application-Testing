@@ -1,0 +1,12 @@
+diff --git a/app/Http/Controllers/Portal/PortalPublicController.php b/app/Http/Controllers/Portal/PortalPublicController.php
+index f18fa4e1..db1841d1 100644
+--- a/app/Http/Controllers/Portal/PortalPublicController.php
++++ b/app/Http/Controllers/Portal/PortalPublicController.php
+@@ -143,7 +143,6 @@ public function show($slug)
+         $relatedPosts = PortalPost::published()
+             ->where('id', '!=', $post->id)
+             ->where('type', $post->type)
+-            ->when($post->category_id, fn($q) => $q->where('category_id', $post->category_id))
+             ->with(['category'])
+             ->orderBy('published_at', 'desc')
+             ->take(4)

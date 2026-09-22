@@ -1,0 +1,12 @@
+diff --git a/app/Http/Controllers/Portal/PortalPublicController.php b/app/Http/Controllers/Portal/PortalPublicController.php
+index f18fa4e1..8b0f3019 100644
+--- a/app/Http/Controllers/Portal/PortalPublicController.php
++++ b/app/Http/Controllers/Portal/PortalPublicController.php
+@@ -86,7 +86,6 @@ public function index()
+     public function berita(Request $request)
+     {
+         $posts = PortalPost::published()
+-            ->berita()
+             ->with(['category', 'author', 'tags'])
+             ->when($request->search, function ($q) use ($request) {
+                 $q->where('title', 'like', "%{$request->search}%")

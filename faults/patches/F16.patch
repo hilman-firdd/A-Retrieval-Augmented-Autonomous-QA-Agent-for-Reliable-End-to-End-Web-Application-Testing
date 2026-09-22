@@ -1,0 +1,12 @@
+diff --git a/app/Http/Controllers/Portal/PortalPublicController.php b/app/Http/Controllers/Portal/PortalPublicController.php
+index f18fa4e1..158d12d6 100644
+--- a/app/Http/Controllers/Portal/PortalPublicController.php
++++ b/app/Http/Controllers/Portal/PortalPublicController.php
+@@ -178,7 +178,6 @@ public function tag($slug)
+         $posts = $tag->posts()
+             ->published()
+             ->with(['category', 'author'])
+-            ->orderBy('published_at', 'desc')
+             ->paginate(9);
+ 
+         return view('portal.public.tag', compact('tag', 'posts'));
