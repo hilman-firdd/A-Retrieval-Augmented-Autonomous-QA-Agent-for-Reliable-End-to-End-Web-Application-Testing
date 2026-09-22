@@ -1,0 +1,74 @@
+{
+  "label": "raqa-fr",
+  "k": 10,
+  "baseURL": "http://127.0.0.1:8000",
+  "appVersion": null,
+  "passthrough": [
+    "-c",
+    "raqa/playwright.compiled.config.js"
+  ],
+  "startedAt": "2026-09-22T02:50:19.599Z",
+  "runs": [
+    {
+      "runId": "k01",
+      "exitCode": 0,
+      "seconds": 7.433,
+      "finishedAt": "2026-09-22T02:50:27.044Z"
+    },
+    {
+      "runId": "k02",
+      "exitCode": 0,
+      "seconds": 6.143,
+      "finishedAt": "2026-09-22T02:50:33.188Z"
+    },
+    {
+      "runId": "k03",
+      "exitCode": 0,
+      "seconds": 4.823,
+      "finishedAt": "2026-09-22T02:50:38.012Z"
+    },
+    {
+      "runId": "k04",
+      "exitCode": 0,
+      "seconds": 4.813,
+      "finishedAt": "2026-09-22T02:50:42.826Z"
+    },
+    {
+      "runId": "k05",
+      "exitCode": 0,
+      "seconds": 7.019,
+      "finishedAt": "2026-09-22T02:50:49.846Z"
+    },
+    {
+      "runId": "k06",
+      "exitCode": 0,
+      "seconds": 6.395,
+      "finishedAt": "2026-09-22T02:50:56.243Z"
+    },
+    {
+      "runId": "k07",
+      "exitCode": 0,
+      "seconds": 4.528,
+      "finishedAt": "2026-09-22T02:51:00.771Z"
+    },
+    {
+      "runId": "k08",
+      "exitCode": 0,
+      "seconds": 4.365,
+      "finishedAt": "2026-09-22T02:51:05.137Z"
+    },
+    {
+      "runId": "k09",
+      "exitCode": 0,
+      "seconds": 7.508,
+      "finishedAt": "2026-09-22T02:51:12.646Z"
+    },
+    {
+      "runId": "k10",
+      "exitCode": 0,
+      "seconds": 7.036,
+      "finishedAt": "2026-09-22T02:51:19.684Z"
+    }
+  ],
+  "finishedAt": "2026-09-22T02:51:19.685Z"
+}

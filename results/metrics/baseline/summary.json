@@ -1,0 +1,36 @@
+{
+  "label": "baseline",
+  "runs": 10,
+  "generatedAt": "2026-09-21T18:47:58.832Z",
+  "baseURL": "https://staging.pesantrenpersis27.com",
+  "appVersion": null,
+  "tests": {
+    "total": 101,
+    "stablePass": 50,
+    "stableFail": 39,
+    "flaky": 12
+  },
+  "flakinessRatePct": 11.88,
+  "scenarios": {
+    "total": 30,
+    "flaky": 6,
+    "withStableFailure": 23
+  },
+  "scenarioFlakinessRatePct": 20,
+  "durationMs": {
+    "medianPerTest": 1853.5,
+    "medianSuiteSeconds": 248.775
+  },
+  "byProject": {
+    "chromium-desktop": {
+      "total": 91,
+      "flaky": 11,
+      "flakinessRatePct": 12.09
+    },
+    "mobile-chrome": {
+      "total": 10,
+      "flaky": 1,
+      "flakinessRatePct": 10
+    }
+  }
+}

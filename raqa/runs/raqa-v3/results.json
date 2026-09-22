@@ -1,0 +1,312 @@
+[
+  {
+    "id": "S-SMOKE-01",
+    "done": true,
+    "error": null,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 23.602,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/raqa-v3/compiled/S-SMOKE-01.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectTitle",
+        "role": "title",
+        "name": "Portal Pesantren PERSIS 27 Situaksan",
+        "value": "Portal Pesantren PERSIS 27 Situaksan",
+        "attribute": "title",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-SMOKE-01#0",
+          "catalog:S-HOME-05#0",
+          "catalog:S-HOME-01#0",
+          "catalog:S-LINK-02#0",
+          "catalog:S-AUTH-05#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false
+      },
+      {
+        "type": "expectTitle",
+        "role": "title",
+        "name": "Portal Pesantren PERSIS 27 Situaksan",
+        "value": "Portal Pesantren PERSIS 27 Situaksan",
+        "attribute": "title",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-SMOKE-01#0",
+          "catalog:S-HOME-05#0",
+          "catalog:S-HOME-01#0",
+          "catalog:S-LINK-02#0",
+          "catalog:S-AUTH-05#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-01",
+    "done": true,
+    "error": null,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 25.923,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/raqa-v3/compiled/S-HOME-01.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Daftar PSB ",
+        "value": "https://psb.pesantrenpersis27.com",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-HOME-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Daftar PSB ",
+        "value": "https://psb.pesantrenpersis27.com",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-HOME-01#0",
+          "readme:T1#0",
+          "catalog:S-LINK-02#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-06",
+    "done": false,
+    "error": "ditolak reviewer pada langkah 2",
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 30.052,
+    "compiledPath": null,
+    "gate": [
+      "auto",
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectVisible",
+        "role": "heading",
+        "name": "Bagaimana syarat masuk PPI 27?",
+        "value": "Bagaimana syarat masuk PPI 27?",
+        "attribute": "aria-expanded",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-HOME-06#0",
+          "catalog:S-SMOKE-01#0",
+          "baseline-runs:S-PAGE-01#33",
+          "catalog:S-AUTH-05#0",
+          "catalog:S-LINK-02#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "button",
+        "name": "Bagaimana syarat masuk PPI 27?",
+        "value": "aria-expanded",
+        "attribute": "aria-expanded",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-HOME-06#0",
+          "catalog:S-SMOKE-01#0",
+          "baseline-runs:S-PAGE-01#33",
+          "catalog:S-NEWS-09#0",
+          "catalog:S-LINK-02#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-02",
+    "done": false,
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 5.787,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "textbox",
+        "name": "Email atau Username",
+        "value": "placeholder",
+        "attribute": "placeholder",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-AUTH-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-03",
+    "done": true,
+    "error": null,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 10.094,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/raqa-v3/compiled/S-AUTH-03.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "textbox",
+        "name": "Password",
+        "value": "password",
+        "attribute": "type",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-AUTH-03#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "textbox",
+        "name": "Password",
+        "value": "password",
+        "attribute": "type",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-AUTH-03#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-05",
+    "done": false,
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 8.122,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Kembali ke Landing Page",
+        "value": "href",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-AUTH-05#0",
+          "catalog:S-HOME-01#0",
+          "readme:T2#0",
+          "catalog:S-LINK-02#0",
+          "catalog:S-SMOKE-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false
+      }
+    ]
+  }
+]

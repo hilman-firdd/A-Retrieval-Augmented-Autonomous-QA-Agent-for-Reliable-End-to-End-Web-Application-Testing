@@ -1,0 +1,31 @@
+{
+  "faultsListed": 25,
+  "faultsRun": 25,
+  "detected": 8,
+  "fdrPct": 32,
+  "baselineTests": 101,
+  "falseAlarmTests": 19,
+  "falseAlarmRatePct": 18.81,
+  "byCategory": {
+    "Input validation": {
+      "total": 3,
+      "detected": 1
+    },
+    "Business logic": {
+      "total": 7,
+      "detected": 4
+    },
+    "Navigation and state": {
+      "total": 5,
+      "detected": 2
+    },
+    "Error handling": {
+      "total": 5,
+      "detected": 0
+    },
+    "Real historical defects": {
+      "total": 5,
+      "detected": 1
+    }
+  }
+}

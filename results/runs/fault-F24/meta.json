@@ -1,0 +1,29 @@
+{
+  "label": "fault-F24",
+  "k": 3,
+  "baseURL": "http://127.0.0.1:8000",
+  "appVersion": null,
+  "passthrough": [],
+  "startedAt": "2026-09-21T18:27:47.686Z",
+  "runs": [
+    {
+      "runId": "k01",
+      "exitCode": 1,
+      "seconds": 197.131,
+      "finishedAt": "2026-09-21T18:31:04.819Z"
+    },
+    {
+      "runId": "k02",
+      "exitCode": 1,
+      "seconds": 196.494,
+      "finishedAt": "2026-09-21T18:34:21.314Z"
+    },
+    {
+      "runId": "k03",
+      "exitCode": 1,
+      "seconds": 198.586,
+      "finishedAt": "2026-09-21T18:37:39.901Z"
+    }
+  ],
+  "finishedAt": "2026-09-21T18:37:39.902Z"
+}

@@ -1,0 +1,14 @@
+{
+  "label": "b2-v1",
+  "retrieval": false,
+  "maxSteps": 8,
+  "model": "qwen3:4b",
+  "scenarios": 6,
+  "done": 0,
+  "tsrPct": 0,
+  "harPct": 0,
+  "totalSteps": 6,
+  "escalations": 6,
+  "compiledCount": 0,
+  "generatedAt": "2026-09-22T02:48:36.416Z"
+}

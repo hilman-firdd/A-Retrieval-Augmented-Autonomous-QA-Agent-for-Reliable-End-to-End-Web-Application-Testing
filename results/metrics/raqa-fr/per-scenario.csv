@@ -1,0 +1,3 @@
+scenario_id,tests,flaky_tests,stable_fail_tests
+S-HOME-01,1,0,0
+S-SMOKE-01,1,0,0
