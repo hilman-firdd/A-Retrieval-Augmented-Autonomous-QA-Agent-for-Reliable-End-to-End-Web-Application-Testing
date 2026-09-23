@@ -12,9 +12,13 @@ const { CONFIG } = require('./config');
  * s(d|q) = Σ_r w_r / (κ + rank_r(d|q)), κ = 60 (Persamaan 1 naskah; implementasi EnsembleRetriever).
  */
 class KnowledgeBase {
-  /** @param {{ embeddings?: import('@langchain/core/embeddings').EmbeddingsInterface }} [opts] */
+  /** @param {{ embeddings?: import('@langchain/core/embeddings').EmbeddingsInterface, retrievers?: string[] }} [opts] */
   constructor(opts = {}) {
     this.embeddings = opts.embeddings || new OllamaEmbeddings({ model: CONFIG.embedding.model, baseUrl: CONFIG.ollama.baseUrl });
+    /** Retriever aktif: ['bm25','dense'] (default), atau salah satu saja untuk ablasi. */
+    this.retrievers = opts.retrievers || CONFIG.retrieval.retrievers;
+    const unknown = this.retrievers.filter((r) => !['bm25', 'dense'].includes(r));
+    if (unknown.length || !this.retrievers.length) throw new Error(`Retriever tidak dikenal/kosong: ${JSON.stringify(this.retrievers)}`);
     /** @type {EnsembleRetriever | null} */
     this.ensemble = null;
     /** @type {Document[]} */
@@ -35,12 +39,26 @@ class KnowledgeBase {
     });
 
     const k = CONFIG.retrieval.kPerRetriever;
-    const bm25 = BM25Retriever.fromDocuments(this.chunks, { k });
-    const faiss = await FaissStore.fromDocuments(this.chunks, this.embeddings);
-    this.faiss = faiss;
+    const parts = [];
+    const weights = [];
+    if (this.retrievers.includes('bm25')) {
+      parts.push(BM25Retriever.fromDocuments(this.chunks, { k }));
+      weights.push(CONFIG.retrieval.weights.bm25);
+    }
+    if (this.retrievers.includes('dense')) {
+      const faiss = await FaissStore.fromDocuments(this.chunks, this.embeddings);
+      this.faiss = faiss;
+      parts.push(faiss.asRetriever({ k }));
+      weights.push(CONFIG.retrieval.weights.vector);
+    }
+    // Varian satu-retriever dibuat dengan MELEPAS retriever lain, bukan memberinya bobot 0. Di
+    // EnsembleRetriever (@langchain/classic), dokumen dari retriever berbobot 0 tetap ikut _uniqueUnion
+    // dengan skor 0; biasanya terdorong keluar oleh slice(0, kContext), tetapi bisa lolos bila retriever
+    // lain mengembalikan < kContext dokumen unik. Melepasnya membuat isolasi variabel ablasi eksak.
+    const total = weights.reduce((a, b) => a + b, 0);
     this.ensemble = new EnsembleRetriever({
-      retrievers: [bm25, faiss.asRetriever({ k })],
-      weights: [CONFIG.retrieval.weights.bm25, CONFIG.retrieval.weights.vector],
+      retrievers: parts,
+      weights: weights.map((w) => w / total),
       c: CONFIG.retrieval.rrfConstant,
     });
     return this;
@@ -55,7 +73,7 @@ class KnowledgeBase {
 
   /** Simpan indeks FAISS agar embedding tidak dihitung ulang tiap run. @param {string} [dir] */
   async save(dir = CONFIG.paths.indexDir) {
-    if (!this.faiss) throw new Error('KnowledgeBase belum di-build.');
+    if (!this.faiss) throw new Error('KnowledgeBase belum di-build atau retriever dense tidak aktif.');
     await this.faiss.save(dir);
   }
 }

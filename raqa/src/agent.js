@@ -5,7 +5,7 @@ const { ChatOllama } = require('@langchain/ollama');
 const { SystemMessage, HumanMessage } = require('@langchain/core/messages');
 const { z } = require('zod');
 const { chromium } = require('playwright');
-const { CONFIG } = require('./config');
+const { CONFIG, ALL_SOURCES } = require('./config');
 const { KnowledgeBase } = require('./retrieval');
 const { loadCatalog, loadExecutionTraces, loadReadmeDefects, loadQaDocs, loadReviewerVerdicts } = require('./sources/local');
 const { observe, locate } = require('./page');
@@ -40,21 +40,45 @@ Propose exactly one next step toward the goal. Ground every step in the provided
 If the context and the page disagree, still propose your best step and explain the disagreement in the rationale.
 Set done=true once the goal's acceptance criteria are satisfied by what you have already asserted.`;
 
+/** PRNG deterministik (mulberry32) untuk undian audit, agar run berulang dengan seed sama identik. @param {number} seed */
+function mulberry32(seed) {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6D2B79F5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 const NO_RETRIEVAL_NOTICE = '(retrieval disabled for this run -- B2 baseline: propose from the goal and page snapshot alone)';
 
 class RAQAAgent {
   /**
    * @param {{ embeddings?: import('@langchain/core/embeddings').EmbeddingsInterface,
    *           reviewer?: typeof askReviewer, headless?: boolean, retrieval?: boolean,
-   *           locatorMemory?: LocatorMemory, persistMemory?: boolean }} [opts]
+   *           locatorMemory?: LocatorMemory, persistMemory?: boolean, sources?: string[],
+   *           retrievers?: string[], memoryDir?: string, reviewerKind?: 'human'|'stub',
+   *           auditSeed?: number, auditRate?: number, screenshotDir?: string }} [opts]
    */
   constructor(opts = {}) {
     this.opts = opts;
     this.retrievalEnabled = opts.retrieval !== false; // false => B2 (agen sama, tanpa retrieval)
-    this.kb = new KnowledgeBase({ embeddings: opts.embeddings });
+    /** Sumber korpus aktif (ablasi leave-one-out). */
+    this.sources = opts.sources || CONFIG.sources;
+    const unknown = this.sources.filter((x) => !ALL_SOURCES.includes(x));
+    if (unknown.length) throw new Error(`Sumber tidak dikenal: ${unknown.join(', ')} (pilihan: ${ALL_SOURCES.join(', ')})`);
+    this.memoryDir = opts.memoryDir || CONFIG.paths.memoryDir;
+    this.kb = new KnowledgeBase({ embeddings: opts.embeddings, retrievers: opts.retrievers });
     this.reviewer = opts.reviewer || askReviewer;
-    this.memory = opts.locatorMemory || new LocatorMemory();
+    /** 'human' hanya bila reviewer adalah manusia sungguhan (askReviewer); stub selalu 'stub'. */
+    this.reviewerKind = opts.reviewerKind || (this.reviewer === askReviewer ? 'human' : 'stub');
+    this.memory = opts.locatorMemory || new LocatorMemory(path.join(this.memoryDir, 'locator-history.json'));
     this.persistMemory = opts.persistMemory !== false;
+    this.auditRate = opts.auditRate ?? CONFIG.gate.auditRate;
+    this.rng = mulberry32(opts.auditSeed ?? CONFIG.gate.auditSeed);
+    this.screenshotDir = opts.screenshotDir || null;
     /** Runnable LLM dengan keluaran terstruktur (JSON schema lewat parameter `format` Ollama). @type {any} */
     this.llm = null;
     /** @type {import('playwright').Browser | null} */
@@ -74,13 +98,16 @@ class RAQAAgent {
   }
 
   async init() {
+    const has = (x) => this.sources.includes(x);
     const docs = this.retrievalEnabled ? [
-      ...loadCatalog(),
-      ...loadExecutionTraces(),
-      ...loadReadmeDefects(),
-      ...(await loadQaDocs()),
-      ...loadReviewerVerdicts(),
+      ...(has('catalog') ? loadCatalog() : []),
+      ...(has('traces') ? loadExecutionTraces() : []),
+      ...(has('defects') ? loadReadmeDefects() : []),
+      ...(has('qa_docs') ? await loadQaDocs() : []),
+      ...(has('verdicts') ? loadReviewerVerdicts(path.join(this.memoryDir, 'reviewer-verdicts.jsonl')) : []),
     ] : [];
+    /** Jumlah dokumen per sumber, dicatat di summary agar konfigurasi ablasi bisa diverifikasi. */
+    this.corpusStats = docs.reduce((acc, d) => { const k = d.metadata.source; acc[k] = (acc[k] || 0) + 1; return acc; }, {});
     await this.kb.build(docs.length ? docs : [{ pageContent: '(no context)', metadata: { unitId: 'none', type: 'none' } }]);
     const { model, temperature, seed, numCtx, think } = CONFIG.llm;
     this.llm = new ChatOllama({ model, temperature, seed, numCtx, think, baseUrl: CONFIG.ollama.baseUrl })
@@ -155,17 +182,19 @@ class RAQAAgent {
    * @param {Awaited<ReturnType<RAQAAgent['score']>>} scores @param {import('@langchain/core/documents').Document[]} units
    */
   async gate(goal, proposal, scores, units) {
-    const auditDraw = Math.random();
-    const audited = auditDraw < CONFIG.gate.auditRate;
+    const auditDraw = this.rng();
+    const audited = auditDraw < this.auditRate;
     if (scores.c_t >= CONFIG.gate.tau && !audited) return { accepted: true, by: 'auto', auditDraw };
+    const t0 = Date.now();
     const verdict = await this.reviewer({
       goal,
       step: proposal,
       scores: { c_act: scores.c_act, c_loc: scores.c_loc, c_orc: scores.c_orc, c_t: scores.c_t, tau: CONFIG.gate.tau },
       evidence: units.map((u) => `${u.metadata.unitId}: ${u.pageContent.split('\n')[0]}`),
     });
-    this.reviewerVerdicts.push({ goal, proposal, scores: { c_act: scores.c_act, c_loc: scores.c_loc, c_orc: scores.c_orc, c_t: scores.c_t }, audited, verdict, at: new Date().toISOString() });
-    return { accepted: verdict.decision !== 'reject', by: audited ? 'audit' : 'reviewer', verdict, auditDraw };
+    const reviewMs = Date.now() - t0; // waktu keputusan reviewer (RQ5); untuk stub mendekati 0
+    this.reviewerVerdicts.push({ goal, proposal, scores: { c_act: scores.c_act, c_loc: scores.c_loc, c_orc: scores.c_orc, c_t: scores.c_t }, audited, verdict, reviewerKind: this.reviewerKind, reviewMs, at: new Date().toISOString() });
+    return { accepted: verdict.decision !== 'reject', by: audited ? 'audit' : 'reviewer', verdict, auditDraw, reviewMs };
   }
 
   /**
@@ -232,7 +261,10 @@ class RAQAAgent {
    * @param {{ id: string, goal: string, startPath?: string }} scenario @param {number} [maxSteps]
    */
   async runScenario(scenario, maxSteps = 10) {
-    const log = { id: scenario.id, goal: scenario.goal, steps: [], done: false, error: null };
+    // verdict: PASS (agen menyatakan selesai), FAIL (sebuah assertion GAGAL dieksekusi -- bisa berarti
+    // agen menemukan cacat nyata), INCOMPLETE (berhenti karena alasan lain). Dibedakan agar skenario
+    // yang memang menguji bug nyata (jawaban benar = FAIL) tidak salah dihitung sebagai kegagalan agen.
+    const log = { id: scenario.id, goal: scenario.goal, steps: [], done: false, error: null, verdict: 'INCOMPLETE', failedStep: null };
     if (scenario.startPath) {
       const step = { type: 'goto', path: scenario.startPath };
       await this.execute(step);
@@ -241,16 +273,27 @@ class RAQAAgent {
     /** Sidik jari langkah sebelumnya, untuk mendeteksi pengulangan persis (lihat catatan di bawah). */
     let lastFingerprint = null;
     for (let i = 0; i < maxSteps; i += 1) {
-      let proposal, units, scores, gateResult;
+      let proposal, units, scores, gateResult, obs, screenshot = null;
       try {
-        ({ proposal, units } = await this.proposeStep(scenario.goal));
+        ({ proposal, units, obs } = await this.proposeStep(scenario.goal));
+        if (this.screenshotDir && this.page) {
+          fs.mkdirSync(this.screenshotDir, { recursive: true });
+          screenshot = path.join(this.screenshotDir, `${scenario.id}-step${i + 1}.png`);
+          await this.page.screenshot({ path: screenshot, fullPage: false });
+        }
         scores = await this.score(proposal, units);
         gateResult = await this.gate(scenario.goal, proposal, scores, units);
       } catch (e) {
         log.error = `propose/score/gate: ${/** @type {Error} */ (e).message}`;
         break;
       }
-      log.steps.push({ proposal, scores: { c_act: scores.c_act, c_loc: scores.c_loc, c_orc: scores.c_orc, c_t: scores.c_t }, gate: gateResult.by, accepted: gateResult.accepted, hallucinated: scores.hallucinated });
+      log.steps.push({
+        proposal, scores: { c_act: scores.c_act, c_loc: scores.c_loc, c_orc: scores.c_orc, c_t: scores.c_t },
+        gate: gateResult.by, accepted: gateResult.accepted, hallucinated: scores.hallucinated,
+        decision: gateResult.verdict?.decision ?? null, reviewMs: gateResult.reviewMs ?? null,
+        url: obs?.url ?? null, title: obs?.title ?? null, screenshot,
+        citedUnitsText: units.filter((u) => proposal.citedUnits.includes(u.metadata.unitId)).map((u) => ({ id: u.metadata.unitId, text: u.pageContent })),
+      });
       if (!gateResult.accepted) { log.error = `ditolak reviewer pada langkah ${i + 1}`; break; }
       // Qwen3 4B kadang tidak pernah menyetel done=true dan mengusulkan assertion yang SAMA berulang
       // (diverifikasi lewat pengujian langsung, lihat RAQA.md). Assertion itu sudah TERBUKTI berhasil
@@ -267,9 +310,15 @@ class RAQAAgent {
         await this.execute(step, scores.candidates);
       } catch (e) {
         log.error = `eksekusi langkah ${i + 1}: ${/** @type {Error} */ (e).message}`;
+        if (['expectVisible', 'expectURL', 'expectTitle', 'expectAttribute'].includes(proposal.type)) {
+          log.verdict = 'FAIL';
+          log.failedStep = log.steps.length; // indeks 1-based pada log.steps (termasuk fixed-start)
+          log.steps[log.steps.length - 1].executionFailed = true;
+        }
         break;
       }
     }
+    if (log.done) log.verdict = 'PASS';
     if (!log.done && !log.error) log.error = `budget ${maxSteps} langkah habis tanpa done=true`;
     return log;
   }
@@ -284,7 +333,7 @@ class RAQAAgent {
     if (!this.persistMemory) return;
     this.memory.save();
     if (this.reviewerVerdicts.length) {
-      const file = path.join(CONFIG.paths.e2eRoot, 'raqa', '.memory', 'reviewer-verdicts.jsonl');
+      const file = path.join(this.memoryDir, 'reviewer-verdicts.jsonl');
       fs.mkdirSync(path.dirname(file), { recursive: true });
       fs.appendFileSync(file, this.reviewerVerdicts.map((v) => JSON.stringify(v)).join('\n') + '\n');
     }
