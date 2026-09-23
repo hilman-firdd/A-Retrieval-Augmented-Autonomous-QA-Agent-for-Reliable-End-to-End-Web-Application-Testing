@@ -23,6 +23,12 @@
     "offline-check": "node scripts/offline-check.js",
     "demo": "node scripts/demo.js",
     "run-compiled": "cd .. && npx playwright test -c raqa/playwright.compiled.config.js",
-    "run-scenarios": "node scripts/run-scenarios.js"
+    "run-scenarios": "node scripts/run-scenarios.js",
+    "verify-wiring": "node scripts/verify-ablation-wiring.js",
+    "verify-stats": "python3 scripts/verify-stats.py",
+    "ablation": "node scripts/run-ablation.js",
+    "export-review": "node scripts/export-review-items.js",
+    "analyze-hitl": "node scripts/analyze-hitl.js",
+    "h0": "node scripts/h0-failure-classification.js"
   }
 }
