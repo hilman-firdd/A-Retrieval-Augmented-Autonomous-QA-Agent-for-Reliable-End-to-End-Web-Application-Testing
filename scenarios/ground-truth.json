@@ -1,0 +1,18 @@
+{
+  "note": "Vonis yang BENAR per skenario pada versi SIMASIS yang diuji (desktop Chromium). Diturunkan dari klasifikasi kegagalan baseline lokal (Tabel 4 naskah): skenario dengan cacat produk nyata harus FAIL; skenario lain harus PASS. WAJIB dikonfirmasi penulis dan dibekukan bersama commit aplikasi. Jangan memperbaiki cacat ini sebelum eksperimen RAQA selesai, karena ground truth akan berubah.",
+  "appCommit": "ISI-DENGAN-COMMIT-SIMASIS-SAAT-EKSPERIMEN",
+  "derivedFrom": "results/metrics/baseline-local/per-test.csv + Tabel 4",
+  "expected": {
+    "S-AUTH-03": "FAIL",
+    "S-LINK-02": "FAIL",
+    "S-QUAL-01": "FAIL",
+    "S-QUAL-02": "FAIL"
+  },
+  "rationale": {
+    "S-AUTH-03": "Login dengan format e-mail dan password salah tidak menampilkan pesan error (controller mengganti nama field menjadi 'email').",
+    "S-LINK-02": "Tautan PENDAFTARAN PSB memakai http://.",
+    "S-QUAL-01": "Tombol pencarian tanpa accessible name (WCAG 4.1.2) di daftar berita dan artikel santri.",
+    "S-QUAL-02": "Canonical halaman login menunjuk ke beranda.",
+    "S-HOME-05": "Cacat hanya di layout mobile; RAQA dijalankan di desktop sehingga tidak dicantumkan (dianggap PASS)."
+  }
+}
