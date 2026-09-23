@@ -1,6 +1,6 @@
 {
   "note": "Vonis yang BENAR per skenario pada versi SIMASIS yang diuji (desktop Chromium). Diturunkan dari klasifikasi kegagalan baseline lokal (Tabel 4 naskah): skenario dengan cacat produk nyata harus FAIL; skenario lain harus PASS. WAJIB dikonfirmasi penulis dan dibekukan bersama commit aplikasi. Jangan memperbaiki cacat ini sebelum eksperimen RAQA selesai, karena ground truth akan berubah.",
-  "appCommit": "ISI-DENGAN-COMMIT-SIMASIS-SAAT-EKSPERIMEN",
+  "appCommit": "91db4a96c538661f886ba82e2e5768ec6cd64590",
   "derivedFrom": "results/metrics/baseline-local/per-test.csv + Tabel 4",
   "expected": {
     "S-AUTH-03": "FAIL",
