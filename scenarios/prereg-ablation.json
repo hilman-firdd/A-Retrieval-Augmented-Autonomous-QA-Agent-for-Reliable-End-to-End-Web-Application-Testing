@@ -1,0 +1,39 @@
+{
+  "note": "Pre-registrasi set skenario untuk ablasi & HITL RAQA. Ditetapkan SEBELUM eksperimen berdasarkan kosakata langkah agen (goto, click, hover, fill, expectVisible, expectURL, expectTitle, expectAttribute pada satu target per langkah). Skenario IN punya minimal satu acceptance criterion yang bisa diungkapkan dengan kosakata itu; kriteria yang tidak bisa diungkapkan tetap dihitung sebagai tidak tercakup (cakupan parsial), bukan dibuang. Skenario OUT tidak dijalankan. WAJIB ditinjau dan disetujui penulis, lalu dibekukan (commit) sebelum run pertama. Jangan mengubah daftar ini setelah melihat hasil.",
+  "vocabulary": ["goto", "click", "hover", "fill", "expectVisible", "expectURL", "expectTitle", "expectAttribute"],
+  "in": {
+    "S-SMOKE-01": "judul halaman & heading utama (status HTTP tidak terjangkau -> parsial)",
+    "S-NAV-02": "hover menu, klik item, expectURL, heading tujuan",
+    "S-HOME-01": "atribut href tombol Daftar PSB",
+    "S-HOME-02": "klik Info Terbaru, expectURL, heading Berita Terbaru",
+    "S-HOME-03": "klik tautan statistik, expectURL berisi anchor (status HTTP alumni tidak terjangkau -> parsial)",
+    "S-HOME-04": "klik Selengkapnya, judul modal terlihat (jumlah kontrol & modal tertutup tidak terjangkau -> parsial)",
+    "S-HOME-05": "klik kartu berita, heading artikel sama dengan judul kartu yang terbaca di halaman",
+    "S-HOME-06": "klik pertanyaan FAQ, jawaban terlihat",
+    "S-NEWS-01": "halaman 1 menampilkan kartu (perbandingan halaman 1 vs 2 tidak terjangkau -> parsial)",
+    "S-NEWS-05": "klik kartu, expectURL, heading = judul kartu (perbandingan tanggal tidak terjangkau -> parsial)",
+    "S-NEWS-06": "breadcrumb terlihat, href tautan berbagi memuat URL artikel (mulai di RAQA_ARTICLE_PATH)",
+    "S-NEWS-07": "daftar Artikel Terkait tidak kosong (syarat 'tidak memuat URL sendiri' tidak terjangkau -> parsial; mulai di RAQA_ARTICLE_PATH)",
+    "S-NEWS-09": "klik artikel santri, heading = judul kartu",
+    "S-AUTH-01": "input username/password terlihat, type=password (tombol enabled & CSRF tidak terjangkau -> parsial)",
+    "S-AUTH-02": "submit kosong, tetap di /login, pesan validasi",
+    "S-AUTH-03": "isi kredensial salah, tetap di /login, pesan error (GROUND TRUTH: FAIL, cacat nyata)",
+    "S-AUTH-05": "klik Kembali ke Landing Page, expectURL portal"
+  },
+  "out": {
+    "S-PAGE-01": "berparameter 48 halaman; butuh iterasi banyak halaman",
+    "S-NAV-01": "memeriksa semua item menu sekaligus (banyak elemen)",
+    "S-NEWS-02": "butuh penghitungan/agregasi lintas halaman",
+    "S-NEWS-03": "butuh penghitungan dan perbandingan dua URL",
+    "S-NEWS-04": "memeriksa semua tanggal kartu (banyak elemen)",
+    "S-NEWS-08": "perbandingan numerik setelah reload",
+    "S-NEWS-10": "membaca clipboard",
+    "S-AUTH-04": "butuh akun uji (juga dilewati oleh B1)",
+    "S-LINK-01": "permintaan HTTP ke semua tautan",
+    "S-LINK-02": "memeriksa semua tautan (ground truth FAIL, tapi di luar kosakata)",
+    "S-LINK-03": "permintaan HTTP ke semua gambar",
+    "S-QUAL-01": "pemindaian axe-core (non-UI)",
+    "S-QUAL-02": "tag <link rel=canonical> tidak ada di accessibility tree",
+    "S-QUAL-03": "pengukuran viewport mobile"
+  }
+}
