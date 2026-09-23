@@ -101,10 +101,24 @@ async function loadQaDocs(dir = CONFIG.paths.qaDocs) {
  * verdict -- ini yang membuat indeks jadi "memori bersama yang tumbuh" (RQ5 naskah): pertanyaan yang
  * sudah dijawab reviewer tidak perlu dijawab dua kali karena verdict-nya bisa diambil kembali.
  */
-function loadReviewerVerdicts(file = path.join(CONFIG.paths.e2eRoot, 'raqa', '.memory', 'reviewer-verdicts.jsonl')) {
+/**
+ * Verdict yang BUKAN keputusan manusia tidak boleh masuk korpus. Entri baru ditandai reviewerKind='stub';
+ * entri lama (sebelum penanda ini ada) dikenali dari komentar stubReviewer.js. Tanpa filter ini, penolakan
+ * mekanis dari stub diambil kembali oleh retrieval seolah-olah pengetahuan reviewer (terbukti di
+ * offline-check: unit teratas adalah verdict stub dari run pilot).
+ * @param {any} v
+ */
+function isHumanVerdict(v) {
+  if (v.reviewerKind) return v.reviewerKind === 'human';
+  return !/^stub non-interaktif/.test(v.verdict?.comment || '');
+}
+
+function loadReviewerVerdicts(file = path.join(CONFIG.paths.memoryDir, 'reviewer-verdicts.jsonl')) {
   if (!fs.existsSync(file)) return [];
-  return fs.readFileSync(file, 'utf8').trim().split('\n').filter(Boolean).map((line, i) => {
-    const v = JSON.parse(line);
+  const all = fs.readFileSync(file, 'utf8').trim().split('\n').filter(Boolean).map((line) => JSON.parse(line));
+  const human = all.filter(isHumanVerdict);
+  if (human.length < all.length) console.warn(`[raqa] ${all.length - human.length} verdict non-manusia (stub) dilewati dari korpus.`);
+  return human.map((v, i) => {
     return new Document({
       pageContent: [
         `Reviewer verdict for goal: ${v.goal}`,
@@ -117,4 +131,4 @@ function loadReviewerVerdicts(file = path.join(CONFIG.paths.e2eRoot, 'raqa', '.m
   });
 }
 
-module.exports = { loadCatalog, loadExecutionTraces, loadReadmeDefects, loadQaDocs, loadReviewerVerdicts };
+module.exports = { loadCatalog, loadExecutionTraces, loadReadmeDefects, loadQaDocs, loadReviewerVerdicts, isHumanVerdict };
