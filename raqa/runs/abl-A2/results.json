@@ -1,0 +1,1319 @@
+[
+  {
+    "id": "S-SMOKE-01",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 79.688,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl-A2/compiled/S-SMOKE-01.spec.js",
+    "gate": [
+      "auto",
+      "audit"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Daftar PSB",
+        "value": "https://psb.pesantrenpersis27.com",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T1#0",
+          "readme:T2#0",
+          "baseline-runs:S-AUTH-05#0",
+          "baseline-runs:S-PAGE-01#33",
+          "baseline-runs:S-PAGE-01#41"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-SMOKE-01-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          },
+          {
+            "id": "readme:T2#0",
+            "text": "### T2. Canonical halaman login menunjuk ke beranda\n- **Steps to Reproduce:** Buka `/login` → lihat `<link rel=\"canonical\">` dan `og:image`.\n- **Actual Result:** Canonical = `https://staging.pesantrenpersis27.com` (beranda), dan `og:image` merujuk ke domain WordPress lama.\n- **Solving/Expected Result:** Canonical = URL halaman itu sendiri (atau halaman login diberi `noindex`), dan `og:image` memakai aset portal baru. Dideteksi oleh **S-QUAL-02 [login]**."
+          },
+          {
+            "id": "baseline-runs:S-AUTH-05#0",
+            "text": "Execution trace S-AUTH-05 [chromium-desktop] Login SIMASIS › S-AUTH-05 tautan \"Kembali ke Landing Page\" menuju portal\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          },
+          {
+            "id": "baseline-runs:S-PAGE-01#33",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/pendidikan-adab] PENDIDIKAN ADAB\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          },
+          {
+            "id": "baseline-runs:S-PAGE-01#41",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/brosur-psb-persis-27] BROSUR PSB PESANTREN PERSIS 27\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          }
+        ],
+        "note": null,
+        "pattern": "Daftar PSB",
+        "path": "link",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Daftar PSB",
+        "value": "https://psb.pesantrenpersis27.com",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T1#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "audit",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": "accept",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-SMOKE-01-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "Daftar PSB",
+        "path": "link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NAV-02",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 31.821,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Info PSB",
+        "value": "href",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T1#0",
+          "readme:T2#0",
+          "baseline-runs:S-AUTH-05#0",
+          "readme:T3#1",
+          "baseline-runs:S-PAGE-01#33"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-NAV-02-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          },
+          {
+            "id": "readme:T2#0",
+            "text": "### T2. Canonical halaman login menunjuk ke beranda\n- **Steps to Reproduce:** Buka `/login` → lihat `<link rel=\"canonical\">` dan `og:image`.\n- **Actual Result:** Canonical = `https://staging.pesantrenpersis27.com` (beranda), dan `og:image` merujuk ke domain WordPress lama.\n- **Solving/Expected Result:** Canonical = URL halaman itu sendiri (atau halaman login diberi `noindex`), dan `og:image` memakai aset portal baru. Dideteksi oleh **S-QUAL-02 [login]**."
+          },
+          {
+            "id": "baseline-runs:S-AUTH-05#0",
+            "text": "Execution trace S-AUTH-05 [chromium-desktop] Login SIMASIS › S-AUTH-05 tautan \"Kembali ke Landing Page\" menuju portal\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          },
+          {
+            "id": "readme:T3#1",
+            "text": "- **Solving/Expected Result:** Kedua URL menampilkan isi yang sama; sebaiknya menu memakai satu format kanonis. Dideteksi oleh **S-NEWS-03**."
+          },
+          {
+            "id": "baseline-runs:S-PAGE-01#33",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/pendidikan-adab] PENDIDIKAN ADAB\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          }
+        ],
+        "note": null,
+        "pattern": "Info PSB",
+        "path": "navigation > list > listitem > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-01",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 62.057,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl-A2/compiled/S-HOME-01.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Daftar PSB ",
+        "value": "https://psb.pesantrenpersis27.com",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T1#0",
+          "readme:T3#1"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-01-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          },
+          {
+            "id": "readme:T3#1",
+            "text": "- **Solving/Expected Result:** Kedua URL menampilkan isi yang sama; sebaiknya menu memakai satu format kanonis. Dideteksi oleh **S-NEWS-03**."
+          }
+        ],
+        "note": null,
+        "pattern": "Daftar PSB ",
+        "path": "link",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Daftar PSB ",
+        "value": "https://psb.pesantrenpersis27.com",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T1#0",
+          "readme:T2#0",
+          "readme:T3#1",
+          "baseline-runs:S-PAGE-01#33"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-01-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          },
+          {
+            "id": "readme:T2#0",
+            "text": "### T2. Canonical halaman login menunjuk ke beranda\n- **Steps to Reproduce:** Buka `/login` → lihat `<link rel=\"canonical\">` dan `og:image`.\n- **Actual Result:** Canonical = `https://staging.pesantrenpersis27.com` (beranda), dan `og:image` merujuk ke domain WordPress lama.\n- **Solving/Expected Result:** Canonical = URL halaman itu sendiri (atau halaman login diberi `noindex`), dan `og:image` memakai aset portal baru. Dideteksi oleh **S-QUAL-02 [login]**."
+          },
+          {
+            "id": "readme:T3#1",
+            "text": "- **Solving/Expected Result:** Kedua URL menampilkan isi yang sama; sebaiknya menu memakai satu format kanonis. Dideteksi oleh **S-NEWS-03**."
+          },
+          {
+            "id": "baseline-runs:S-PAGE-01#33",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/pendidikan-adab] PENDIDIKAN ADAB\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "Daftar PSB ",
+        "path": "link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-02",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 55.189,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl-A2/compiled/S-HOME-02.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Info Terbaru",
+        "value": "http://127.0.0.1:8000/portal/berita",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T1#0",
+          "baseline-runs:S-PAGE-01#41",
+          "readme:README#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-02-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          },
+          {
+            "id": "baseline-runs:S-PAGE-01#41",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/brosur-psb-persis-27] BROSUR PSB PESANTREN PERSIS 27\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          },
+          {
+            "id": "readme:README#0",
+            "text": "### Catatan desain: penghitung \"kali dibaca\"\nPenghitung ini bertambah pada setiap pemuatan halaman, termasuk oleh crawler. Hal ini berpotensi menggelembungkan daftar \"Populer\". Test S-NEWS-08 sengaja hanya menguji sifat monotonnya, bukan nilainya. Ini contoh konkret *volatile text* yang dibahas di naskah (φ_vol, Persamaan 2)."
+          }
+        ],
+        "note": null,
+        "pattern": "Info Terbaru",
+        "path": "link",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Info Terbaru",
+        "value": "http://127.0.0.1:8000/portal/berita",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "baseline-runs:S-PAGE-01#41",
+          "readme:T3#1"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-02-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T3#1",
+            "text": "- **Solving/Expected Result:** Kedua URL menampilkan isi yang sama; sebaiknya menu memakai satu format kanonis. Dideteksi oleh **S-NEWS-03**."
+          },
+          {
+            "id": "baseline-runs:S-PAGE-01#41",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/brosur-psb-persis-27] BROSUR PSB PESANTREN PERSIS 27\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "partial",
+        "path": "link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-03",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 29.088,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "364 + Alumni tersebar di nusantara",
+        "value": "href",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "baseline-runs:S-PAGE-01#47"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-03-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "baseline-runs:S-PAGE-01#47",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/alumni] ALUMNI (tautan statistik beranda)\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          }
+        ],
+        "note": null,
+        "pattern": "partial",
+        "path": "http://127.0.0.1:8000/portal/halaman/alumni",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-04",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 32.966,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Panduan SIMASIS",
+        "value": "href",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "baseline-runs:S-PAGE-01#33"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-04-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "baseline-runs:S-PAGE-01#33",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/pendidikan-adab] PENDIDIKAN ADAB\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          }
+        ],
+        "note": null,
+        "pattern": "Panduan SIMASIS",
+        "path": "contentinfo > list > listitem > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-05",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 31.875,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Info Terbaru",
+        "value": "href",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "baseline-runs:S-PAGE-01#33",
+          "baseline-runs:S-PAGE-01#41"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-05-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "baseline-runs:S-PAGE-01#33",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/pendidikan-adab] PENDIDIKAN ADAB\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          },
+          {
+            "id": "baseline-runs:S-PAGE-01#41",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/brosur-psb-persis-27] BROSUR PSB PESANTREN PERSIS 27\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          }
+        ],
+        "note": null,
+        "pattern": "partial",
+        "path": "http://127.0.0.1:8000/portal/berita",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-06",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 31.43,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "button",
+        "name": "Bagaimana syarat masuk PPI 27?",
+        "value": "aria-expanded",
+        "attribute": "aria-expanded",
+        "done": false,
+        "citedUnits": [
+          "baseline-runs:S-PAGE-01#33",
+          "baseline-runs:S-PAGE-01#41"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-06-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "baseline-runs:S-PAGE-01#33",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/pendidikan-adab] PENDIDIKAN ADAB\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          },
+          {
+            "id": "baseline-runs:S-PAGE-01#41",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/brosur-psb-persis-27] BROSUR PSB PESANTREN PERSIS 27\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          }
+        ],
+        "note": null,
+        "pattern": "Bagaimana syarat masuk PPI 27?",
+        "path": "contentinfo > list > listitem > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NEWS-01",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 28.198,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "click",
+        "role": "link",
+        "name": "2",
+        "value": "http://127.0.0.1:8000/portal/berita?page=2",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "baseline-runs:S-HOME-05#1",
+          "baseline-runs:S-HOME-05#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 0.3,
+          "c_orc": 1,
+          "c_t": 0.3
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/portal/berita",
+        "title": "Berita Terbaru - Portal Pesantren PERSIS 27",
+        "screenshot": "shots/S-NEWS-01-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "baseline-runs:S-HOME-05#1",
+            "text": "Execution trace S-HOME-05 [mobile-chrome] Beranda › S-HOME-05 berita terbaru di beranda membuka artikel dengan judul yang sama\nVerdict over 10 runs: stable-fail (0/10 passed)\nFirst error: TimeoutError: locator.click: Timeout 15000ms exceeded."
+          },
+          {
+            "id": "baseline-runs:S-HOME-05#0",
+            "text": "Execution trace S-HOME-05 [chromium-desktop] Beranda › S-HOME-05 berita terbaru di beranda membuka artikel dengan judul yang sama\nVerdict over 10 runs: flaky (1/10 passed)\nFirst error: Error: Implicit oracle: JS error / console error / HTTP 5xx / request gagal (first-party)"
+          }
+        ],
+        "note": null,
+        "pattern": "link",
+        "path": "navigation > list > listitem > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NEWS-05",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 2",
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 50.92,
+    "compiledPath": null,
+    "gate": [
+      "auto",
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "click",
+        "role": "link",
+        "name": "SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027",
+        "value": "http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T3#1"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 0.925,
+          "c_orc": 1,
+          "c_t": 0.925
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/portal/berita",
+        "title": "Berita Terbaru - Portal Pesantren PERSIS 27",
+        "screenshot": "shots/S-NEWS-05-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T3#1",
+            "text": "- **Solving/Expected Result:** Kedua URL menampilkan isi yang sama; sebaiknya menu memakai satu format kanonis. Dideteksi oleh **S-NEWS-03**."
+          }
+        ],
+        "note": null,
+        "pattern": "partial",
+        "path": "link",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027",
+        "value": "href",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T4#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027",
+        "title": "SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027 - Pesantren Persis 27",
+        "screenshot": "shots/S-NEWS-05-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T4#0",
+            "text": "### T4. Ejaan label menu\n- **Actual Result:** Tertulis \"EKSTRAKULIKULER\", sementara menu saudaranya \"KBM EKSTRAKURIKULER\".\n- **Solving/Expected Result:** \"EKSTRAKURIKULER\". Temuan konten ini tidak diuji otomatis."
+          }
+        ],
+        "note": null,
+        "pattern": "SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027",
+        "path": "article > heading > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NEWS-06",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 1282.417,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl-A2/compiled/S-NEWS-06.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "WhatsApp",
+        "value": "https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T1#0",
+          "readme:T2#0",
+          "readme:T5#0",
+          "readme:T3#1",
+          "baseline-runs:S-PAGE-01#15"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026",
+        "title": "JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27",
+        "screenshot": "shots/S-NEWS-06-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          },
+          {
+            "id": "readme:T2#0",
+            "text": "### T2. Canonical halaman login menunjuk ke beranda\n- **Steps to Reproduce:** Buka `/login` → lihat `<link rel=\"canonical\">` dan `og:image`.\n- **Actual Result:** Canonical = `https://staging.pesantrenpersis27.com` (beranda), dan `og:image` merujuk ke domain WordPress lama.\n- **Solving/Expected Result:** Canonical = URL halaman itu sendiri (atau halaman login diberi `noindex`), dan `og:image` memakai aset portal baru. Dideteksi oleh **S-QUAL-02 [login]**."
+          },
+          {
+            "id": "readme:T5#0",
+            "text": "### T5. Nama bulan berbahasa Inggris di detail berita\n- **Actual Result:** Daftar menampilkan \"17 Jul 2026\", sedangkan detail menampilkan \"17 July 2026\" pada antarmuka berbahasa Indonesia.\n- **Solving/Expected Result:** Format tanggal konsisten, dengan locale `id` (misalnya \"17 Juli 2026\"). Test S-NEWS-05 tetap lulus karena membandingkan tanggal setelah dinormalisasi."
+          },
+          {
+            "id": "readme:T3#1",
+            "text": "- **Solving/Expected Result:** Kedua URL menampilkan isi yang sama; sebaiknya menu memakai satu format kanonis. Dideteksi oleh **S-NEWS-03**."
+          },
+          {
+            "id": "baseline-runs:S-PAGE-01#15",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/kbm-syarah-nawawi] SYARAH AN-NAWAWI SHAHIH MUSLIM\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          }
+        ],
+        "note": null,
+        "pattern": "WhatsApp",
+        "path": "link",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "WhatsApp",
+        "value": "https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T1#0",
+          "readme:T2#0",
+          "readme:T5#0",
+          "readme:T3#1",
+          "baseline-runs:S-PAGE-01#41"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026",
+        "title": "JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27",
+        "screenshot": "shots/S-NEWS-06-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          },
+          {
+            "id": "readme:T2#0",
+            "text": "### T2. Canonical halaman login menunjuk ke beranda\n- **Steps to Reproduce:** Buka `/login` → lihat `<link rel=\"canonical\">` dan `og:image`.\n- **Actual Result:** Canonical = `https://staging.pesantrenpersis27.com` (beranda), dan `og:image` merujuk ke domain WordPress lama.\n- **Solving/Expected Result:** Canonical = URL halaman itu sendiri (atau halaman login diberi `noindex`), dan `og:image` memakai aset portal baru. Dideteksi oleh **S-QUAL-02 [login]**."
+          },
+          {
+            "id": "readme:T5#0",
+            "text": "### T5. Nama bulan berbahasa Inggris di detail berita\n- **Actual Result:** Daftar menampilkan \"17 Jul 2026\", sedangkan detail menampilkan \"17 July 2026\" pada antarmuka berbahasa Indonesia.\n- **Solving/Expected Result:** Format tanggal konsisten, dengan locale `id` (misalnya \"17 Juli 2026\"). Test S-NEWS-05 tetap lulus karena membandingkan tanggal setelah dinormalisasi."
+          },
+          {
+            "id": "readme:T3#1",
+            "text": "- **Solving/Expected Result:** Kedua URL menampilkan isi yang sama; sebaiknya menu memakai satu format kanonis. Dideteksi oleh **S-NEWS-03**."
+          },
+          {
+            "id": "baseline-runs:S-PAGE-01#41",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/brosur-psb-persis-27] BROSUR PSB PESANTREN PERSIS 27\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "WhatsApp",
+        "path": "link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NEWS-07",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 32.5,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027",
+        "value": "http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T1#0",
+          "readme:T2#0",
+          "readme:T5#0",
+          "readme:T3#1",
+          "baseline-runs:S-PAGE-01#37"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 0.07500000000000001,
+          "c_orc": 1,
+          "c_t": 0.07500000000000001
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 1,
+        "url": "http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026",
+        "title": "JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27",
+        "screenshot": "shots/S-NEWS-07-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          },
+          {
+            "id": "readme:T2#0",
+            "text": "### T2. Canonical halaman login menunjuk ke beranda\n- **Steps to Reproduce:** Buka `/login` → lihat `<link rel=\"canonical\">` dan `og:image`.\n- **Actual Result:** Canonical = `https://staging.pesantrenpersis27.com` (beranda), dan `og:image` merujuk ke domain WordPress lama.\n- **Solving/Expected Result:** Canonical = URL halaman itu sendiri (atau halaman login diberi `noindex`), dan `og:image` memakai aset portal baru. Dideteksi oleh **S-QUAL-02 [login]**."
+          },
+          {
+            "id": "readme:T5#0",
+            "text": "### T5. Nama bulan berbahasa Inggris di detail berita\n- **Actual Result:** Daftar menampilkan \"17 Jul 2026\", sedangkan detail menampilkan \"17 July 2026\" pada antarmuka berbahasa Indonesia.\n- **Solving/Expected Result:** Format tanggal konsisten, dengan locale `id` (misalnya \"17 Juli 2026\"). Test S-NEWS-05 tetap lulus karena membandingkan tanggal setelah dinormalisasi."
+          },
+          {
+            "id": "readme:T3#1",
+            "text": "- **Solving/Expected Result:** Kedua URL menampilkan isi yang sama; sebaiknya menu memakai satu format kanonis. Dideteksi oleh **S-NEWS-03**."
+          },
+          {
+            "id": "baseline-runs:S-PAGE-01#37",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/bahasa-arab] BAHASA ARAB\nVerdict over 10 runs: flaky (9/10 passed)\nFirst error: Error: status HTTP /portal/halaman/bahasa-arab"
+          }
+        ],
+        "note": null,
+        "pattern": "SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027",
+        "path": "article > heading > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NEWS-09",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 44.118,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl-A2/compiled/S-NEWS-09.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Menata Amal Shalih dalam Skala Prioritas",
+        "value": "http://127.0.0.1:8000/portal/menata-amal-shalih-dalam-skala-prioritas",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T1#0",
+          "baseline-runs:S-QUAL-02#2",
+          "readme:T2#0",
+          "baseline-runs:S-QUAL-01#2",
+          "readme:T3#1"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/portal/artikel",
+        "title": "Artikel Santri - Portal Pesantren PERSIS 27",
+        "screenshot": "shots/S-NEWS-09-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          },
+          {
+            "id": "baseline-runs:S-QUAL-02#2",
+            "text": "Execution trace S-QUAL-02 [chromium-desktop] SEO dasar › S-QUAL-02 [artikel santri] URL canonical sama dengan URL halaman\nVerdict over 10 runs: stable-fail (0/10 passed)\nFirst error: Error: Implicit oracle: JS error / console error / HTTP 5xx / request gagal (first-party)"
+          },
+          {
+            "id": "readme:T2#0",
+            "text": "### T2. Canonical halaman login menunjuk ke beranda\n- **Steps to Reproduce:** Buka `/login` → lihat `<link rel=\"canonical\">` dan `og:image`.\n- **Actual Result:** Canonical = `https://staging.pesantrenpersis27.com` (beranda), dan `og:image` merujuk ke domain WordPress lama.\n- **Solving/Expected Result:** Canonical = URL halaman itu sendiri (atau halaman login diberi `noindex`), dan `og:image` memakai aset portal baru. Dideteksi oleh **S-QUAL-02 [login]**."
+          },
+          {
+            "id": "baseline-runs:S-QUAL-01#2",
+            "text": "Execution trace S-QUAL-01 [chromium-desktop] Aksesibilitas (axe-core, WCAG 2.x A/AA) › S-QUAL-01 [artikel santri] tidak ada pelanggaran aksesibilitas berdampak \"critical\"\nVerdict over 10 runs: stable-fail (0/10 passed)\nFirst error: Error: pelanggaran critical (lihat lampiran untuk semua tingkat)"
+          },
+          {
+            "id": "readme:T3#1",
+            "text": "- **Solving/Expected Result:** Kedua URL menampilkan isi yang sama; sebaiknya menu memakai satu format kanonis. Dideteksi oleh **S-NEWS-03**."
+          }
+        ],
+        "note": null,
+        "pattern": "partial",
+        "path": "link",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Menata Amal Shalih dalam Skala Prioritas",
+        "value": "http://127.0.0.1:8000/portal/menata-amal-shalih-dalam-skala-prioritas",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T1#0",
+          "baseline-runs:S-QUAL-02#2",
+          "readme:T3#1",
+          "baseline-runs:S-QUAL-01#2",
+          "baseline-runs:S-QUAL-03#2"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/portal/artikel",
+        "title": "Artikel Santri - Portal Pesantren PERSIS 27",
+        "screenshot": "shots/S-NEWS-09-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          },
+          {
+            "id": "baseline-runs:S-QUAL-02#2",
+            "text": "Execution trace S-QUAL-02 [chromium-desktop] SEO dasar › S-QUAL-02 [artikel santri] URL canonical sama dengan URL halaman\nVerdict over 10 runs: stable-fail (0/10 passed)\nFirst error: Error: Implicit oracle: JS error / console error / HTTP 5xx / request gagal (first-party)"
+          },
+          {
+            "id": "readme:T3#1",
+            "text": "- **Solving/Expected Result:** Kedua URL menampilkan isi yang sama; sebaiknya menu memakai satu format kanonis. Dideteksi oleh **S-NEWS-03**."
+          },
+          {
+            "id": "baseline-runs:S-QUAL-01#2",
+            "text": "Execution trace S-QUAL-01 [chromium-desktop] Aksesibilitas (axe-core, WCAG 2.x A/AA) › S-QUAL-01 [artikel santri] tidak ada pelanggaran aksesibilitas berdampak \"critical\"\nVerdict over 10 runs: stable-fail (0/10 passed)\nFirst error: Error: pelanggaran critical (lihat lampiran untuk semua tingkat)"
+          },
+          {
+            "id": "baseline-runs:S-QUAL-03#2",
+            "text": "Execution trace S-QUAL-03 [mobile-chrome] Responsif (mobile) › S-QUAL-03 [artikel santri] tidak ada scroll horizontal di layar ponsel\nVerdict over 10 runs: stable-fail (0/10 passed)\nFirst error: Error: Implicit oracle: JS error / console error / HTTP 5xx / request gagal (first-party)"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "partial",
+        "path": "page",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-01",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 11.335,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "textbox",
+        "name": "Email atau Username",
+        "value": "placeholder",
+        "attribute": "placeholder",
+        "done": false,
+        "citedUnits": [
+          "page"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-01-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "Masukkan email atau username",
+        "path": "textbox",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-02",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 7.002,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "button",
+        "name": " Masuk",
+        "value": "type",
+        "attribute": "type",
+        "done": false,
+        "citedUnits": [
+          "baseline-runs:S-AUTH-03#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-02-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "baseline-runs:S-AUTH-03#0",
+            "text": "Execution trace S-AUTH-03 [chromium-desktop] Login SIMASIS › S-AUTH-03 login dengan kredensial salah ditolak dengan pesan yang jelas\nVerdict over 10 runs: stable-fail (0/10 passed)\nFirst error: TimeoutError: page.goto: Timeout 30000ms exceeded."
+          }
+        ],
+        "note": null,
+        "pattern": "submit",
+        "path": "button",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-03",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 7.204,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Kembali ke Landing Page",
+        "value": "href",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "baseline-runs:S-AUTH-05#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-03-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "baseline-runs:S-AUTH-05#0",
+            "text": "Execution trace S-AUTH-05 [chromium-desktop] Login SIMASIS › S-AUTH-05 tautan \"Kembali ke Landing Page\" menuju portal\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          }
+        ],
+        "note": null,
+        "pattern": "http://127.0.0.1:8000",
+        "path": "main > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-05",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 2",
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 17.886,
+    "compiledPath": null,
+    "gate": [
+      "audit",
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Kembali ke Landing Page",
+        "value": "http://127.0.0.1:8000",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T1#0",
+          "readme:T2#0",
+          "baseline-runs:S-AUTH-05#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "audit",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": "accept",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-05-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T2#0",
+            "text": "### T2. Canonical halaman login menunjuk ke beranda\n- **Steps to Reproduce:** Buka `/login` → lihat `<link rel=\"canonical\">` dan `og:image`.\n- **Actual Result:** Canonical = `https://staging.pesantrenpersis27.com` (beranda), dan `og:image` merujuk ke domain WordPress lama.\n- **Solving/Expected Result:** Canonical = URL halaman itu sendiri (atau halaman login diberi `noindex`), dan `og:image` memakai aset portal baru. Dideteksi oleh **S-QUAL-02 [login]**."
+          },
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          },
+          {
+            "id": "baseline-runs:S-AUTH-05#0",
+            "text": "Execution trace S-AUTH-05 [chromium-desktop] Login SIMASIS › S-AUTH-05 tautan \"Kembali ke Landing Page\" menuju portal\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          }
+        ],
+        "note": null,
+        "pattern": "partial",
+        "path": "link",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Kembali ke Landing Page",
+        "value": "href",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "readme:T1#0",
+          "readme:T2#0",
+          "readme:T3#1",
+          "baseline-runs:S-PAGE-01#41",
+          "baseline-runs:S-PAGE-01#44"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-05-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          },
+          {
+            "id": "readme:T2#0",
+            "text": "### T2. Canonical halaman login menunjuk ke beranda\n- **Steps to Reproduce:** Buka `/login` → lihat `<link rel=\"canonical\">` dan `og:image`.\n- **Actual Result:** Canonical = `https://staging.pesantrenpersis27.com` (beranda), dan `og:image` merujuk ke domain WordPress lama.\n- **Solving/Expected Result:** Canonical = URL halaman itu sendiri (atau halaman login diberi `noindex`), dan `og:image` memakai aset portal baru. Dideteksi oleh **S-QUAL-02 [login]**."
+          },
+          {
+            "id": "readme:T3#1",
+            "text": "- **Solving/Expected Result:** Kedua URL menampilkan isi yang sama; sebaiknya menu memakai satu format kanonis. Dideteksi oleh **S-NEWS-03**."
+          },
+          {
+            "id": "baseline-runs:S-PAGE-01#41",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/brosur-psb-persis-27] BROSUR PSB PESANTREN PERSIS 27\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          },
+          {
+            "id": "baseline-runs:S-PAGE-01#44",
+            "text": "Execution trace S-PAGE-01 [chromium-desktop] S-PAGE-01 Halaman statis dapat diakses › S-PAGE-01 [/portal/halaman/tentang-simasis] TENTANG\nVerdict over 10 runs: stable-pass (10/10 passed)"
+          }
+        ],
+        "note": null,
+        "pattern": "exact",
+        "path": "http://127.0.0.1:8000",
+        "executionFailed": false
+      }
+    ]
+  }
+]

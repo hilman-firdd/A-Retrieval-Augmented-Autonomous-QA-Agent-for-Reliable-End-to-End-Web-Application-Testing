@@ -1,0 +1,40 @@
+{
+  "label": "abl-A7",
+  "retrieval": true,
+  "sources": [
+    "catalog",
+    "traces",
+    "defects",
+    "qa_docs",
+    "verdicts"
+  ],
+  "retrievers": [
+    "dense"
+  ],
+  "corpus": {
+    "catalog": 31,
+    "baseline-runs": 101,
+    "readme": 6
+  },
+  "reviewer": "stub",
+  "persistMemory": false,
+  "memoryDir": "/var/folders/cn/wjs9rhzd4fs4nms594v411v40000gn/T/raqa-mem-abl-A7-08lw18",
+  "auditSeed": 1,
+  "auditRate": 0.05,
+  "tau": 0.8,
+  "seed": 42,
+  "maxSteps": 8,
+  "model": "qwen3:4b",
+  "scenarios": 17,
+  "done": 6,
+  "verdicts": {
+    "PASS": 6,
+    "INCOMPLETE": 11
+  },
+  "tsrPct": 35.29,
+  "harPct": 0,
+  "totalSteps": 24,
+  "escalations": 13,
+  "compiledCount": 6,
+  "generatedAt": "2026-09-23T17:35:22.652Z"
+}

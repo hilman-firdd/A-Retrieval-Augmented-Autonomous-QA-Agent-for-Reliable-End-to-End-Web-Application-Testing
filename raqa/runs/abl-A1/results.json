@@ -1,0 +1,734 @@
+[
+  {
+    "id": "S-SMOKE-01",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 24.51,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Portal Pesantren PERSIS 27 Situaksan",
+        "value": "http://127.0.0.1:8000/portal",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "navigation:link:Portal Pesantren PERSIS 27 Situaksan"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-SMOKE-01-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "exact",
+        "path": "navigation > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NAV-02",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 26.11,
+    "compiledPath": null,
+    "gate": [
+      "audit"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "SIMASIS",
+        "value": "#",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "navigation.listitem.link.SIMASIS"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 0.22499999999999998,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "audit",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-NAV-02-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "SIMASIS",
+        "path": "navigation > list > listitem > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-01",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 27.312,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Daftar PSB ",
+        "value": "https://psb.pesantrenpersis27.com",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "link:Daftar PSB "
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-01-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "Daftar PSB ",
+        "path": "link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-02",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 27.197,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Info Terbaru",
+        "value": "http://127.0.0.1:8000/portal/berita",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "link:Info Terbaru"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-02-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "Info Terbaru",
+        "path": "link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-03",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 29.778,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "364 + Alumni tersebar di nusantara ",
+        "value": "http://127.0.0.1:8000/portal/halaman/alumni",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "link_364"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-03-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "partial",
+        "path": "link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-04",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 27.516,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Transaksi Pembelian Tanah 140 m² untuk Perluasan Pesantren PERSIS 27 Situaksan",
+        "value": "href",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "127.0.0.1:8000/portal/transaksi-pembelian-tanah-140-m2-untuk-perluasan-pesantren-persis-27-situaksan"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-04-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "exact",
+        "path": "http://127.0.0.1:8000/portal/transaksi-pembelian-tanah-140-m2-untuk-perluasan-pesantren-persis-27-situaksan",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-05",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 32.971,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Info Terbaru",
+        "value": "http://127.0.0.1:8000/portal/berita",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "127.0.0.1:8000/portal/berita"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-05-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "Info Terbaru",
+        "path": "link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-06",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 30.116,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "button",
+        "name": "Bagaimana syarat masuk PPI 27?",
+        "value": "aria-expanded",
+        "attribute": "aria-expanded",
+        "done": false,
+        "citedUnits": [
+          "contentinfo > list > listitem > link: Bagaimana syarat masuk PPI 27?"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-06-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "partial",
+        "path": "contentinfo > list > listitem > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NEWS-01",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 23.844,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "2",
+        "value": "http://127.0.0.1:8000/portal/berita?page=2",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "navigation-127.0.0.1:8000:portal:berita-page-2"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 0.3,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/portal/berita",
+        "title": "Berita Terbaru - Portal Pesantren PERSIS 27",
+        "screenshot": "shots/S-NEWS-01-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "2",
+        "path": "navigation > list > listitem > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NEWS-05",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "propose/score/gate: Did not receive done or success response in stream.",
+    "steps": 0,
+    "hallucinated": 0,
+    "seconds": 20.108,
+    "compiledPath": null,
+    "gate": [],
+    "trace": []
+  },
+  {
+    "id": "S-NEWS-06",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 22.389,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "WhatsApp",
+        "value": "https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "link-WhatsApp"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026",
+        "title": "JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27",
+        "screenshot": "shots/S-NEWS-06-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "WhatsApp",
+        "path": "link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NEWS-07",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 17.158,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectVisible",
+        "role": "heading",
+        "name": "Artikel Terkait",
+        "value": "Artikel Terkait",
+        "attribute": "level",
+        "done": false,
+        "citedUnits": [
+          "article > heading [level=4] Artikl Terkait"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026",
+        "title": "JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27",
+        "screenshot": "shots/S-NEWS-07-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "Artikel Terkait",
+        "path": "article > heading",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NEWS-09",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 16.83,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Menata Amal Shalih dalam Skala Prioritas",
+        "value": "http://127.0.0.1:8000/portal/menata-amal-shalih-dalam-skala-prioritas",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "127.0.0.1:8000/portal/artikel"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/portal/artikel",
+        "title": "Artikel Santri - Portal Pesantren PERSIS 27",
+        "screenshot": "shots/S-NEWS-09-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "exact",
+        "path": "link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-01",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 7.276,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "textbox",
+        "name": "Email atau Username",
+        "value": "placeholder",
+        "attribute": "placeholder",
+        "done": false,
+        "citedUnits": [
+          "main > textbox > placeholder"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-01-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "placeholder",
+        "path": "main > textbox > placeholder",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-02",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 5.119,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "textbox",
+        "name": "Email atau Username",
+        "value": "",
+        "attribute": "value",
+        "done": false,
+        "citedUnits": [
+          "main > textbox 'Email atau Username'"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-02-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "expectAttribute",
+        "path": "main > textbox 'Email atau Username'",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-03",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 4.95,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "textbox",
+        "name": "Email atau Username",
+        "value": "email@example.com",
+        "attribute": "value",
+        "done": false,
+        "citedUnits": [
+          "main > textbox 'Email atau Username'"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-03-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "exact",
+        "path": "main > textbox 'Email atau Username'",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-05",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 6.215,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Kembali ke Landing Page",
+        "value": "href",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "link: Kembali ke Landing Page"
+        ],
+        "scores": {
+          "c_act": 0,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 0
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-05-step1.png",
+        "citedUnitsText": [],
+        "note": null,
+        "pattern": "exact",
+        "path": "http://127.0.0.1:8000",
+        "executionFailed": false
+      }
+    ]
+  }
+]
