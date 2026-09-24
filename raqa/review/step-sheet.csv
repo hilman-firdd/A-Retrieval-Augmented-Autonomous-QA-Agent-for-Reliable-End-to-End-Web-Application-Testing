@@ -1,0 +1,160 @@
+﻿"item_id","goal","acceptance_criteria","page_url","page_title","proposed_step","screenshot","R1_relevance_0_1_2","R2_correct_yes_no_unsure","R3_decision_accept_edit_reject","comment"
+"L001","Invalid credentials are rejected with a clear message.","1. Remains on /login
+2. Error message visible
+3. Password field is cleared","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that textbox ""Email atau Username"" has attribute value containing ""email@example.com""","shots/29.png","","","",""
+"L002","The 'Daftar PSB' call-to-action leads to the admission site.","1. href is https://psb.pesantrenpersis27.com","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Daftar PSB "" has attribute href containing ""https://psb.pesantrenpersis27.com""","shots/47.png","","","",""
+"L003","The SIMASIS login form is complete and accessible.","1. Username and password inputs are reachable by accessible name/placeholder
+2. Password input masks text
+3. Submit enabled
+4. CSRF token present","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that textbox ""Email atau Username"" has attribute placeholder containing ""placeholder""","shots/54.png","","","",""
+"L004","Submitting an empty login form is rejected.","1. Remains on /login
+2. Browser or server validation shown","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that textbox ""Email atau Username"" has attribute placeholder containing ""placeholder""","shots/70.png","","","",""
+"L005","Related articles exclude the article being read.","1. Related list is non-empty
+2. Current URL not in related list","http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026","JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27","Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""","shots/39.png","","","",""
+"L006","A visitor browses the news list and moves to page 2.","1. Page 1 shows at least one card
+2. Page 2 shows cards not shown on page 1","http://127.0.0.1:8000/portal/berita","Berita Terbaru - Portal Pesantren PERSIS 27","Click link ""2""","shots/36.png","","","",""
+"L007","Statistic links (alumni, santri per jenjang) lead to valid targets.","1. Alumni page returns < 400
+2. Anchors #tsanawiyyah and #muallimin exist on the santri page","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""99 + Santri aktif Tsanawiyyah "" has attribute href containing ""href""","shots/65.png","","","",""
+"L008","Submitting an empty login form is rejected.","1. Remains on /login
+2. Browser or server validation shown","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that textbox ""Email atau Username"" has attribute placeholder containing ""placeholder""","shots/17.png","","","",""
+"L009","A visitor reaches a page by opening a dropdown menu and clicking an item.","1. Dropdown item becomes visible
+2. URL ends with the item's path
+3. Destination shows a heading","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""SIMASIS"" has attribute href containing ""#""","shots/21.png","","","",""
+"L010","A visitor expands an FAQ question.","1. The corresponding answer is visible","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that button ""Bagaimana syarat masuk PPI 27?"" has attribute aria-expanded containing ""aria-expanded""","shots/8.png","","","",""
+"L011","The SIMASIS login form is complete and accessible.","1. Username and password inputs are reachable by accessible name/placeholder
+2. Password input masks text
+3. Submit enabled
+4. CSRF token present","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that textbox ""Email atau Username"" has attribute placeholder containing ""placeholder""","shots/16.png","","","",""
+"L012","A visitor reaches a page by opening a dropdown menu and clicking an item.","1. Dropdown item becomes visible
+2. URL ends with the item's path
+3. Destination shows a heading","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Info PSB"" has attribute href containing ""href""","shots/31.png","","","",""
+"L013","Statistic links (alumni, santri per jenjang) lead to valid targets.","1. Alumni page returns < 400
+2. Anchors #tsanawiyyah and #muallimin exist on the santri page","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""364 + Alumni tersebar di nusantara "" has attribute href containing ""http://127.0.0.1:8000/portal/halaman/alumni""","shots/57.png","","","",""
+"L014","A visitor browses the news list and moves to page 2.","1. Page 1 shows at least one card
+2. Page 2 shows cards not shown on page 1","http://127.0.0.1:8000/portal/berita","Berita Terbaru - Portal Pesantren PERSIS 27","Check that link ""2"" has attribute href containing ""http://127.0.0.1:8000/portal/berita?page=2""","shots/9.png","","","",""
+"L015","Related articles exclude the article being read.","1. Related list is non-empty
+2. Current URL not in related list","http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026","JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27","Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""","shots/59.png","","","",""
+"L016","Opening an article from the list shows consistent data.","1. URL equals card href
+2. H1 equals card title
+3. Publication date equals card date","http://127.0.0.1:8000/portal/berita","Berita Terbaru - Portal Pesantren PERSIS 27","Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""","shots/53.png","","","",""
+"L017","A visitor opens the first latest-news item from the home page.","1. Article H1 equals the card title","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Lihat Semua"" has attribute href containing ""href""","shots/50.png","","","",""
+"L018","Submitting an empty login form is rejected.","1. Remains on /login
+2. Browser or server validation shown","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that textbox ""Email atau Username"" has attribute value containing """"","shots/28.png","","","",""
+"L019","The SIMASIS login form is complete and accessible.","1. Username and password inputs are reachable by accessible name/placeholder
+2. Password input masks text
+3. Submit enabled
+4. CSRF token present","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that textbox ""Email atau Username"" has attribute placeholder containing ""placeholder""","shots/60.png","","","",""
+"L020","A visitor opens a student article from the list.","1. Article H1 equals the card title","http://127.0.0.1:8000/portal/artikel","Artikel Santri - Portal Pesantren PERSIS 27","Check that link ""Menata Amal Shalih dalam Skala Prioritas"" has attribute href containing ""http://127.0.0.1:8000/portal/menata-amal-shalih-dalam-skala-prioritas""","shots/40.png","","","",""
+"L021","Each featured-program card opens a modal with the matching title that can be closed.","1. Five 'Selengkapnya' controls
+2. Modal title matches the card
+3. 'Tutup' hides the modal","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that button ""Selengkapnya"" has attribute href containing ""href""","shots/6.png","","","",""
+"L022","A visitor opens the portal home page.","1. HTTP status < 400
+2. Page title contains 'Pesantren PERSIS 27'
+3. Main heading contains 'Tafaqquh Fid Din'","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Daftar PSB "" has attribute href containing ""https://psb.pesantrenpersis27.com""","shots/55.png","","","",""
+"L023","A visitor opens the first latest-news item from the home page.","1. Article H1 equals the card title","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Lihat Semua"" has attribute href containing ""href""","shots/58.png","","","",""
+"L024","Statistic links (alumni, santri per jenjang) lead to valid targets.","1. Alumni page returns < 400
+2. Anchors #tsanawiyyah and #muallimin exist on the santri page","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""99 + Santri aktif Tsanawiyyah"" has attribute href containing ""href""","shots/5.png","","","",""
+"L025","A visitor opens the first latest-news item from the home page.","1. Article H1 equals the card title","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Info Terbaru"" has attribute href containing ""http://127.0.0.1:8000/portal/berita""","shots/25.png","","","",""
+"L026","A visitor reaches a page by opening a dropdown menu and clicking an item.","1. Dropdown item becomes visible
+2. URL ends with the item's path
+3. Destination shows a heading","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""INFO PSB"" has attribute href containing ""href""","shots/63.png","","","",""
+"L027","Opening an article from the list shows consistent data.","1. URL equals card href
+2. H1 equals card title
+3. Publication date equals card date","http://127.0.0.1:8000/portal/berita","Berita Terbaru - Portal Pesantren PERSIS 27","Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""","shots/10.png","","","",""
+"L028","Breadcrumb and share links refer to the current article.","1. Breadcrumb has Beranda and Berita
+2. WhatsApp/Facebook/Twitter links contain the article URL","http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026","JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27","Check that link ""WhatsApp"" has attribute href containing ""https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026""","shots/67.png","","","",""
+"L029","A visitor opens the portal home page.","1. HTTP status < 400
+2. Page title contains 'Pesantren PERSIS 27'
+3. Main heading contains 'Tafaqquh Fid Din'","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Portal Pesantren PERSIS 27 Situaksan"" has attribute href containing ""http://127.0.0.1:8000/portal""","shots/20.png","","","",""
+"L030","Opening an article from the list shows consistent data.","1. URL equals card href
+2. H1 equals card title
+3. Publication date equals card date","http://127.0.0.1:8000/portal/berita","Berita Terbaru - Portal Pesantren PERSIS 27","Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""","shots/52.png","","","",""
+"L031","A visitor reaches a page by opening a dropdown menu and clicking an item.","1. Dropdown item becomes visible
+2. URL ends with the item's path
+3. Destination shows a heading","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""INFO PSB"" has attribute href containing ""href""","shots/46.png","","","",""
+"L032","Each featured-program card opens a modal with the matching title that can be closed.","1. Five 'Selengkapnya' controls
+2. Modal title matches the card
+3. 'Tutup' hides the modal","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Transaksi Pembelian Tanah 140 m² untuk Perluasan Pesantren PERSIS 27 Situaksan"" has attribute href containing ""href""","shots/24.png","","","",""
+"L033","Related articles exclude the article being read.","1. Related list is non-empty
+2. Current URL not in related list","http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026","JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27","Check that heading ""Artikel Terkait"" is visible","shots/26.png","","","",""
+"L034","Each featured-program card opens a modal with the matching title that can be closed.","1. Five 'Selengkapnya' controls
+2. Modal title matches the card
+3. 'Tutup' hides the modal","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Click button ""Selengkapnya""","shots/48.png","","","",""
+"L035","A visitor reaches a page by opening a dropdown menu and clicking an item.","1. Dropdown item becomes visible
+2. URL ends with the item's path
+3. Destination shows a heading","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""INFO PSB"" has attribute href containing ""href""","shots/2.png","","","",""
+"L036","Invalid credentials are rejected with a clear message.","1. Remains on /login
+2. Error message visible
+3. Password field is cleared","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that textbox ""Password"" has attribute value containing ""clear""","shots/61.png","","","",""
+"L037","A visitor opens the first latest-news item from the home page.","1. Article H1 equals the card title","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Info Terbaru"" has attribute href containing ""href""","shots/34.png","","","",""
+"L038","A visitor opens a student article from the list.","1. Article H1 equals the card title","http://127.0.0.1:8000/portal/artikel","Artikel Santri - Portal Pesantren PERSIS 27","Check that link ""Menata Amal Shalih dalam Skala Prioritas"" has attribute href containing ""http://127.0.0.1:8000/portal/menata-amal-shalih-dalam-skala-prioritas""","shots/41.png","","","",""
+"L039","Each featured-program card opens a modal with the matching title that can be closed.","1. Five 'Selengkapnya' controls
+2. Modal title matches the card
+3. 'Tutup' hides the modal","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Panduan SIMASIS"" has attribute href containing ""href""","shots/33.png","","","",""
+"L040","A visitor opens a student article from the list.","1. Article H1 equals the card title","http://127.0.0.1:8000/portal/artikel","Artikel Santri - Portal Pesantren PERSIS 27","Check that link ""Menata Amal Shalih dalam Skala Prioritas"" has attribute href containing ""http://127.0.0.1:8000/portal/menata-amal-shalih-dalam-skala-prioritas""","shots/27.png","","","",""
+"L041","Submitting an empty login form is rejected.","1. Remains on /login
+2. Browser or server validation shown","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that button "" Masuk"" has attribute type containing ""type""","shots/43.png","","","",""
+"L042","Invalid credentials are rejected with a clear message.","1. Remains on /login
+2. Error message visible
+3. Password field is cleared","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that textbox ""Password"" has attribute placeholder containing ""placeholder""","shots/18.png","","","",""
+"L043","Breadcrumb and share links refer to the current article.","1. Breadcrumb has Beranda and Berita
+2. WhatsApp/Facebook/Twitter links contain the article URL","http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026","JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27","Check that link ""WhatsApp"" has attribute href containing ""https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026""","shots/12.png","","","",""
+"L044","Breadcrumb and share links refer to the current article.","1. Breadcrumb has Beranda and Berita
+2. WhatsApp/Facebook/Twitter links contain the article URL","http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026","JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27","Check that link ""WhatsApp"" has attribute href containing ""https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026""","shots/13.png","","","",""
+"L045","A visitor expands an FAQ question.","1. The corresponding answer is visible","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that button ""Bagaimana syarat masuk PPI 27?"" has attribute aria-expanded containing ""aria-expanded""","shots/35.png","","","",""
+"L046","The 'Info Terbaru' call-to-action opens the news list.","1. URL is /portal/berita
+2. H1 is 'Berita Terbaru'","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Info Terbaru"" has attribute href containing ""http://127.0.0.1:8000/portal/berita""","shots/64.png","","","",""
+"L047","Related articles exclude the article being read.","1. Related list is non-empty
+2. Current URL not in related list","http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026","JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27","Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""","shots/68.png","","","",""
+"L048","Opening an article from the list shows consistent data.","1. URL equals card href
+2. H1 equals card title
+3. Publication date equals card date","http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027","SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027 - Pesantren Persis 27","Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""href""","shots/38.png","","","",""
+"L049","Related articles exclude the article being read.","1. Related list is non-empty
+2. Current URL not in related list","http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026","JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27","Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""","shots/14.png","","","",""
+"L050","A visitor opens the portal home page.","1. HTTP status < 400
+2. Page title contains 'Pesantren PERSIS 27'
+3. Main heading contains 'Tafaqquh Fid Din'","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Daftar PSB"" has attribute href containing ""https://psb.pesantrenpersis27.com""","shots/56.png","","","",""
+"L051","A visitor opens the portal home page.","1. HTTP status < 400
+2. Page title contains 'Pesantren PERSIS 27'
+3. Main heading contains 'Tafaqquh Fid Din'","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that the page title contains ""Portal Pesantren PERSIS 27 Situaksan""","shots/1.png","","","",""
+"L052","A visitor opens the portal home page.","1. HTTP status < 400
+2. Page title contains 'Pesantren PERSIS 27'
+3. Main heading contains 'Tafaqquh Fid Din'","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Daftar PSB"" has attribute href containing ""https://psb.pesantrenpersis27.com""","shots/30.png","","","",""
+"L053","Each featured-program card opens a modal with the matching title that can be closed.","1. Five 'Selengkapnya' controls
+2. Modal title matches the card
+3. 'Tutup' hides the modal","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that button ""Selengkapnya"" has attribute href containing ""href""","shots/49.png","","","",""
+"L054","The SIMASIS login form is complete and accessible.","1. Username and password inputs are reachable by accessible name/placeholder
+2. Password input masks text
+3. Submit enabled
+4. CSRF token present","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that textbox ""Email atau Username"" has attribute placeholder containing ""placeholder""","shots/69.png","","","",""
+"L055","A visitor opens the portal home page.","1. HTTP status < 400
+2. Page title contains 'Pesantren PERSIS 27'
+3. Main heading contains 'Tafaqquh Fid Din'","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that the page title contains ""Portal Pesantren PERSIS 27 Situaksan""","shots/62.png","","","",""
+"L056","A visitor opens the first latest-news item from the home page.","1. Article H1 equals the card title","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Lihat Semua"" has attribute href containing ""http://127.0.0.1:8000/portal/berita""","shots/66.png","","","",""
+"L057","A visitor opens the first latest-news item from the home page.","1. Article H1 equals the card title","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Info Terbaru"" has attribute href containing ""href""","shots/7.png","","","",""
+"L058","Statistic links (alumni, santri per jenjang) lead to valid targets.","1. Alumni page returns < 400
+2. Anchors #tsanawiyyah and #muallimin exist on the santri page","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""364 + Alumni tersebar di nusantara "" has attribute href containing ""http://127.0.0.1:8000/portal/halaman/alumni""","shots/23.png","","","",""
+"L059","Opening an article from the list shows consistent data.","1. URL equals card href
+2. H1 equals card title
+3. Publication date equals card date","http://127.0.0.1:8000/portal/berita","Berita Terbaru - Portal Pesantren PERSIS 27","Click link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027""","shots/37.png","","","",""
+"L060","The 'Info Terbaru' call-to-action opens the news list.","1. URL is /portal/berita
+2. H1 is 'Berita Terbaru'","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Info Terbaru"" has attribute href containing ""http://127.0.0.1:8000/portal/berita""","shots/4.png","","","",""
+"L061","The 'Daftar PSB' call-to-action leads to the admission site.","1. href is https://psb.pesantrenpersis27.com","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Daftar PSB "" has attribute href containing ""https://psb.pesantrenpersis27.com""","shots/3.png","","","",""
+"L062","'Kembali ke Landing Page' returns to the portal.","1. URL is the portal root","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that link ""Kembali ke Landing Page"" has attribute href containing ""href""","shots/19.png","","","",""
+"L063","A visitor expands an FAQ question.","1. The corresponding answer is visible","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that button ""Bagaimana syarat masuk PPI 27?"" has attribute aria-expanded containing ""aria-expanded""","shots/51.png","","","",""
+"L064","Invalid credentials are rejected with a clear message.","1. Remains on /login
+2. Error message visible
+3. Password field is cleared","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that link ""Kembali ke Landing Page"" has attribute href containing ""href""","shots/44.png","","","",""
+"L065","A visitor opens a student article from the list.","1. Article H1 equals the card title","http://127.0.0.1:8000/portal/artikel","Artikel Santri - Portal Pesantren PERSIS 27","Check that link ""Menata Amal Shalih dalam Skala Prioritas"" has attribute href containing ""href""","shots/15.png","","","",""
+"L066","Opening an article from the list shows consistent data.","1. URL equals card href
+2. H1 equals card title
+3. Publication date equals card date","http://127.0.0.1:8000/portal/berita","Berita Terbaru - Portal Pesantren PERSIS 27","Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""","shots/11.png","","","",""
+"L067","The SIMASIS login form is complete and accessible.","1. Username and password inputs are reachable by accessible name/placeholder
+2. Password input masks text
+3. Submit enabled
+4. CSRF token present","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that textbox ""Email atau Username"" has attribute placeholder containing ""placeholder""","shots/42.png","","","",""
+"L068","'Kembali ke Landing Page' returns to the portal.","1. URL is the portal root","http://127.0.0.1:8000/login","SIMASIS - Sistem Manajemen Pesantren Persis 27","Check that link ""Kembali ke Landing Page"" has attribute href containing ""http://127.0.0.1:8000""","shots/45.png","","","",""
+"L069","The 'Info Terbaru' call-to-action opens the news list.","1. URL is /portal/berita
+2. H1 is 'Berita Terbaru'","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""Info Terbaru"" has attribute href containing ""http://127.0.0.1:8000/portal/berita""","shots/22.png","","","",""
+"L070","Statistic links (alumni, santri per jenjang) lead to valid targets.","1. Alumni page returns < 400
+2. Anchors #tsanawiyyah and #muallimin exist on the santri page","http://127.0.0.1:8000/","Portal Pesantren PERSIS 27 Situaksan","Check that link ""364 + Alumni tersebar di nusantara"" has attribute href containing ""href""","shots/32.png","","","",""

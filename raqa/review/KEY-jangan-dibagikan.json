@@ -1,0 +1,2167 @@
+{
+  "generatedAt": "2026-09-23T17:35:57.382Z",
+  "prefix": "abl",
+  "seed": 2026,
+  "labels": [
+    "abl-A0",
+    "abl-A1",
+    "abl-A2",
+    "abl-A3",
+    "abl-A6",
+    "abl-A7"
+  ],
+  "steps": [
+    {
+      "itemId": "L001",
+      "scenarioId": "S-AUTH-03",
+      "plain": "Check that textbox \"Email atau Username\" has attribute value containing \"email@example.com\"",
+      "occurrences": [
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L002",
+      "scenarioId": "S-HOME-01",
+      "plain": "Check that link \"Daftar PSB \" has attribute href containing \"https://psb.pesantrenpersis27.com\"",
+      "occurrences": [
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L003",
+      "scenarioId": "S-AUTH-01",
+      "plain": "Check that textbox \"Email atau Username\" has attribute placeholder containing \"placeholder\"",
+      "occurrences": [
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L004",
+      "scenarioId": "S-AUTH-02",
+      "plain": "Check that textbox \"Email atau Username\" has attribute placeholder containing \"placeholder\"",
+      "occurrences": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L005",
+      "scenarioId": "S-NEWS-07",
+      "plain": "Check that link \"SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027\" has attribute href containing \"http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0.07500000000000001,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L006",
+      "scenarioId": "S-NEWS-01",
+      "plain": "Click link \"2\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0.3,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L007",
+      "scenarioId": "S-HOME-03",
+      "plain": "Check that link \"99 + Santri aktif Tsanawiyyah \" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L008",
+      "scenarioId": "S-AUTH-02",
+      "plain": "Check that textbox \"Email atau Username\" has attribute placeholder containing \"placeholder\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "audit",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L009",
+      "scenarioId": "S-NAV-02",
+      "plain": "Check that link \"SIMASIS\" has attribute href containing \"#\"",
+      "occurrences": [
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "audit",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L010",
+      "scenarioId": "S-HOME-06",
+      "plain": "Check that button \"Bagaimana syarat masuk PPI 27?\" has attribute aria-expanded containing \"aria-expanded\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L011",
+      "scenarioId": "S-AUTH-01",
+      "plain": "Check that textbox \"Email atau Username\" has attribute placeholder containing \"placeholder\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L012",
+      "scenarioId": "S-NAV-02",
+      "plain": "Check that link \"Info PSB\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L013",
+      "scenarioId": "S-HOME-03",
+      "plain": "Check that link \"364 + Alumni tersebar di nusantara \" has attribute href containing \"http://127.0.0.1:8000/portal/halaman/alumni\"",
+      "occurrences": [
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L014",
+      "scenarioId": "S-NEWS-01",
+      "plain": "Check that link \"2\" has attribute href containing \"http://127.0.0.1:8000/portal/berita?page=2\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0.3,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0.3,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0.3,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0.3,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L015",
+      "scenarioId": "S-NEWS-07",
+      "plain": "Check that link \"SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027\" has attribute href containing \"http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027\"",
+      "occurrences": [
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0.075,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L016",
+      "scenarioId": "S-NEWS-05",
+      "plain": "Check that link \"SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027\" has attribute href containing \"http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027\"",
+      "occurrences": [
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 0.925,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 0.925,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L017",
+      "scenarioId": "S-HOME-05",
+      "plain": "Check that link \"Lihat Semua\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L018",
+      "scenarioId": "S-AUTH-02",
+      "plain": "Check that textbox \"Email atau Username\" has attribute value containing \"\"",
+      "occurrences": [
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L019",
+      "scenarioId": "S-AUTH-01",
+      "plain": "Check that textbox \"Email atau Username\" has attribute placeholder containing \"placeholder\"",
+      "occurrences": [
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L020",
+      "scenarioId": "S-NEWS-09",
+      "plain": "Check that link \"Menata Amal Shalih dalam Skala Prioritas\" has attribute href containing \"http://127.0.0.1:8000/portal/menata-amal-shalih-dalam-skala-prioritas\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L021",
+      "scenarioId": "S-HOME-04",
+      "plain": "Check that button \"Selengkapnya\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L022",
+      "scenarioId": "S-SMOKE-01",
+      "plain": "Check that link \"Daftar PSB \" has attribute href containing \"https://psb.pesantrenpersis27.com\"",
+      "occurrences": [
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 2,
+          "gate": "audit",
+          "c_t": 1,
+          "accepted": true,
+          "decision": "accept",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L023",
+      "scenarioId": "S-HOME-05",
+      "plain": "Check that link \"Lihat Semua\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L024",
+      "scenarioId": "S-HOME-03",
+      "plain": "Check that link \"99 + Santri aktif Tsanawiyyah\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 2,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L025",
+      "scenarioId": "S-HOME-05",
+      "plain": "Check that link \"Info Terbaru\" has attribute href containing \"http://127.0.0.1:8000/portal/berita\"",
+      "occurrences": [
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L026",
+      "scenarioId": "S-NAV-02",
+      "plain": "Check that link \"INFO PSB\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L027",
+      "scenarioId": "S-NEWS-05",
+      "plain": "Check that link \"SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027\" has attribute href containing \"http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 0.925,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 0.925,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 0.925,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L028",
+      "scenarioId": "S-NEWS-06",
+      "plain": "Check that link \"WhatsApp\" has attribute href containing \"https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026\"",
+      "occurrences": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L029",
+      "scenarioId": "S-SMOKE-01",
+      "plain": "Check that link \"Portal Pesantren PERSIS 27 Situaksan\" has attribute href containing \"http://127.0.0.1:8000/portal\"",
+      "occurrences": [
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L030",
+      "scenarioId": "S-NEWS-05",
+      "plain": "Check that link \"SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027\" has attribute href containing \"http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027\"",
+      "occurrences": [
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 0.925,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 0.925,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L031",
+      "scenarioId": "S-NAV-02",
+      "plain": "Check that link \"INFO PSB\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L032",
+      "scenarioId": "S-HOME-04",
+      "plain": "Check that link \"Transaksi Pembelian Tanah 140 m² untuk Perluasan Pesantren PERSIS 27 Situaksan\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L033",
+      "scenarioId": "S-NEWS-07",
+      "plain": "Check that heading \"Artikel Terkait\" is visible",
+      "occurrences": [
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L034",
+      "scenarioId": "S-HOME-04",
+      "plain": "Click button \"Selengkapnya\"",
+      "occurrences": [
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0.7,
+          "accepted": true,
+          "decision": "accept",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L035",
+      "scenarioId": "S-NAV-02",
+      "plain": "Check that link \"INFO PSB\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L036",
+      "scenarioId": "S-AUTH-03",
+      "plain": "Check that textbox \"Password\" has attribute value containing \"clear\"",
+      "occurrences": [
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": true
+        }
+      ]
+    },
+    {
+      "itemId": "L037",
+      "scenarioId": "S-HOME-05",
+      "plain": "Check that link \"Info Terbaru\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L038",
+      "scenarioId": "S-NEWS-09",
+      "plain": "Check that link \"Menata Amal Shalih dalam Skala Prioritas\" has attribute href containing \"http://127.0.0.1:8000/portal/menata-amal-shalih-dalam-skala-prioritas\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L039",
+      "scenarioId": "S-HOME-04",
+      "plain": "Check that link \"Panduan SIMASIS\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L040",
+      "scenarioId": "S-NEWS-09",
+      "plain": "Check that link \"Menata Amal Shalih dalam Skala Prioritas\" has attribute href containing \"http://127.0.0.1:8000/portal/menata-amal-shalih-dalam-skala-prioritas\"",
+      "occurrences": [
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L041",
+      "scenarioId": "S-AUTH-02",
+      "plain": "Check that button \" Masuk\" has attribute type containing \"type\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L042",
+      "scenarioId": "S-AUTH-03",
+      "plain": "Check that textbox \"Password\" has attribute placeholder containing \"placeholder\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L043",
+      "scenarioId": "S-NEWS-06",
+      "plain": "Check that link \"WhatsApp\" has attribute href containing \"https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L044",
+      "scenarioId": "S-NEWS-06",
+      "plain": "Check that link \"WhatsApp\" has attribute href containing \"https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L045",
+      "scenarioId": "S-HOME-06",
+      "plain": "Check that button \"Bagaimana syarat masuk PPI 27?\" has attribute aria-expanded containing \"aria-expanded\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L046",
+      "scenarioId": "S-HOME-02",
+      "plain": "Check that link \"Info Terbaru\" has attribute href containing \"http://127.0.0.1:8000/portal/berita\"",
+      "occurrences": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L047",
+      "scenarioId": "S-NEWS-07",
+      "plain": "Check that link \"SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027\" has attribute href containing \"http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027\"",
+      "occurrences": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0.075,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L048",
+      "scenarioId": "S-NEWS-05",
+      "plain": "Check that link \"SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 2,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L049",
+      "scenarioId": "S-NEWS-07",
+      "plain": "Check that link \"SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027\" has attribute href containing \"http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0.075,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0.075,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L050",
+      "scenarioId": "S-SMOKE-01",
+      "plain": "Check that link \"Daftar PSB\" has attribute href containing \"https://psb.pesantrenpersis27.com\"",
+      "occurrences": [
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 3,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 4,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L051",
+      "scenarioId": "S-SMOKE-01",
+      "plain": "Check that the page title contains \"Portal Pesantren PERSIS 27 Situaksan\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 2,
+          "gate": "audit",
+          "c_t": 1,
+          "accepted": true,
+          "decision": "accept",
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 2,
+          "gate": "audit",
+          "c_t": 1,
+          "accepted": true,
+          "decision": "accept",
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 2,
+          "gate": "audit",
+          "c_t": 1,
+          "accepted": true,
+          "decision": "accept",
+          "autoDone": true,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L052",
+      "scenarioId": "S-SMOKE-01",
+      "plain": "Check that link \"Daftar PSB\" has attribute href containing \"https://psb.pesantrenpersis27.com\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 2,
+          "gate": "audit",
+          "c_t": 1,
+          "accepted": true,
+          "decision": "accept",
+          "autoDone": true,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L053",
+      "scenarioId": "S-HOME-04",
+      "plain": "Check that button \"Selengkapnya\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 2,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L054",
+      "scenarioId": "S-AUTH-01",
+      "plain": "Check that textbox \"Email atau Username\" has attribute placeholder containing \"placeholder\"",
+      "occurrences": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L055",
+      "scenarioId": "S-SMOKE-01",
+      "plain": "Check that the page title contains \"Portal Pesantren PERSIS 27 Situaksan\"",
+      "occurrences": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L056",
+      "scenarioId": "S-HOME-05",
+      "plain": "Check that link \"Lihat Semua\" has attribute href containing \"http://127.0.0.1:8000/portal/berita\"",
+      "occurrences": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 0.925,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L057",
+      "scenarioId": "S-HOME-05",
+      "plain": "Check that link \"Info Terbaru\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 2,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L058",
+      "scenarioId": "S-HOME-03",
+      "plain": "Check that link \"364 + Alumni tersebar di nusantara \" has attribute href containing \"http://127.0.0.1:8000/portal/halaman/alumni\"",
+      "occurrences": [
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L059",
+      "scenarioId": "S-NEWS-05",
+      "plain": "Click link \"SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 0.925,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L060",
+      "scenarioId": "S-HOME-02",
+      "plain": "Check that link \"Info Terbaru\" has attribute href containing \"http://127.0.0.1:8000/portal/berita\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L061",
+      "scenarioId": "S-HOME-01",
+      "plain": "Check that link \"Daftar PSB \" has attribute href containing \"https://psb.pesantrenpersis27.com\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L062",
+      "scenarioId": "S-AUTH-05",
+      "plain": "Check that link \"Kembali ke Landing Page\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 2,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L063",
+      "scenarioId": "S-HOME-06",
+      "plain": "Check that button \"Bagaimana syarat masuk PPI 27?\" has attribute aria-expanded containing \"aria-expanded\"",
+      "occurrences": [
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L064",
+      "scenarioId": "S-AUTH-03",
+      "plain": "Check that link \"Kembali ke Landing Page\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L065",
+      "scenarioId": "S-NEWS-09",
+      "plain": "Check that link \"Menata Amal Shalih dalam Skala Prioritas\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L066",
+      "scenarioId": "S-NEWS-05",
+      "plain": "Check that link \"SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027\" has attribute href containing \"http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027\"",
+      "occurrences": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 0.925,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L067",
+      "scenarioId": "S-AUTH-01",
+      "plain": "Check that textbox \"Email atau Username\" has attribute placeholder containing \"placeholder\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L068",
+      "scenarioId": "S-AUTH-05",
+      "plain": "Check that link \"Kembali ke Landing Page\" has attribute href containing \"http://127.0.0.1:8000\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "audit",
+          "c_t": 1,
+          "accepted": true,
+          "decision": "accept",
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 1,
+          "gate": "audit",
+          "c_t": 1,
+          "accepted": true,
+          "decision": "accept",
+          "executionFailed": false
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "stepIndex": 2,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "autoDone": true,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L069",
+      "scenarioId": "S-HOME-02",
+      "plain": "Check that link \"Info Terbaru\" has attribute href containing \"http://127.0.0.1:8000/portal/berita\"",
+      "occurrences": [
+        {
+          "configId": "A1",
+          "label": "abl-A1",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        },
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "auto",
+          "c_t": 1,
+          "accepted": true,
+          "decision": null,
+          "executionFailed": false
+        }
+      ]
+    },
+    {
+      "itemId": "L070",
+      "scenarioId": "S-HOME-03",
+      "plain": "Check that link \"364 + Alumni tersebar di nusantara\" has attribute href containing \"href\"",
+      "occurrences": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "stepIndex": 1,
+          "gate": "reviewer",
+          "c_t": 0,
+          "accepted": false,
+          "decision": "reject",
+          "executionFailed": false
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "itemId": "S001",
+      "scenarioId": "S-HOME-01",
+      "nCriteria": 1,
+      "runs": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "done": true
+        },
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "done": true
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "done": true
+        },
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S002",
+      "scenarioId": "S-HOME-02",
+      "nCriteria": 2,
+      "runs": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S003",
+      "scenarioId": "S-HOME-02",
+      "nCriteria": 2,
+      "runs": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S004",
+      "scenarioId": "S-NEWS-05",
+      "nCriteria": 3,
+      "runs": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S005",
+      "scenarioId": "S-NEWS-05",
+      "nCriteria": 3,
+      "runs": [
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S006",
+      "scenarioId": "S-NEWS-09",
+      "nCriteria": 1,
+      "runs": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S007",
+      "scenarioId": "S-NEWS-05",
+      "nCriteria": 3,
+      "runs": [
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S008",
+      "scenarioId": "S-SMOKE-01",
+      "nCriteria": 3,
+      "runs": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S009",
+      "scenarioId": "S-SMOKE-01",
+      "nCriteria": 3,
+      "runs": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S010",
+      "scenarioId": "S-HOME-02",
+      "nCriteria": 2,
+      "runs": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "done": true
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "done": true
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S011",
+      "scenarioId": "S-HOME-05",
+      "nCriteria": 1,
+      "runs": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "done": false
+        }
+      ]
+    },
+    {
+      "itemId": "S012",
+      "scenarioId": "S-NEWS-06",
+      "nCriteria": 2,
+      "runs": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "done": true
+        },
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S013",
+      "scenarioId": "S-SMOKE-01",
+      "nCriteria": 3,
+      "runs": [
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S014",
+      "scenarioId": "S-SMOKE-01",
+      "nCriteria": 3,
+      "runs": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "done": true
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S015",
+      "scenarioId": "S-HOME-03",
+      "nCriteria": 2,
+      "runs": [
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "done": false
+        }
+      ]
+    },
+    {
+      "itemId": "S016",
+      "scenarioId": "S-AUTH-03",
+      "nCriteria": 3,
+      "runs": [
+        {
+          "configId": "A6",
+          "label": "abl-A6",
+          "done": false
+        }
+      ]
+    },
+    {
+      "itemId": "S017",
+      "scenarioId": "S-NEWS-06",
+      "nCriteria": 2,
+      "runs": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "done": true
+        },
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S018",
+      "scenarioId": "S-HOME-01",
+      "nCriteria": 1,
+      "runs": [
+        {
+          "configId": "A3",
+          "label": "abl-A3",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S019",
+      "scenarioId": "S-AUTH-05",
+      "nCriteria": 1,
+      "runs": [
+        {
+          "configId": "A2",
+          "label": "abl-A2",
+          "done": false
+        }
+      ]
+    },
+    {
+      "itemId": "S020",
+      "scenarioId": "S-AUTH-05",
+      "nCriteria": 1,
+      "runs": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S021",
+      "scenarioId": "S-NEWS-05",
+      "nCriteria": 3,
+      "runs": [
+        {
+          "configId": "A0",
+          "label": "abl-A0",
+          "done": true
+        }
+      ]
+    },
+    {
+      "itemId": "S022",
+      "scenarioId": "S-NEWS-06",
+      "nCriteria": 2,
+      "runs": [
+        {
+          "configId": "A7",
+          "label": "abl-A7",
+          "done": true
+        }
+      ]
+    }
+  ]
+}

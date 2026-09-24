@@ -1,0 +1,27 @@
+{
+  "label": "abl-A1",
+  "retrieval": false,
+  "sources": [],
+  "retrievers": [],
+  "corpus": {},
+  "reviewer": "stub",
+  "persistMemory": false,
+  "memoryDir": "/var/folders/cn/wjs9rhzd4fs4nms594v411v40000gn/T/raqa-mem-abl-A1-u6GCUW",
+  "auditSeed": 1,
+  "auditRate": 0.05,
+  "tau": 0.8,
+  "seed": 42,
+  "maxSteps": 8,
+  "model": "qwen3:4b",
+  "scenarios": 17,
+  "done": 0,
+  "verdicts": {
+    "INCOMPLETE": 17
+  },
+  "tsrPct": 0,
+  "harPct": 0,
+  "totalSteps": 16,
+  "escalations": 16,
+  "compiledCount": 0,
+  "generatedAt": "2026-09-23T15:01:00.130Z"
+}

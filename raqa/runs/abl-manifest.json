@@ -1,0 +1,67 @@
+{
+  "startedAt": "2026-09-23T14:55:09.460Z",
+  "commit": "7b08f799eb2e7f56862f3645048e35d45cd3389e",
+  "ids": [
+    "S-SMOKE-01",
+    "S-NAV-02",
+    "S-HOME-01",
+    "S-HOME-02",
+    "S-HOME-03",
+    "S-HOME-04",
+    "S-HOME-05",
+    "S-HOME-06",
+    "S-NEWS-01",
+    "S-NEWS-05",
+    "S-NEWS-06",
+    "S-NEWS-07",
+    "S-NEWS-09",
+    "S-AUTH-01",
+    "S-AUTH-02",
+    "S-AUTH-03",
+    "S-AUTH-05"
+  ],
+  "maxSteps": 8,
+  "runs": [
+    {
+      "label": "abl-A1",
+      "configId": "A1",
+      "configLabel": "Tanpa retrieval (= B2)",
+      "exitCode": 0,
+      "seconds": 350.701,
+      "cli": "scripts/run-scenarios.js --label abl-A1 --ids S-SMOKE-01,S-NAV-02,S-HOME-01,S-HOME-02,S-HOME-03,S-HOME-04,S-HOME-05,S-HOME-06,S-NEWS-01,S-NEWS-05,S-NEWS-06,S-NEWS-07,S-NEWS-09,S-AUTH-01,S-AUTH-02,S-AUTH-03,S-AUTH-05 --max-steps 8 --memory-dir /var/folders/cn/wjs9rhzd4fs4nms594v411v40000gn/T/raqa-mem-abl-A1-u6GCUW --no-persist --reviewer stub --screenshots --no-retrieval"
+    },
+    {
+      "label": "abl-A2",
+      "configId": "A2",
+      "configLabel": "− test case & acceptance criteria (catalog)",
+      "exitCode": 0,
+      "seconds": 1839.079,
+      "cli": "scripts/run-scenarios.js --label abl-A2 --ids S-SMOKE-01,S-NAV-02,S-HOME-01,S-HOME-02,S-HOME-03,S-HOME-04,S-HOME-05,S-HOME-06,S-NEWS-01,S-NEWS-05,S-NEWS-06,S-NEWS-07,S-NEWS-09,S-AUTH-01,S-AUTH-02,S-AUTH-03,S-AUTH-05 --max-steps 8 --memory-dir /var/folders/cn/wjs9rhzd4fs4nms594v411v40000gn/T/raqa-mem-abl-A2-RbPxSq --no-persist --reviewer stub --screenshots --sources traces,defects,qa_docs,verdicts --retrievers bm25,dense"
+    },
+    {
+      "label": "abl-A3",
+      "configId": "A3",
+      "configLabel": "− execution traces",
+      "exitCode": 0,
+      "seconds": 6292.724,
+      "cli": "scripts/run-scenarios.js --label abl-A3 --ids S-SMOKE-01,S-NAV-02,S-HOME-01,S-HOME-02,S-HOME-03,S-HOME-04,S-HOME-05,S-HOME-06,S-NEWS-01,S-NEWS-05,S-NEWS-06,S-NEWS-07,S-NEWS-09,S-AUTH-01,S-AUTH-02,S-AUTH-03,S-AUTH-05 --max-steps 8 --memory-dir /var/folders/cn/wjs9rhzd4fs4nms594v411v40000gn/T/raqa-mem-abl-A3-mnmqhw --no-persist --reviewer stub --screenshots --sources catalog,defects,qa_docs,verdicts --retrievers bm25,dense"
+    },
+    {
+      "label": "abl-A6",
+      "configId": "A6",
+      "configLabel": "BM25 saja (tanpa dense)",
+      "exitCode": 0,
+      "seconds": 556.483,
+      "cli": "scripts/run-scenarios.js --label abl-A6 --ids S-SMOKE-01,S-NAV-02,S-HOME-01,S-HOME-02,S-HOME-03,S-HOME-04,S-HOME-05,S-HOME-06,S-NEWS-01,S-NEWS-05,S-NEWS-06,S-NEWS-07,S-NEWS-09,S-AUTH-01,S-AUTH-02,S-AUTH-03,S-AUTH-05 --max-steps 8 --memory-dir /var/folders/cn/wjs9rhzd4fs4nms594v411v40000gn/T/raqa-mem-abl-A6-OWxbeG --no-persist --reviewer stub --screenshots --sources catalog,traces,defects,qa_docs,verdicts --retrievers bm25"
+    },
+    {
+      "label": "abl-A7",
+      "configId": "A7",
+      "configLabel": "Dense saja (tanpa BM25)",
+      "exitCode": 0,
+      "seconds": 574.177,
+      "cli": "scripts/run-scenarios.js --label abl-A7 --ids S-SMOKE-01,S-NAV-02,S-HOME-01,S-HOME-02,S-HOME-03,S-HOME-04,S-HOME-05,S-HOME-06,S-NEWS-01,S-NEWS-05,S-NEWS-06,S-NEWS-07,S-NEWS-09,S-AUTH-01,S-AUTH-02,S-AUTH-03,S-AUTH-05 --max-steps 8 --memory-dir /var/folders/cn/wjs9rhzd4fs4nms594v411v40000gn/T/raqa-mem-abl-A7-08lw18 --no-persist --reviewer stub --screenshots --sources catalog,traces,defects,qa_docs,verdicts --retrievers dense"
+    }
+  ],
+  "finishedAt": "2026-09-23T17:35:22.698Z"
+}

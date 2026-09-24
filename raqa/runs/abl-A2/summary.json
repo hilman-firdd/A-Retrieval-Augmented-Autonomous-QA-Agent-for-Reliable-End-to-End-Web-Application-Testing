@@ -1,0 +1,39 @@
+{
+  "label": "abl-A2",
+  "retrieval": true,
+  "sources": [
+    "traces",
+    "defects",
+    "qa_docs",
+    "verdicts"
+  ],
+  "retrievers": [
+    "bm25",
+    "dense"
+  ],
+  "corpus": {
+    "baseline-runs": 101,
+    "readme": 6
+  },
+  "reviewer": "stub",
+  "persistMemory": false,
+  "memoryDir": "/var/folders/cn/wjs9rhzd4fs4nms594v411v40000gn/T/raqa-mem-abl-A2-RbPxSq",
+  "auditSeed": 1,
+  "auditRate": 0.05,
+  "tau": 0.8,
+  "seed": 42,
+  "maxSteps": 8,
+  "model": "qwen3:4b",
+  "scenarios": 17,
+  "done": 5,
+  "verdicts": {
+    "PASS": 5,
+    "INCOMPLETE": 12
+  },
+  "tsrPct": 29.41,
+  "harPct": 0,
+  "totalSteps": 24,
+  "escalations": 14,
+  "compiledCount": 5,
+  "generatedAt": "2026-09-23T15:31:39.214Z"
+}
