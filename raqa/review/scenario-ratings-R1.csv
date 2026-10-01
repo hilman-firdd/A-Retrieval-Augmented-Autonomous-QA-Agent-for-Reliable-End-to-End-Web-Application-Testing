@@ -1,0 +1,68 @@
+item_id,goal,acceptance_criteria,asserted_steps,covered_criteria_numbers,overall_full_partial_none,tautology_yes_no,comment
+S001,The 'Daftar PSB' call-to-action leads to the admission site.,1. href is https://psb.pesantrenpersis27.com,"1. Check that link ""Daftar PSB "" has attribute href containing ""https://psb.pesantrenpersis27.com""
+2. Check that link ""Daftar PSB "" has attribute href containing ""https://psb.pesantrenpersis27.com""",1,full,no,-
+S002,The 'Info Terbaru' call-to-action opens the news list.,"1. URL is /portal/berita
+2. H1 is 'Berita Terbaru'","1. Check that link ""Info Terbaru"" has attribute href containing ""http://127.0.0.1:8000/portal/berita""
+2. Check that link ""Info Terbaru"" has attribute href containing ""http://127.0.0.1:8000/portal/berita""",1,partial,no,
+S003,The 'Info Terbaru' call-to-action opens the news list.,"1. URL is /portal/berita
+2. H1 is 'Berita Terbaru'","1. Check that link ""Info Terbaru"" has attribute href containing ""http://127.0.0.1:8000/portal/berita""
+2. Check that link ""Info Terbaru"" has attribute href containing ""http://127.0.0.1:8000/portal/berita""",1,partial,no,
+S004,Opening an article from the list shows consistent data.,"1. URL equals card href
+2. H1 equals card title
+3. Publication date equals card date","1. Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""
+2. Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""",1,partial,no,
+S005,Opening an article from the list shows consistent data.,"1. URL equals card href
+2. H1 equals card title
+3. Publication date equals card date","1. Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""
+2. Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""",1,partial,no,
+S006,A visitor opens a student article from the list.,1. Article H1 equals the card title,"1. Check that link ""Menata Amal Shalih dalam Skala Prioritas"" has attribute href containing ""http://127.0.0.1:8000/portal/menata-amal-shalih-dalam-skala-prioritas""
+2. Check that link ""Menata Amal Shalih dalam Skala Prioritas"" has attribute href containing ""http://127.0.0.1:8000/portal/menata-amal-shalih-dalam-skala-prioritas""",,none,no,
+S007,Opening an article from the list shows consistent data.,"1. URL equals card href
+2. H1 equals card title
+3. Publication date equals card date","1. Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""
+2. Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""",1,partial,no,
+S008,A visitor opens the portal home page.,"1. HTTP status < 400
+2. Page title contains 'Pesantren PERSIS 27'
+3. Main heading contains 'Tafaqquh Fid Din'","1. Check that the page title contains ""Portal Pesantren PERSIS 27 Situaksan""
+2. Check that the page title contains ""Portal Pesantren PERSIS 27 Situaksan""",2,partial,no,
+S009,A visitor opens the portal home page.,"1. HTTP status < 400
+2. Page title contains 'Pesantren PERSIS 27'
+3. Main heading contains 'Tafaqquh Fid Din'","1. Check that link ""Daftar PSB"" has attribute href containing ""https://psb.pesantrenpersis27.com""
+2. Check that link ""Daftar PSB"" has attribute href containing ""https://psb.pesantrenpersis27.com""",,none,no,
+S010,The 'Info Terbaru' call-to-action opens the news list.,"1. URL is /portal/berita
+2. H1 is 'Berita Terbaru'","1. Check that link ""Info Terbaru"" has attribute href containing ""http://127.0.0.1:8000/portal/berita""
+2. Check that link ""Info Terbaru"" has attribute href containing ""http://127.0.0.1:8000/portal/berita""",1,partial,no,
+S011,A visitor opens the first latest-news item from the home page.,1. Article H1 equals the card title,"1. Check that link ""Lihat Semua"" has attribute href containing ""http://127.0.0.1:8000/portal/berita""",,none,no,
+S012,Breadcrumb and share links refer to the current article.,"1. Breadcrumb has Beranda and Berita
+2. WhatsApp/Facebook/Twitter links contain the article URL","1. Check that link ""WhatsApp"" has attribute href containing ""https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026""
+2. Check that link ""WhatsApp"" has attribute href containing ""https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026""",2,partial,no,
+S013,A visitor opens the portal home page.,"1. HTTP status < 400
+2. Page title contains 'Pesantren PERSIS 27'
+3. Main heading contains 'Tafaqquh Fid Din'","1. Check that the page title contains ""Portal Pesantren PERSIS 27 Situaksan""
+2. Check that link ""Daftar PSB "" has attribute href containing ""https://psb.pesantrenpersis27.com""
+3. Check that link ""Daftar PSB"" has attribute href containing ""https://psb.pesantrenpersis27.com""
+4. Check that link ""Daftar PSB"" has attribute href containing ""https://psb.pesantrenpersis27.com""",2,partial,no,
+S014,A visitor opens the portal home page.,"1. HTTP status < 400
+2. Page title contains 'Pesantren PERSIS 27'
+3. Main heading contains 'Tafaqquh Fid Din'","1. Check that the page title contains ""Portal Pesantren PERSIS 27 Situaksan""
+2. Check that the page title contains ""Portal Pesantren PERSIS 27 Situaksan""",2,partial,no,
+S015,"Statistic links (alumni, santri per jenjang) lead to valid targets.","1. Alumni page returns < 400
+2. Anchors #tsanawiyyah and #muallimin exist on the santri page","1. Check that link ""364 + Alumni tersebar di nusantara "" has attribute href containing ""http://127.0.0.1:8000/portal/halaman/alumni""",1,partial,no,
+S016,Invalid credentials are rejected with a clear message.,"1. Remains on /login
+2. Error message visible
+3. Password field is cleared","1. Check that textbox ""Password"" has attribute value containing ""clear""",,partial,no,
+S017,Breadcrumb and share links refer to the current article.,"1. Breadcrumb has Beranda and Berita
+2. WhatsApp/Facebook/Twitter links contain the article URL","1. Check that link ""WhatsApp"" has attribute href containing ""https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026""
+2. Check that link ""WhatsApp"" has attribute href containing ""https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026""",2,partial,no,
+S018,The 'Daftar PSB' call-to-action leads to the admission site.,1. href is https://psb.pesantrenpersis27.com,"1. Check that link ""Daftar PSB "" has attribute href containing ""https://psb.pesantrenpersis27.com""
+2. Check that link ""Daftar PSB "" has attribute href containing ""https://psb.pesantrenpersis27.com""",1,full,no,
+S019,'Kembali ke Landing Page' returns to the portal.,1. URL is the portal root,"1. Check that link ""Kembali ke Landing Page"" has attribute href containing ""http://127.0.0.1:8000""",1,full,no,
+S020,'Kembali ke Landing Page' returns to the portal.,1. URL is the portal root,"1. Check that link ""Kembali ke Landing Page"" has attribute href containing ""http://127.0.0.1:8000""
+2. Check that link ""Kembali ke Landing Page"" has attribute href containing ""http://127.0.0.1:8000""",1,full,no,
+S021,Opening an article from the list shows consistent data.,"1. URL equals card href
+2. H1 equals card title
+3. Publication date equals card date","1. Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""
+2. Check that link ""SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027"" has attribute href containing ""http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027""",1,partial,no,
+S022,Breadcrumb and share links refer to the current article.,"1. Breadcrumb has Beranda and Berita
+2. WhatsApp/Facebook/Twitter links contain the article URL","1. Check that link ""WhatsApp"" has attribute href containing ""https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026""
+2. Check that link ""WhatsApp"" has attribute href containing ""https://wa.me/?text=JIHAD+ISTIMEWA+%26+PELEPASAN+JAMA%E2%80%99AH+HAJI+2026+http%3A%2F%2F127.0.0.1%3A8000%2Fportal%2Fjihad-istimewa-pelepasan-jamaah-haji-2026""",2,partial,no,

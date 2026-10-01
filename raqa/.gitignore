@@ -1,3 +1,7 @@
 node_modules/
 .env
 .index/
+
+# Berkas kembalian reviewer (mentah; metadata Excel bisa memuat nama asli), paket kirim, dan salinan screenshot
+paket-reviewer/
+review/*.xlsx

@@ -111,7 +111,8 @@ function main() {
   const consensus = new Map(key.steps.map((it, u) => {
     const r1 = gR1.map((r) => r[u]).filter((v) => v !== null);
     const r3 = plurality(gR3.map((r) => (r[u] === null ? null : String(r[u]))));
-    return [it.itemId, { relevance: r1.length ? median(r1) : null, decision: r3 === null ? null : Number(r3) }];
+    const r2 = plurality(gR2.map((r) => (r[u] === null ? null : String(r[u]))));
+    return [it.itemId, { relevance: r1.length ? median(r1) : null, decision: r3 === null ? null : Number(r3), correct: r2 === null ? null : Number(r2) }];
   }));
 
   // ---------- 2. Kualitas langkah per konfigurasi ----------
@@ -179,9 +180,15 @@ function main() {
     const gt = fs.existsSync(args.groundTruth) ? JSON.parse(fs.readFileSync(args.groundTruth, 'utf8')).expected : {};
     out.groundTruth = { file: fs.existsSync(args.groundTruth) ? args.groundTruth : null, expectedFail: Object.keys(gt).filter((k) => gt[k] === 'FAIL') };
     const relevanceOf = new Map(key.steps.flatMap((it) => it.occurrences.map((o) => [`${o.label}|${it.scenarioId}|${o.stepIndex}`, consensus.get(it.itemId)?.relevance ?? null])));
+    const correctOf = new Map(key.steps.flatMap((it) => it.occurrences.map((o) => [`${o.label}|${it.scenarioId}|${o.stepIndex}`, consensus.get(it.itemId)?.correct ?? null])));
+    const failedIdx = (r) => r.trace.findIndex((t) => t.executionFailed);
     const failedRelevance = (label, r) => {
-      const idx = r.trace.findIndex((t) => t.executionFailed);
+      const idx = failedIdx(r);
       return idx === -1 ? null : relevanceOf.get(`${label}|${r.id}|${idx + 1}`) ?? null;
+    };
+    const failedCorrect = (label, r) => {
+      const idx = failedIdx(r);
+      return idx === -1 ? null : correctOf.get(`${label}|${r.id}|${idx + 1}`) ?? null;
     };
     // Hasil per konfigurasi per skenario (dari results.json: skenario tanpa assertion = gagal, cakupan 0)
     const perCfg = {};
@@ -201,6 +208,12 @@ function main() {
           // (harus FAIL) agen memvonis FAIL lewat assertion yang dinilai reviewer relevan (skor 2).
           verified: expected === 'PASS' ? !!(r.done && (ov === 'full' || ov === 'partial')) : (verdict === 'FAIL' && failRel === 2),
           strict: expected === 'PASS' ? !!(r.done && ov === 'full') : (verdict === 'FAIL' && failRel === 2),
+          // Sensitivitas (ditambahkan SETELAH melihat data, dilaporkan terpisah): FAIL hanya dihitung sebagai
+          // deteksi cacat bila assertion yang gagal juga dinilai berekspektasi BENAR (konsensus R2 = yes).
+          // Tanpa ini, assertion relevan dengan ekspektasi keliru yang kebetulan gagal ikut terhitung.
+          verifiedStrictDetection: expected === 'PASS'
+            ? !!(r.done && (ov === 'full' || ov === 'partial'))
+            : (verdict === 'FAIL' && failRel === 2 && failedCorrect(label, r) === 1),
           falseDone: !!(r.done && ov === 'none'),
           maskedDefect: expected === 'FAIL' && verdict === 'PASS', // agen "lulus" padahal cacat nyata ada
           tautology: it ? taut.get(it.itemId) === 'yes' : false,
@@ -258,6 +271,35 @@ function main() {
       `Ground truth: ${out.groundTruth.file ? `${out.groundTruth.expectedFail.length} skenario harus FAIL (${out.groundTruth.expectedFail.join(', ')})` : 'tidak ada file; semua skenario dianggap harus PASS'}.`,
       'Δ dan CI: selisih terhadap acuan, CI 95% bootstrap dengan resampling skenario. p disesuaikan Holm atas semua konfigurasi.', '',
       `Reliabilitas skenario: cakupan per-kriteria α = ${f3(out.irr.criterionCoverage_nominal.alpha)}, penilaian keseluruhan α (ordinal) = ${f3(out.irr.scenarioOverall_ordinal.alpha)}.`, '');
+
+    out.sensitivityStrictDetection = {};
+    md.push('## Tabel A1-S — Sensitivitas: deteksi cacat butuh ekspektasi benar', '',
+      'Definisi ini ditetapkan SETELAH data terlihat, sehingga dilaporkan sebagai analisis sensitivitas, bukan hasil utama. ' +
+      'Skenario harus-FAIL dihitung benar hanya bila assertion yang gagal dinilai relevan (R1 = 2) DAN ekspektasinya benar (konsensus R2 = yes).', '',
+      `| Konfigurasi | TSR terverifikasi (utama) | TSR terverifikasi (sensitivitas) | Δ sensitivitas vs ${args.baseline} [95% CI] | p (McNemar, Holm) |`, '|---|---|---|---|---|');
+    const sOthers = [];
+    for (const c of rows) {
+      const d = perCfg[c];
+      const common = ids.filter((id) => d[id]);
+      const v = common.reduce((s, id) => s + (d[id].verifiedStrictDetection ? 1 : 0), 0) / common.length;
+      const r = { verifiedTsr: v };
+      if (c !== args.baseline) {
+        const bOnly = common.filter((id) => perCfg[args.baseline][id].verifiedStrictDetection && !d[id].verifiedStrictDetection).length;
+        const cOnly = common.filter((id) => !perCfg[args.baseline][id].verifiedStrictDetection && d[id].verifiedStrictDetection).length;
+        r.mcnemarP = S.mcnemarExact(bOnly, cOnly);
+        r.delta = common.reduce((s, id) => s + (d[id].verifiedStrictDetection ? 1 : 0) - (perCfg[args.baseline][id].verifiedStrictDetection ? 1 : 0), 0) / common.length;
+        r.deltaCi = S.clusterBootstrapCI(common, (smp) => smp.reduce((a, id) => a + (d[id].verifiedStrictDetection ? 1 : 0) - (perCfg[args.baseline][id].verifiedStrictDetection ? 1 : 0), 0) / smp.length, { seed: 3 });
+        sOthers.push(c);
+      }
+      out.sensitivityStrictDetection[c] = r;
+    }
+    S.holm(sOthers.map((c) => out.sensitivityStrictDetection[c].mcnemarP)).forEach((p, i) => { out.sensitivityStrictDetection[sOthers[i]].mcnemarPHolm = p; });
+    for (const c of rows) {
+      const r = out.sensitivityStrictDetection[c];
+      const base = c === args.baseline;
+      md.push(`| ${c}${base ? ' (acuan)' : ''} | ${pct(out.scenario[c].verifiedTsr)} | ${pct(r.verifiedTsr)} | ${base ? '—' : `${(100 * r.delta).toFixed(1)} pp [${(100 * r.deltaCi[0]).toFixed(1)}, ${(100 * r.deltaCi[1]).toFixed(1)}]`} | ${base ? '—' : f3(r.mcnemarPHolm)} |`);
+    }
+    md.push('');
   } else {
     md.push('## Tabel A1 — Studi ablasi', '', 'n/a: butuh minimal 2 file scenario-ratings-*.csv.', '');
   }
