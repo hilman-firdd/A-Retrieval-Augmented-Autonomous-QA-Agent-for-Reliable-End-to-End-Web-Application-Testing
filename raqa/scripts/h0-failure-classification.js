@@ -80,6 +80,30 @@ if (cmd === 'template') {
   for (const r of CATS) console.log([r, ...CATS.map((c) => String(a.filter((x, i) => x === r && b[i] === c).length))].map((c) => c.padEnd(12)).join(''));
   console.log('\nKetidaksepakatan (diselesaikan lewat diskusi, dan hasilnya dilaporkan di naskah):');
   key.forEach((k, i) => { if (a[i] !== b[i]) console.log(`  ${k.itemId}: penulis=${a[i]} rater=${b[i]}`); });
+} else if (cmd === 'final') {
+  // Kappa SETELAH diskusi: sama seperti 'analyze', tapi item yang tidak sepakat memakai kategori final
+  // dari file overrides (item_id,kategori_final), hasil kesepakatan penulis+rater, bukan salah satu pihak.
+  const overridesFile = process.argv[4];
+  if (!overridesFile) throw new Error('Pakai: final <rater.csv> <overrides.csv>');
+  const key = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'review', 'h0-KEY-jangan-dibagikan.json'), 'utf8'));
+  const parseSimple = (t) => t.trim().split(/\r?\n/).slice(1).map((l) => l.split(','));
+  const overrides = new Map(parseSimple(fs.readFileSync(overridesFile, 'utf8')).map(([id, cat]) => [id, cat.trim().toLowerCase()]));
+  const text = fs.readFileSync(file, 'utf8').replace(/^﻿/, '');
+  const lines = text.split(/\r?\n/).filter(Boolean);
+  const header = lines[0].split(',').map((h) => h.replace(/"/g, ''));
+  const col = header.findIndex((h) => h.startsWith('class_'));
+  const rater = new Map(lines.slice(1).map((l) => { const cells = l.match(/("([^"]|"")*"|[^,]*)(,|$)/g).map((c) => c.replace(/,$/, '').replace(/^"|"$/g, '').replace(/""/g, '"')); return [cells[0], cells[col].trim().toLowerCase()]; }));
+  const a = []; const b = [];
+  for (const k of key) {
+    const v = overrides.get(k.itemId) ?? rater.get(k.itemId);
+    if (!CATS.includes(v)) throw new Error(`${k.itemId}: kategori "${v}" tidak valid`);
+    a.push(overrides.has(k.itemId) ? v : k.author); // item yang direvisi: kedua sisi disamakan ke keputusan final
+    b.push(v);
+  }
+  const agree = a.filter((x, i) => x === b[i]).length;
+  console.log(`Setelah diskusi -- kesepakatan ${agree}/${a.length} (item yang direvisi disamakan ke keputusan final, sehingga kappa naik menjadi 1,0 secara definisi; laporkan sebagai "kesepakatan akhir 100% setelah diskusi", BUKAN sebagai kappa independen kedua).`);
+  console.log('\nKlasifikasi final ke-19 item:');
+  key.forEach((k, i) => console.log(`  ${k.itemId}: ${b[i]}${overrides.has(k.itemId) ? '  (direvisi dari penulis=' + k.author + ')' : ''}`));
 } else {
-  console.log('Pakai: template | analyze <csv>');
+  console.log('Pakai: template | analyze <csv> | final <csv> <overrides.csv>');
 }

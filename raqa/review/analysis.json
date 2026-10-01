@@ -1,0 +1,1684 @@
+{
+  "reviewers": [
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "nStepItems": 70,
+  "nScenarioItems": 22,
+  "irr": {
+    "R1_relevance_ordinal": {
+      "alpha": 0.6181087896396482,
+      "ci": [
+        0.47426801370038085,
+        0.7431150793650794
+      ]
+    },
+    "R2_correct_nominal": {
+      "alpha": 0.2957130358705161,
+      "ci": [
+        0.14945780292314947,
+        0.42922794117647056
+      ]
+    },
+    "R3_decision_nominal": {
+      "alpha": 0.4813697793387799,
+      "ci": [
+        0.3553646177572153,
+        0.6034155597722961
+      ]
+    },
+    "R3_fleiss_kappa": 0.47888829502939634,
+    "criterionCoverage_nominal": {
+      "alpha": 0.7204968944099379,
+      "ci": [
+        0.5407685098406747,
+        0.8706896551724138
+      ]
+    },
+    "scenarioOverall_ordinal": {
+      "alpha": 0.3205540250994797,
+      "ci": [
+        -0.0924751132124404,
+        0.6877527899540479
+      ]
+    }
+  },
+  "stepQuality": {
+    "A0": {
+      "steps": 22,
+      "judged": 21,
+      "acceptRate": 0.5238095238095238,
+      "acceptCi": [
+        0.32369534582844434,
+        0.7165599389846582
+      ],
+      "irrelevantRate": 0.4090909090909091,
+      "escalationRate": 0.5909090909090909
+    },
+    "A1": {
+      "steps": 16,
+      "judged": 15,
+      "acceptRate": 0.4666666666666667,
+      "acceptCi": [
+        0.24809535365737387,
+        0.698830199745016
+      ],
+      "irrelevantRate": 0.4375,
+      "escalationRate": 1
+    },
+    "A2": {
+      "steps": 24,
+      "judged": 23,
+      "acceptRate": 0.4782608695652174,
+      "acceptCi": [
+        0.29237157416646653,
+        0.6703726266357259
+      ],
+      "irrelevantRate": 0.4583333333333333,
+      "escalationRate": 0.5833333333333334
+    },
+    "A3": {
+      "steps": 22,
+      "judged": 21,
+      "acceptRate": 0.5714285714285714,
+      "acceptCi": [
+        0.3654655436930671,
+        0.7553003107462404
+      ],
+      "irrelevantRate": 0.36363636363636365,
+      "escalationRate": 0.5909090909090909
+    },
+    "A6": {
+      "steps": 25,
+      "judged": 24,
+      "acceptRate": 0.4583333333333333,
+      "acceptCi": [
+        0.2789133373121098,
+        0.6492513464108051
+      ],
+      "irrelevantRate": 0.44,
+      "escalationRate": 0.48
+    },
+    "A7": {
+      "steps": 24,
+      "judged": 23,
+      "acceptRate": 0.6086956521739131,
+      "acceptCi": [
+        0.4078552239138171,
+        0.7784237720752206
+      ],
+      "irrelevantRate": 0.3333333333333333,
+      "escalationRate": 0.5416666666666666
+    }
+  },
+  "gate": {
+    "config": "A0",
+    "n": 21,
+    "tp": 10,
+    "fn": 0,
+    "fp": 2,
+    "tn": 9,
+    "kappa": 0.8108108108108109,
+    "escalationRecall": 1,
+    "escalationRecallCi": [
+      0.7224672001371106,
+      0.9999999999999999
+    ],
+    "escalationPrecision": 0.8333333333333334,
+    "autoAcceptErrorRate": 0,
+    "autoAcceptErrorCi": [
+      0,
+      0.2991450484195441
+    ]
+  },
+  "groundTruth": {
+    "file": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/scenarios/ground-truth.json",
+    "expectedFail": [
+      "S-AUTH-03",
+      "S-LINK-02",
+      "S-QUAL-01",
+      "S-QUAL-02"
+    ]
+  },
+  "scenario": {
+    "A0": {
+      "n": 17,
+      "autoTsr": 0.29411764705882354,
+      "verifiedTsr": 0.29411764705882354,
+      "coverage": 0.1568627450980392,
+      "falseDone": 0,
+      "maskedDefects": 0
+    },
+    "A1": {
+      "n": 17,
+      "autoTsr": 0,
+      "verifiedTsr": 0,
+      "coverage": 0,
+      "falseDone": 0,
+      "maskedDefects": 0,
+      "mcnemarP": 0.0625,
+      "discordant": {
+        "baselineOnly": 5,
+        "configOnly": 0
+      },
+      "deltaTsr": -0.29411764705882354,
+      "deltaTsrCi": [
+        -0.5294117647058824,
+        -0.11764705882352941
+      ],
+      "wilcoxonP": 0.0625,
+      "wilcoxonMethod": "exact",
+      "deltaCoverage": -0.1568627450980392,
+      "deltaCoverageCi": [
+        -0.30392156862745096,
+        -0.04901960784313725
+      ],
+      "mcnemarPHolm": 0.3125,
+      "wilcoxonPHolm": 0.3125
+    },
+    "A2": {
+      "n": 17,
+      "autoTsr": 0.29411764705882354,
+      "verifiedTsr": 0.17647058823529413,
+      "coverage": 0.17647058823529413,
+      "falseDone": 2,
+      "maskedDefects": 0,
+      "mcnemarP": 0.5,
+      "discordant": {
+        "baselineOnly": 2,
+        "configOnly": 0
+      },
+      "deltaTsr": -0.11764705882352941,
+      "deltaTsrCi": [
+        -0.29411764705882354,
+        0
+      ],
+      "wilcoxonP": 1,
+      "wilcoxonMethod": "exact",
+      "deltaCoverage": 0.019607843137254905,
+      "deltaCoverageCi": [
+        -0.0784313725490196,
+        0.15686274509803924
+      ],
+      "mcnemarPHolm": 1,
+      "wilcoxonPHolm": 1
+    },
+    "A3": {
+      "n": 17,
+      "autoTsr": 0.29411764705882354,
+      "verifiedTsr": 0.29411764705882354,
+      "coverage": 0.1568627450980392,
+      "falseDone": 0,
+      "maskedDefects": 0,
+      "mcnemarP": 1,
+      "discordant": {
+        "baselineOnly": 0,
+        "configOnly": 0
+      },
+      "deltaTsr": 0,
+      "deltaTsrCi": [
+        0,
+        0
+      ],
+      "wilcoxonP": 1,
+      "wilcoxonMethod": "exact",
+      "deltaCoverage": 0,
+      "deltaCoverageCi": [
+        0,
+        0
+      ],
+      "mcnemarPHolm": 1,
+      "wilcoxonPHolm": 1
+    },
+    "A6": {
+      "n": 17,
+      "autoTsr": 0.29411764705882354,
+      "verifiedTsr": 0.35294117647058826,
+      "coverage": 0.18627450980392157,
+      "falseDone": 0,
+      "maskedDefects": 0,
+      "mcnemarP": 1,
+      "discordant": {
+        "baselineOnly": 0,
+        "configOnly": 1
+      },
+      "deltaTsr": 0.05882352941176472,
+      "deltaTsrCi": [
+        0,
+        0.17647058823529413
+      ],
+      "wilcoxonP": 1,
+      "wilcoxonMethod": "exact",
+      "deltaCoverage": 0.029411764705882353,
+      "deltaCoverageCi": [
+        0,
+        0.08823529411764706
+      ],
+      "mcnemarPHolm": 1,
+      "wilcoxonPHolm": 1
+    },
+    "A7": {
+      "n": 17,
+      "autoTsr": 0.35294117647058826,
+      "verifiedTsr": 0.35294117647058826,
+      "coverage": 0.2156862745098039,
+      "falseDone": 0,
+      "maskedDefects": 0,
+      "mcnemarP": 1,
+      "discordant": {
+        "baselineOnly": 0,
+        "configOnly": 1
+      },
+      "deltaTsr": 0.05882352941176472,
+      "deltaTsrCi": [
+        0,
+        0.17647058823529413
+      ],
+      "wilcoxonP": 1,
+      "wilcoxonMethod": "exact",
+      "deltaCoverage": 0.058823529411764705,
+      "deltaCoverageCi": [
+        0,
+        0.17647058823529413
+      ],
+      "mcnemarPHolm": 1,
+      "wilcoxonPHolm": 1
+    }
+  },
+  "sensitivityStrictDetection": {
+    "A0": {
+      "verifiedTsr": 0.29411764705882354
+    },
+    "A1": {
+      "verifiedTsr": 0,
+      "mcnemarP": 0.0625,
+      "delta": -0.29411764705882354,
+      "deltaCi": [
+        -0.5294117647058824,
+        -0.11764705882352941
+      ],
+      "mcnemarPHolm": 0.3125
+    },
+    "A2": {
+      "verifiedTsr": 0.17647058823529413,
+      "mcnemarP": 0.5,
+      "delta": -0.11764705882352941,
+      "deltaCi": [
+        -0.29411764705882354,
+        0
+      ],
+      "mcnemarPHolm": 1
+    },
+    "A3": {
+      "verifiedTsr": 0.29411764705882354,
+      "mcnemarP": 1,
+      "delta": 0,
+      "deltaCi": [
+        0,
+        0
+      ],
+      "mcnemarPHolm": 1
+    },
+    "A6": {
+      "verifiedTsr": 0.29411764705882354,
+      "mcnemarP": 1,
+      "delta": 0,
+      "deltaCi": [
+        0,
+        0
+      ],
+      "mcnemarPHolm": 1
+    },
+    "A7": {
+      "verifiedTsr": 0.35294117647058826,
+      "mcnemarP": 1,
+      "delta": 0.058823529411764705,
+      "deltaCi": [
+        0,
+        0.17647058823529413
+      ],
+      "mcnemarPHolm": 1
+    }
+  },
+  "perScenario": {
+    "A0": {
+      "S-SMOKE-01": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.3333333333333333,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NAV-02": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-01": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 1,
+        "overall": "full",
+        "verified": true,
+        "strict": true,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-02": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.5,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-03": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-04": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-05": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-06": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-05": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.3333333333333333,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-06": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.5,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-07": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-09": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-02": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-03": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "FAIL",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-05": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      }
+    },
+    "A1": {
+      "S-SMOKE-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NAV-02": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-02": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-03": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-04": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-05": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-06": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-05": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-06": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-07": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-09": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-02": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-03": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "FAIL",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-05": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      }
+    },
+    "A2": {
+      "S-SMOKE-01": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": true,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NAV-02": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-01": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 1,
+        "overall": "full",
+        "verified": true,
+        "strict": true,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-02": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.5,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-03": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-04": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-05": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-06": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-05": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-06": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.5,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-07": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-09": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": true,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-02": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-03": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "FAIL",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-05": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 1,
+        "overall": "full",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      }
+    },
+    "A3": {
+      "S-SMOKE-01": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.3333333333333333,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NAV-02": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-01": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 1,
+        "overall": "full",
+        "verified": true,
+        "strict": true,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-02": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.5,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-03": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-04": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-05": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-06": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-05": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.3333333333333333,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-06": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.5,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-07": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-09": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-02": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-03": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "FAIL",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-05": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      }
+    },
+    "A6": {
+      "S-SMOKE-01": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.3333333333333333,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NAV-02": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-01": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 1,
+        "overall": "full",
+        "verified": true,
+        "strict": true,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-02": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.5,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-03": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0.5,
+        "overall": "partial",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-04": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-05": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-06": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-05": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.3333333333333333,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-06": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.5,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-07": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-09": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-02": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-03": {
+        "done": false,
+        "verdict": "FAIL",
+        "expected": "FAIL",
+        "coverage": 0,
+        "overall": "partial",
+        "verified": true,
+        "strict": true,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-05": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      }
+    },
+    "A7": {
+      "S-SMOKE-01": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.3333333333333333,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NAV-02": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-01": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 1,
+        "overall": "full",
+        "verified": true,
+        "strict": true,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-02": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.5,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-03": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-04": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-05": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-HOME-06": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-05": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.3333333333333333,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-06": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 0.5,
+        "overall": "partial",
+        "verified": true,
+        "strict": false,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-07": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-NEWS-09": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-01": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-02": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "PASS",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-03": {
+        "done": false,
+        "verdict": "INCOMPLETE",
+        "expected": "FAIL",
+        "coverage": 0,
+        "overall": "none",
+        "verified": false,
+        "strict": false,
+        "verifiedStrictDetection": false,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      },
+      "S-AUTH-05": {
+        "done": true,
+        "verdict": "PASS",
+        "expected": "PASS",
+        "coverage": 1,
+        "overall": "full",
+        "verified": true,
+        "strict": true,
+        "verifiedStrictDetection": true,
+        "falseDone": false,
+        "maskedDefect": false,
+        "tautology": false
+      }
+    }
+  }
+}
