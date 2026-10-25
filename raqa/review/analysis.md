@@ -35,6 +35,32 @@ Accept = konsensus mayoritas "accept"; item tanpa mayoritas tidak dihitung pada 
 - Presisi eskalasi, P(manusia tidak menerima | dieskalasi): 83.3%
 - Galat lolos-otomatis, P(manusia tidak menerima | lolos otomatis): 0.0% [0.0%, 29.9%]
 
+## Tabel H3-K — Kontribusi komponen gate (τ = 0.8)
+
+Keputusan dihitung ulang dari skor tercatat; undian audit acak tidak dihitung sebagai keputusan gate.
+
+**A0** (n = 21; nilai c_act: 1; nilai c_orc: 1; langkah self-ref: 10)
+
+| Varian | TP | FN | FP | TN | Cohen κ | Recall eskalasi | Galat lolos-otomatis [95% CI] |
+|---|---|---|---|---|---|---|---|
+| Gate penuh (skor, tanpa audit acak) | 10 | 0 | 1 | 10 | 0.905 | 100.0% | 0.0% [0.0%, 27.8%] |
+| min(c_act, c_loc, c_orc) tanpa aturan self-ref | 1 | 9 | 1 | 10 | 0.009 | 10.0% | 47.4% [27.3%, 68.3%] |
+| Aturan self-ref saja | 10 | 0 | 0 | 11 | 1.000 | 100.0% | 0.0% [0.0%, 25.9%] |
+| c_loc saja | 1 | 9 | 1 | 10 | 0.009 | 10.0% | 47.4% [27.3%, 68.3%] |
+| Terima semua (tanpa gate) | 0 | 10 | 0 | 11 | n/a | 0.0% | 47.6% [28.3%, 67.6%] |
+
+**semua konfigurasi ber-retrieval (gabungan kemunculan)** (n = 112; nilai c_act: 0, 1; nilai c_orc: 1; langkah self-ref: 46)
+
+| Varian | TP | FN | FP | TN | Cohen κ | Recall eskalasi | Galat lolos-otomatis [95% CI] |
+|---|---|---|---|---|---|---|---|
+| Gate penuh (skor, tanpa audit acak) | 47 | 6 | 6 | 53 | 0.785 | 88.7% | 10.2% [4.7%, 20.5%] |
+| min(c_act, c_loc, c_orc) tanpa aturan self-ref | 4 | 49 | 6 | 53 | -0.027 | 7.5% | 48.0% [38.6%, 57.6%] |
+| Aturan self-ref saja | 46 | 7 | 0 | 59 | 0.874 | 86.8% | 10.6% [5.2%, 20.3%] |
+| c_loc saja | 3 | 50 | 6 | 53 | -0.047 | 5.7% | 48.5% [39.1%, 58.1%] |
+| Terima semua (tanpa gate) | 0 | 53 | 0 | 59 | n/a | 0.0% | 47.3% [38.3%, 56.5%] |
+
+TP = manusia tidak menerima & gate mengeskalasi; FN = manusia tidak menerima & gate meloloskan. Gabungan kemunculan menghitung item yang sama lebih dari sekali bila muncul di beberapa konfigurasi.
+
 ## Tabel A1 — Studi ablasi (tingkat skenario, n = 17 skenario)
 
 | Konfigurasi | TSR otomatis | TSR terverifikasi | Δ vs A0 [95% CI] | p (McNemar, Holm) | Cakupan kriteria | Δ cakupan [95% CI] | p (Wilcoxon, Holm) | "Selesai" palsu | Cacat tertutupi |

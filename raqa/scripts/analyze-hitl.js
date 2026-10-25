@@ -156,6 +156,64 @@ function main() {
     `- Presisi eskalasi, P(manusia tidak menerima | dieskalasi): ${pct(out.gate.escalationPrecision)}`,
     `- Galat lolos-otomatis, P(manusia tidak menerima | lolos otomatis): ${pct(out.gate.autoAcceptErrorRate)} ${ci(out.gate.autoAcceptErrorCi)}`, '');
 
+  // ---------- 3b. Kontribusi komponen gate ----------
+  // Keputusan dihitung ulang dari skor yang tercatat (lolos bila skor >= tau), sehingga undian audit acak
+  // tidak dihitung sebagai keputusan gate (berbeda dari H3, yang menghitung 'audit' sebagai eskalasi).
+  // Aturan self-referential (agent.js: expectAttribute dengan value == nama atribut -> c_t = 0) dipisahkan
+  // dari skor min(c_act, c_loc, c_orc) untuk melihat sumber kesepakatan gate dengan manusia.
+  const traceOf = new Map();
+  const cfgMeta = {};
+  for (const label of key.labels) {
+    const sum = JSON.parse(fs.readFileSync(path.join(args.runsDir, label, 'summary.json'), 'utf8'));
+    cfgMeta[label.slice(key.prefix.length + 1)] = { retrieval: sum.retrieval, tau: sum.tau };
+    for (const r of JSON.parse(fs.readFileSync(path.join(args.runsDir, label, 'results.json'), 'utf8'))) {
+      r.trace.forEach((t, i) => traceOf.set(`${label}|${r.id}|${i + 1}`, t.scores));
+    }
+  }
+  const tau = cfgMeta[args.gateConfig]?.tau ?? 0.8;
+  const scored = occ.filter((x) => x.decision !== null).map((x) => {
+    const s = traceOf.get(`${x.label}|${x.scenarioId}|${x.stepIndex}`);
+    const base = Math.min(s.c_act, s.c_loc, s.c_orc);
+    return { ...x, ...s, base, selfRef: s.c_t === 0 && base > 0, ok: x.decision === 0 };
+  });
+  const variants = [
+    ['Gate penuh (skor, tanpa audit acak)', (x) => x.c_t],
+    ['min(c_act, c_loc, c_orc) tanpa aturan self-ref', (x) => x.base],
+    ['Aturan self-ref saja', (x) => (x.selfRef ? 0 : 1)],
+    ['c_loc saja', (x) => x.c_loc],
+    ['Terima semua (tanpa gate)', () => 1],
+  ];
+  const evalGate = (rows, f) => {
+    const a = rows.map((x) => (f(x) >= tau ? 1 : 0)); const h = rows.map((x) => (x.ok ? 1 : 0));
+    const c = (pa, ph) => rows.filter((_, i) => a[i] === pa && h[i] === ph).length;
+    const r = { n: rows.length, tp: c(0, 0), fn: c(1, 0), fp: c(0, 1), tn: c(1, 1) };
+    r.kappa = new Set(a).size > 1 && new Set(h).size > 1 ? S.cohenKappa(a, h) : null;
+    r.recall = r.tp + r.fn ? r.tp / (r.tp + r.fn) : null;
+    r.autoErr = r.tn + r.fn ? r.fn / (r.tn + r.fn) : null; r.autoErrCi = S.wilson(r.fn, r.tn + r.fn);
+    return r;
+  };
+  const gateSets = [
+    [args.gateConfig, scored.filter((x) => x.configId === args.gateConfig)],
+    ['semua konfigurasi ber-retrieval (gabungan kemunculan)', scored.filter((x) => cfgMeta[x.configId]?.retrieval)],
+  ];
+  out.gateComponents = { tau, sets: {} };
+  md.push(`## Tabel H3-K — Kontribusi komponen gate (τ = ${tau})`, '',
+    'Keputusan dihitung ulang dari skor tercatat; undian audit acak tidak dihitung sebagai keputusan gate.', '');
+  for (const [name, rows] of gateSets) {
+    const distinct = (k) => [...new Set(rows.map((x) => +x[k].toFixed(3)))].sort((p, q) => p - q);
+    const set = { n: rows.length, selfRef: rows.filter((x) => x.selfRef).length, cActValues: distinct('c_act'), cOrcValues: distinct('c_orc'), variants: {} };
+    md.push(`**${name}** (n = ${rows.length}; nilai c_act: ${set.cActValues.join(', ')}; nilai c_orc: ${set.cOrcValues.join(', ')}; langkah self-ref: ${set.selfRef})`, '',
+      '| Varian | TP | FN | FP | TN | Cohen κ | Recall eskalasi | Galat lolos-otomatis [95% CI] |', '|---|---|---|---|---|---|---|---|');
+    for (const [vName, f] of variants) {
+      const r = evalGate(rows, f); set.variants[vName] = r;
+      md.push(`| ${vName} | ${r.tp} | ${r.fn} | ${r.fp} | ${r.tn} | ${f3(r.kappa)} | ${pct(r.recall)} | ${pct(r.autoErr)} ${ci(r.autoErrCi)} |`);
+    }
+    md.push('');
+    out.gateComponents.sets[name] = set;
+  }
+  md.push('TP = manusia tidak menerima & gate mengeskalasi; FN = manusia tidak menerima & gate meloloskan. ' +
+    'Gabungan kemunculan menghitung item yang sama lebih dari sekali bila muncul di beberapa konfigurasi.', '');
+
   // ---------- 4. Skenario: cakupan kriteria & TSR terverifikasi ----------
   let scenData = null;
   if (scenR.length >= 2) {

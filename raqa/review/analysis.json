@@ -132,6 +132,176 @@
       0.2991450484195441
     ]
   },
+  "gateComponents": {
+    "tau": 0.8,
+    "sets": {
+      "A0": {
+        "n": 21,
+        "selfRef": 10,
+        "cActValues": [
+          1
+        ],
+        "cOrcValues": [
+          1
+        ],
+        "variants": {
+          "Gate penuh (skor, tanpa audit acak)": {
+            "n": 21,
+            "tp": 10,
+            "fn": 0,
+            "fp": 1,
+            "tn": 10,
+            "kappa": 0.9049773755656109,
+            "recall": 1,
+            "autoErr": 0,
+            "autoErrCi": [
+              0,
+              0.2775327998628892
+            ]
+          },
+          "min(c_act, c_loc, c_orc) tanpa aturan self-ref": {
+            "n": 21,
+            "tp": 1,
+            "fn": 9,
+            "fp": 1,
+            "tn": 10,
+            "kappa": 0.009433962264150879,
+            "recall": 0.1,
+            "autoErr": 0.47368421052631576,
+            "autoErrCi": [
+              0.2732980516117956,
+              0.6829219075488682
+            ]
+          },
+          "Aturan self-ref saja": {
+            "n": 21,
+            "tp": 10,
+            "fn": 0,
+            "fp": 0,
+            "tn": 11,
+            "kappa": 1,
+            "recall": 1,
+            "autoErr": 0,
+            "autoErrCi": [
+              0,
+              0.2588329669680317
+            ]
+          },
+          "c_loc saja": {
+            "n": 21,
+            "tp": 1,
+            "fn": 9,
+            "fp": 1,
+            "tn": 10,
+            "kappa": 0.009433962264150879,
+            "recall": 0.1,
+            "autoErr": 0.47368421052631576,
+            "autoErrCi": [
+              0.2732980516117956,
+              0.6829219075488682
+            ]
+          },
+          "Terima semua (tanpa gate)": {
+            "n": 21,
+            "tp": 0,
+            "fn": 10,
+            "fp": 0,
+            "tn": 11,
+            "kappa": null,
+            "recall": 0,
+            "autoErr": 0.47619047619047616,
+            "autoErrCi": [
+              0.28344006101534175,
+              0.6763046541715557
+            ]
+          }
+        }
+      },
+      "semua konfigurasi ber-retrieval (gabungan kemunculan)": {
+        "n": 112,
+        "selfRef": 46,
+        "cActValues": [
+          0,
+          1
+        ],
+        "cOrcValues": [
+          1
+        ],
+        "variants": {
+          "Gate penuh (skor, tanpa audit acak)": {
+            "n": 112,
+            "tp": 47,
+            "fn": 6,
+            "fp": 6,
+            "tn": 53,
+            "kappa": 0.7850975375759515,
+            "recall": 0.8867924528301887,
+            "autoErr": 0.1016949152542373,
+            "autoErrCi": [
+              0.04744797246240465,
+              0.2046381362623251
+            ]
+          },
+          "min(c_act, c_loc, c_orc) tanpa aturan self-ref": {
+            "n": 112,
+            "tp": 4,
+            "fn": 49,
+            "fp": 6,
+            "tn": 53,
+            "kappa": -0.027351567711807925,
+            "recall": 0.07547169811320754,
+            "autoErr": 0.4803921568627451,
+            "autoErrCi": [
+              0.38591889847749333,
+              0.5762887274890346
+            ]
+          },
+          "Aturan self-ref saja": {
+            "n": 112,
+            "tp": 46,
+            "fn": 7,
+            "fp": 0,
+            "tn": 59,
+            "kappa": 0.8737926593689633,
+            "recall": 0.8679245283018868,
+            "autoErr": 0.10606060606060606,
+            "autoErrCi": [
+              0.05233347255479486,
+              0.2031230875164801
+            ]
+          },
+          "c_loc saja": {
+            "n": 112,
+            "tp": 3,
+            "fn": 50,
+            "fp": 6,
+            "tn": 53,
+            "kappa": -0.04707846410684473,
+            "recall": 0.05660377358490566,
+            "autoErr": 0.4854368932038835,
+            "autoErrCi": [
+              0.391190583237978,
+              0.5807304291376136
+            ]
+          },
+          "Terima semua (tanpa gate)": {
+            "n": 112,
+            "tp": 0,
+            "fn": 53,
+            "fp": 0,
+            "tn": 59,
+            "kappa": null,
+            "recall": 0,
+            "autoErr": 0.4732142857142857,
+            "autoErrCi": [
+              0.3831776586564194,
+              0.5650274135078812
+            ]
+          }
+        }
+      }
+    }
+  },
   "groundTruth": {
     "file": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/scenarios/ground-truth.json",
     "expectedFail": [

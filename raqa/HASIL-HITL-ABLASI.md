@@ -9,17 +9,20 @@ secara manual. Aplikasi yang diuji: instance lokal SIMASIS pada commit `91db4a96
 | Pertanyaan | Jawaban berdasarkan data | Kuat? |
 |---|---|---|
 | Apakah retrieval diperlukan? | Ya. Tanpa retrieval 0/17 skenario berhasil; dengan retrieval 17,6–35,3% | Arah konsisten; belum signifikan setelah koreksi Holm (p = 0,31) |
-| Apakah gate tahu kapan harus bertanya ke manusia? | Ya. κ = 0,81; semua 10 langkah yang ditolak manusia sudah dieskalasi; 0 dari 9 langkah lolos-otomatis ditolak | Menjanjikan, tetapi n kecil (CI galat lolos-otomatis 0–29,9%) |
+| Apakah gate tahu kapan harus bertanya ke manusia? | Sebagian, tetapi bukan karena skor keyakinan. Di A0 κ = 0,81 dan semua 10 langkah yang ditolak manusia dieskalasi, namun seluruh 10 eskalasi itu berasal dari aturan self-referential (assertion seperti `href` berisi "href"). Tanpa aturan itu, skor min(c_act, c_loc, c_orc) setara tanpa gate (κ = 0,01 di A0; −0,03 gabungan) | Kuat untuk kesimpulan "skor keyakinan tidak berkontribusi"; n kecil untuk A0 |
 | Apakah keluaran agen andal? | Belum. 33–46% langkah dinilai tidak relevan/tautologis; keberhasilan terverifikasi hanya 17,6–35,3% | Kuat (3 reviewer) |
 | Komponen mana yang paling berkontribusi? | Tidak terbedakan. Selain retrieval, tidak ada konfigurasi yang berbeda terdeteksi dari A0 | Daya uji rendah (n = 17) |
 | Apakah agen menemukan cacat nyata? | Tidak. Cacat S-AUTH-03 tidak ditemukan oleh konfigurasi mana pun | Hanya 1 cacat di set 17 skenario |
 | Apakah agen lebih cepat dari manual? | Tidak terbukti. Manual 6,8 menit untuk 17 skenario, agen 8,6 menit dan hanya menyelesaikan 5 | Pendahuluan: 1 penguji, kondisi uji berbeda |
 | Apakah klasifikasi kegagalan penulis konsisten? | Ya. κ = 0,648 (substansial) | Sedang (1 rater kedua) |
 
-**Dampak ke klaim naskah.** Kata "Reliable" pada judul belum didukung untuk keluaran agen. Yang didukung data adalah
-keandalan **mekanisme gate** (kapan meminta manusia) dan temuan bahwa metrik otomatis menyesatkan tanpa
-verifikasi manusia. Bingkai yang jujur: studi empiris keandalan agen QA ber-retrieval dengan evaluasi terverifikasi
-manusia. Keputusan judul ada pada penulis.
+**Dampak ke klaim naskah.** Kata "Reliable" pada judul belum didukung, baik untuk keluaran agen maupun untuk skor
+keyakinan c_t = min(c_act, c_loc, c_orc). Dalam eksperimen ini dua dari tiga komponen konstan (c_act = 1 dan c_orc = 1
+pada semua langkah A0), dan kesepakatan gate dengan manusia hampir seluruhnya berasal dari satu aturan heuristik
+(self-referential) yang ditambahkan setelah pilot untuk satu pola kegagalan model. Bingkai yang jujur: studi empiris
+yang menunjukkan bahwa metrik otomatis menyesatkan tanpa verifikasi manusia, dan bahwa sinyal keyakinan yang
+dirancang belum diskriminatif pada model kecil. Aturan self-referential harus dijelaskan di bagian metode (saat ini
+tidak tercakup oleh persamaan c_t di naskah). Keputusan judul ada pada penulis.
 
 ## 2. Hasil per studi
 
@@ -37,8 +40,16 @@ manusia. Keputusan judul ada pada penulis.
   R2 kebenaran ekspektasi α = 0,296 [0,149–0,429] (rendah, tidak dipakai sebagai hasil utama).
 - Reliabilitas skrip: cakupan kriteria α = 0,720; penilaian keseluruhan (ordinal) α = 0,321 (rendah). Akibatnya TSR
   terverifikasi, yang bergantung pada penilaian ini, harus dibaca dengan hati-hati.
-- Gate vs manusia (A0, 21 langkah dengan konsensus): κ = 0,811; recall eskalasi 10/10 = 100% [72,2–100%];
-  presisi eskalasi 10/12 = 83,3%; galat lolos-otomatis 0/9 = 0% [0–29,9%].
+- Gate vs manusia (A0, 21 langkah dengan konsensus, Tabel H3): κ = 0,811; recall eskalasi 10/10 = 100% [72,2–100%];
+  presisi eskalasi 10/12 = 83,3%; galat lolos-otomatis 0/9 = 0% [0–29,9%]. Tabel H3 menghitung 1 langkah yang
+  terkena undian audit acak (diterima manusia) sebagai eskalasi; bila keputusan dihitung dari skor saja, κ = 0,905.
+- **Kontribusi komponen (Tabel H3-K).** Di A0, c_act dan c_orc bernilai 1 pada semua langkah, sehingga tidak pernah
+  memicu eskalasi. Kesepuluh langkah yang ditolak manusia dieskalasi oleh aturan self-referential. Tanpa aturan itu:
+  κ = 0,009, recall 1/10, galat lolos-otomatis 9/19 = 47,4% [27,3–68,3%], setara "terima semua" (47,6%).
+  Aturan self-referential saja: κ = 1,000. Gabungan kelima konfigurasi ber-retrieval (112 kemunculan): gate penuh
+  κ = 0,785, galat lolos-otomatis 6/59 = 10,2% [4,7–20,5%]; tanpa aturan self-ref κ = −0,027 dan galat 48,0%; aturan
+  self-ref saja κ = 0,874. Jadi angka 0/9 di A0 tidak berlaku umum: di gabungan konfigurasi, 6 langkah yang
+  ditolak manusia lolos otomatis.
 - Langkah tak relevan/tautologis (konsensus R1 = 0): A0 40,9%; A1 43,8%; A2 45,8%; A3 36,4%; A6 44,0%; A7 33,3%.
 
 ### Ablasi (17 skenario pre-registrasi, 1 run per konfigurasi, reviewer eskalasi = tiruan mekanis)
@@ -81,7 +92,10 @@ berekspektasi keliru. Tidak ada konfigurasi yang menemukan cacat tersebut.
 5. Studi waktu: dikumpulkan satu penguji, kondisi berbeda dari agen (HP, produksi, pernah melihat RAQA); keterangan
    penguji dikumpulkan setelah pengerjaan. Arah bias campuran, sehingga tidak ada rasio kecepatan yang dilaporkan.
 6. Konfigurasi A4 (− defect reports) tidak dijalankan.
-7. Hasil diukur pada instance lokal yang dibekukan; staging/produksi tidak diuji ulang penuh (pemeriksaan pasif
+7. Aturan self-referential pada gate ditambahkan setelah pilot untuk satu pola kegagalan Qwen3 4B, dan menjadi
+   sumber hampir seluruh kesepakatan gate dengan manusia. Skor min(c_act, c_loc, c_orc) sendiri tidak diskriminatif;
+   c_act dan c_orc konstan pada konfigurasi ber-retrieval. Ambang τ = 0,8 tidak dikalibrasi.
+8. Hasil diukur pada instance lokal yang dibekukan; staging/produksi tidak diuji ulang penuh (pemeriksaan pasif
    menunjukkan judul, tautan Daftar PSB, dan 5 tombol "Selengkapnya" sama).
 
 ## 4. Draf teks paper (English; semua angka dari tabel di atas)
@@ -98,7 +112,13 @@ re-classified the 19 baseline failures.
 [0.36, 0.60] and Fleiss' κ = 0.48 for the decision; α = 0.30 for expectation correctness, which we therefore do not
 use as a primary outcome). For the full configuration, the gate's escalation decisions agreed with the reviewers'
 consensus (Cohen's κ = 0.81): all 10 steps that reviewers did not accept were escalated (recall 100%, 95% CI
-[72.2, 100]), and none of the 9 auto-accepted steps was rejected (0%, [0, 29.9]). Between 33% and 46% of steps in each
+[72.2, 100]), and none of the 9 auto-accepted steps was rejected (0%, [0, 29.9]). A component analysis shows that this
+agreement does not come from the confidence score. Two of its three components were constant (c_act = c_orc = 1 on
+every step), and all 10 escalations of rejected steps were triggered by a rule that zeroes confidence for
+self-referential attribute assertions (e.g. an `href` expected to contain "href"), added after the pilot. Without that
+rule, min(c_act, c_loc, c_orc) did not discriminate (κ = 0.01; 9 of 19 auto-accepted steps rejected, versus 10 of 21
+with no gate). Pooled over the five retrieval configurations (112 occurrences), the gate reached κ = 0.79 with 6 of 59
+auto-accepted steps rejected (10.2%, [4.7, 20.5]), and κ = −0.03 without the rule. Between 33% and 46% of steps in each
 configuration were judged irrelevant or tautological. Verified task success was 29.4% for the full configuration and
 0% without retrieval (Δ = −29.4 pp, bootstrap 95% CI [−52.9, −11.8]; exact McNemar p = 0.31 after Holm correction);
 no other ablation differed detectably (|Δ| ≤ 11.8 pp). No configuration detected the one naturally occurring defect
@@ -108,12 +128,15 @@ in the scenario set. The author's failure classification agreed with the indepen
 are conditional on it and decision time and the effect of reviewer memory were not measured. With 17 scenarios and
 one defect the ablation is exploratory and reports effect sizes with intervals. Reviewers are colleagues of the
 author, which may bias ratings towards acceptance; blinding limits but cannot remove this. One stricter defect-
-detection rule was introduced after inspecting the data and is reported as a sensitivity analysis. A single QA
+detection rule was introduced after inspecting the data and is reported as a sensitivity analysis. The gate's
+agreement with reviewers rests on a single post-pilot heuristic for one failure mode of a 4B model; the confidence
+components and the threshold τ = 0.8 were not calibrated, so the gate result should not be generalised to other
+models or step types. A single QA
 practitioner timed the manual baseline on a phone against the production site, having previously seen RAQA output;
 we therefore report it as a pilot and make no speed-up claim.
 
 ## 5. Sumber data
-- `review/analysis.md`, `review/analysis.json` (Tabel H1, H2, H3, A1, A1-S)
+- `review/analysis.md`, `review/analysis.json` (Tabel H1, H2, H3, H3-K, A1, A1-S)
 - `review/step-ratings-R1..R3.csv`, `review/scenario-ratings-R1..R3.csv` (ID reviewer anonim; pemetaan tidak disimpan di repo)
 - `review/h0-sheet-R2.csv`, `review/h0-final-overrides.csv`, `review/h0-KEY-jangan-dibagikan.json`
 - `review/manual-timing.csv`, `review/manual-timing-provenance.json`
