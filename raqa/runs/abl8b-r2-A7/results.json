@@ -1,0 +1,1307 @@
+[
+  {
+    "id": "S-SMOKE-01",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "infraError": false,
+    "steps": 3,
+    "hallucinated": 0,
+    "seconds": 84.108,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl8b-r2-A7/compiled/S-SMOKE-01.spec.js",
+    "gate": [
+      "auto",
+      "audit",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectTitle",
+        "role": "page",
+        "name": "Page title",
+        "value": "Portal Pesantren PERSIS 27 Situaksan",
+        "attribute": "title",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-SMOKE-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-SMOKE-01-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-SMOKE-01#0",
+            "text": "Scenario S-SMOKE-01 (Beranda)\nGoal: A visitor opens the portal home page.\nAcceptance criteria:\n- HTTP status < 400\n- Page title contains 'Pesantren PERSIS 27'\n- Main heading contains 'Tafaqquh Fid Din'\nOracle: explicit, implicit"
+          }
+        ],
+        "note": null,
+        "pattern": "Page title contains 'Pesantren PERSIS 27'",
+        "path": "/",
+        "executionFailed": false
+      },
+      {
+        "type": "expectTitle",
+        "role": "page",
+        "name": "Portal Pesantren PERSIS 27 Situaksan",
+        "value": "Portal Pesantren PERSIS 27 Situaksan",
+        "attribute": "title",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-SMOKE-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "audit",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": "accept",
+        "reviewMs": 2,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-SMOKE-01-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-SMOKE-01#0",
+            "text": "Scenario S-SMOKE-01 (Beranda)\nGoal: A visitor opens the portal home page.\nAcceptance criteria:\n- HTTP status < 400\n- Page title contains 'Pesantren PERSIS 27'\n- Main heading contains 'Tafaqquh Fid Din'\nOracle: explicit, implicit"
+          }
+        ],
+        "note": null,
+        "pattern": "Portal Pesantren PERSIS 27 Situaksan",
+        "path": "/",
+        "executionFailed": false
+      },
+      {
+        "type": "expectTitle",
+        "role": "page",
+        "name": "Portal Pesantren PERSIS 27 Situaksan",
+        "value": "Portal Pesantren PERSIS 27 Situaksan",
+        "attribute": "title",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-SMOKE-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-SMOKE-01-step3.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-SMOKE-01#0",
+            "text": "Scenario S-SMOKE-01 (Beranda)\nGoal: A visitor opens the portal home page.\nAcceptance criteria:\n- HTTP status < 400\n- Page title contains 'Pesantren PERSIS 27'\n- Main heading contains 'Tafaqquh Fid Din'\nOracle: explicit, implicit"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "Portal Pesantren PERSIS 27 Situaksan",
+        "path": "/",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NAV-02",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "infraError": false,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 86.458,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl8b-r2-A7/compiled/S-NAV-02.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "INFO PSB",
+        "value": "#",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-NAV-02#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-NAV-02-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-NAV-02#0",
+            "text": "Scenario S-NAV-02 (Navigasi)\nGoal: A visitor reaches a page by opening a dropdown menu and clicking an item.\nAcceptance criteria:\n- Dropdown item becomes visible\n- URL ends with the item's path\n- Destination shows a heading\nOracle: explicit, implicit"
+          }
+        ],
+        "note": null,
+        "pattern": "navigation.list.listitem.link",
+        "path": "navigation.list.listitem.link",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "INFO PSB",
+        "value": "#",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-NAV-02#0",
+          "readme:T1#0",
+          "catalog:S-HOME-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-NAV-02-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-NAV-02#0",
+            "text": "Scenario S-NAV-02 (Navigasi)\nGoal: A visitor reaches a page by opening a dropdown menu and clicking an item.\nAcceptance criteria:\n- Dropdown item becomes visible\n- URL ends with the item's path\n- Destination shows a heading\nOracle: explicit, implicit"
+          },
+          {
+            "id": "readme:T1#0",
+            "text": "### T1. Menu \"PENDAFTARAN PSB\" memakai HTTP, bukan HTTPS\n- **Steps to Reproduce:** Buka beranda → menu INFO PSB → periksa tautan \"PENDAFTARAN PSB\".\n- **Actual Result:** Tautan mengarah ke `http://psb.pesantrenpersis27.com`. Tombol \"Daftar PSB\" di hero sudah memakai `https://`.\n- **Solving/Expected Result:** Semua tautan ke domain pesantren memakai `https://`. Perbaiki href di template menu. Dideteksi oleh **S-LINK-02**."
+          },
+          {
+            "id": "catalog:S-HOME-01#0",
+            "text": "Scenario S-HOME-01 (Beranda)\nGoal: The 'Daftar PSB' call-to-action leads to the admission site.\nAcceptance criteria:\n- href is https://psb.pesantrenpersis27.com\nOracle: explicit"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "navigation.list.listitem.link",
+        "path": "navigation.list.listitem.link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-01",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "infraError": false,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 81.063,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl8b-r2-A7/compiled/S-HOME-01.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Daftar PSB",
+        "value": "https://psb.pesantrenpersis27.com",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-HOME-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-01-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-HOME-01#0",
+            "text": "Scenario S-HOME-01 (Beranda)\nGoal: The 'Daftar PSB' call-to-action leads to the admission site.\nAcceptance criteria:\n- href is https://psb.pesantrenpersis27.com\nOracle: explicit"
+          }
+        ],
+        "note": null,
+        "pattern": "href",
+        "path": "link/Daftar PSB",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Daftar PSB",
+        "value": "https://psb.pesantrenpersis27.com",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-HOME-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-01-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-HOME-01#0",
+            "text": "Scenario S-HOME-01 (Beranda)\nGoal: The 'Daftar PSB' call-to-action leads to the admission site.\nAcceptance criteria:\n- href is https://psb.pesantrenpersis27.com\nOracle: explicit"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "href",
+        "path": "link 'Daftar PSB '",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-02",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "infraError": false,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 81.414,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl8b-r2-A7/compiled/S-HOME-02.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Info Terbaru",
+        "value": "http://127.0.0.1:8000/portal/berita",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-HOME-02#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-02-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-HOME-02#0",
+            "text": "Scenario S-HOME-02 (Beranda)\nGoal: The 'Info Terbaru' call-to-action opens the news list.\nAcceptance criteria:\n- URL is /portal/berita\n- H1 is 'Berita Terbaru'\nOracle: explicit"
+          }
+        ],
+        "note": null,
+        "pattern": "expectAttribute",
+        "path": "link[role='link'][name='Info Terbaru']/@href",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Info Terbaru",
+        "value": "http://127.0.0.1:8000/portal/berita",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-HOME-02#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-02-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-HOME-02#0",
+            "text": "Scenario S-HOME-02 (Beranda)\nGoal: The 'Info Terbaru' call-to-action opens the news list.\nAcceptance criteria:\n- URL is /portal/berita\n- H1 is 'Berita Terbaru'\nOracle: explicit"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "expectAttribute",
+        "path": "link[role='link'][name='Info Terbaru']",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-03",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "infraError": false,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 86.387,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl8b-r2-A7/compiled/S-HOME-03.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "364 + Alumni tersebar di nusantara",
+        "value": "http://127.0.0.1:8000/portal/halaman/alumni",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-HOME-03#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-03-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-HOME-03#0",
+            "text": "Scenario S-HOME-03 (Beranda)\nGoal: Statistic links (alumni, santri per jenjang) lead to valid targets.\nAcceptance criteria:\n- Alumni page returns < 400\n- Anchors #tsanawiyyah and #muallimin exist on the santri page\nOracle: explicit"
+          }
+        ],
+        "note": null,
+        "pattern": "http://127.0.0.1:8000/portal/halaman/alumni",
+        "path": "link[role='link'][name='364 + Alumni tersebar di nusantara']",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "364 + Alumni tersebar di nusantara",
+        "value": "http://127.0.0.1:8000/portal/halaman/alumni",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-HOME-03#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-03-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-HOME-03#0",
+            "text": "Scenario S-HOME-03 (Beranda)\nGoal: Statistic links (alumni, santri per jenjang) lead to valid targets.\nAcceptance criteria:\n- Alumni page returns < 400\n- Anchors #tsanawiyyah and #muallimin exist on the santri page\nOracle: explicit"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "http://127.0.0.1:8000/portal/halaman/alumni",
+        "path": "link[role='link'][name='364 + Alumni tersebar di nusantara']",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-04",
+    "done": false,
+    "verdict": "FAIL",
+    "error": "eksekusi langkah 1: Atribut aria-expanded=\"null\" tidak memuat \"Selengkapnya\"",
+    "infraError": false,
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 42.891,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "button",
+        "name": "Selengkapnya",
+        "value": "Selengkapnya",
+        "attribute": "aria-expanded",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-HOME-04#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 0.7,
+          "c_orc": 1,
+          "c_t": 0.7
+        },
+        "gate": "reviewer",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": "accept",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-04-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-HOME-04#0",
+            "text": "Scenario S-HOME-04 (Beranda)\nGoal: Each featured-program card opens a modal with the matching title that can be closed.\nAcceptance criteria:\n- Five 'Selengkapnya' controls\n- Modal title matches the card\n- 'Tutup' hides the modal\nOracle: explicit"
+          }
+        ],
+        "note": null,
+        "pattern": "button[role='button'][name='Selengkapnya']",
+        "path": "button[role='button'][name='Selengkapnya']",
+        "executionFailed": true
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-05",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "infraError": false,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 82.18,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl8b-r2-A7/compiled/S-HOME-05.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Berita Terbaru",
+        "value": "/portal/berita",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-HOME-02#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-05-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-HOME-02#0",
+            "text": "Scenario S-HOME-02 (Beranda)\nGoal: The 'Info Terbaru' call-to-action opens the news list.\nAcceptance criteria:\n- URL is /portal/berita\n- H1 is 'Berita Terbaru'\nOracle: explicit"
+          }
+        ],
+        "note": null,
+        "pattern": "expectAttribute",
+        "path": "link[role='link'][name='Berita Terbaru']/@href",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Berita Terbaru",
+        "value": "/portal/berita",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-HOME-02#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/",
+        "title": "Portal Pesantren PERSIS 27 Situaksan",
+        "screenshot": "shots/S-HOME-05-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-HOME-02#0",
+            "text": "Scenario S-HOME-02 (Beranda)\nGoal: The 'Info Terbaru' call-to-action opens the news list.\nAcceptance criteria:\n- URL is /portal/berita\n- H1 is 'Berita Terbaru'\nOracle: explicit"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "expectAttribute",
+        "path": "link[role='link'][name='Berita Terbaru']/@href",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-HOME-06",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "propose/score/gate: The operation was aborted due to timeout",
+    "infraError": false,
+    "steps": 0,
+    "hallucinated": 0,
+    "seconds": 300.609,
+    "compiledPath": null,
+    "gate": [],
+    "trace": []
+  },
+  {
+    "id": "S-NEWS-01",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "ditolak reviewer pada langkah 1",
+    "infraError": false,
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 34.699,
+    "compiledPath": null,
+    "gate": [
+      "reviewer"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "2",
+        "value": "http://127.0.0.1:8000/portal/berita?page=2",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-NEWS-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 0.3,
+          "c_orc": 1,
+          "c_t": 0.3
+        },
+        "gate": "reviewer",
+        "accepted": false,
+        "hallucinated": false,
+        "decision": "reject",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/portal/berita",
+        "title": "Berita Terbaru - Portal Pesantren PERSIS 27",
+        "screenshot": "shots/S-NEWS-01-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-NEWS-01#0",
+            "text": "Scenario S-NEWS-01 (Berita)\nGoal: A visitor browses the news list and moves to page 2.\nAcceptance criteria:\n- Page 1 shows at least one card\n- Page 2 shows cards not shown on page 1\nOracle: explicit"
+          }
+        ],
+        "note": null,
+        "pattern": "navigation > list > listitem > link",
+        "path": "navigation > list > listitem > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NEWS-05",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "infraError": false,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 77.126,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl8b-r2-A7/compiled/S-NEWS-05.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027",
+        "value": "http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-NEWS-05#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 0.925,
+          "c_orc": 1,
+          "c_t": 0.925
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/portal/berita",
+        "title": "Berita Terbaru - Portal Pesantren PERSIS 27",
+        "screenshot": "shots/S-NEWS-05-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-NEWS-05#0",
+            "text": "Scenario S-NEWS-05 (Berita)\nGoal: Opening an article from the list shows consistent data.\nAcceptance criteria:\n- URL equals card href\n- H1 equals card title\n- Publication date equals card date\nOracle: explicit"
+          }
+        ],
+        "note": null,
+        "pattern": "heading [level=3] > link",
+        "path": "heading 'SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027' [level=3] > link",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027",
+        "value": "http://127.0.0.1:8000/portal/silaturahmi-orang-tua-santri-baru-ta-2026-2027",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-NEWS-05#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 0.925,
+          "c_orc": 1,
+          "c_t": 0.925
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/portal/berita",
+        "title": "Berita Terbaru - Portal Pesantren PERSIS 27",
+        "screenshot": "shots/S-NEWS-05-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-NEWS-05#0",
+            "text": "Scenario S-NEWS-05 (Berita)\nGoal: Opening an article from the list shows consistent data.\nAcceptance criteria:\n- URL equals card href\n- H1 equals card title\n- Publication date equals card date\nOracle: explicit"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "heading [level=3] > link",
+        "path": "heading 'SILATURAHMI ORANG TUA SANTRI BARU TA. 2026-2027' [level=3] > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NEWS-06",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "infraError": false,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 64.641,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl8b-r2-A7/compiled/S-NEWS-06.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectVisible",
+        "role": "navigation",
+        "name": "breadcrumb",
+        "value": "Beranda",
+        "attribute": "aria-label",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-NEWS-06#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026",
+        "title": "JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27",
+        "screenshot": "shots/S-NEWS-06-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-NEWS-06#0",
+            "text": "Scenario S-NEWS-06 (Berita)\nGoal: Breadcrumb and share links refer to the current article.\nAcceptance criteria:\n- Breadcrumb has Beranda and Berita\n- WhatsApp/Facebook/Twitter links contain the article URL\nOracle: explicit"
+          }
+        ],
+        "note": null,
+        "pattern": "Beranda",
+        "path": "breadcrumb > list > listitem > link",
+        "executionFailed": false
+      },
+      {
+        "type": "expectVisible",
+        "role": "navigation",
+        "name": "breadcrumb",
+        "value": "Beranda",
+        "attribute": "aria-label",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-NEWS-06#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026",
+        "title": "JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27",
+        "screenshot": "shots/S-NEWS-06-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-NEWS-06#0",
+            "text": "Scenario S-NEWS-06 (Berita)\nGoal: Breadcrumb and share links refer to the current article.\nAcceptance criteria:\n- Breadcrumb has Beranda and Berita\n- WhatsApp/Facebook/Twitter links contain the article URL\nOracle: explicit"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "Beranda",
+        "path": "breadcrumb > list > listitem > link",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-NEWS-07",
+    "done": false,
+    "verdict": "FAIL",
+    "error": "eksekusi langkah 1: Atribut aria-level=\"null\" tidak memuat \"Artikel Terkait\"",
+    "infraError": false,
+    "steps": 1,
+    "hallucinated": 0,
+    "seconds": 31.934,
+    "compiledPath": null,
+    "gate": [
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "heading",
+        "name": "Artikel Terkait",
+        "value": "Artikel Terkait",
+        "attribute": "aria-level",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-NEWS-07#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/portal/jihad-istimewa-pelepasan-jamaah-haji-2026",
+        "title": "JIHAD ISTIMEWA & PELEPASAN JAMA’AH HAJI 2026 - Pesantren Persis 27",
+        "screenshot": "shots/S-NEWS-07-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-NEWS-07#0",
+            "text": "Scenario S-NEWS-07 (Berita)\nGoal: Related articles exclude the article being read.\nAcceptance criteria:\n- Related list is non-empty\n- Current URL not in related list\nOracle: explicit (business rule)"
+          }
+        ],
+        "note": null,
+        "pattern": "heading",
+        "path": "article/heading[4]",
+        "executionFailed": true
+      }
+    ]
+  },
+  {
+    "id": "S-NEWS-09",
+    "done": false,
+    "verdict": "INCOMPLETE",
+    "error": "infra: halaman awal /portal/artikel gagal dimuat: page.goto: Timeout 30000ms exceeded.",
+    "infraError": true,
+    "steps": 0,
+    "hallucinated": 0,
+    "seconds": 30.019,
+    "compiledPath": null,
+    "gate": [],
+    "trace": []
+  },
+  {
+    "id": "S-AUTH-01",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "infraError": false,
+    "steps": 3,
+    "hallucinated": 0,
+    "seconds": 29.087,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl8b-r2-A7/compiled/S-AUTH-01.spec.js",
+    "gate": [
+      "auto",
+      "auto",
+      "audit"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "button",
+        "name": " Masuk",
+        "value": "submit",
+        "attribute": "type",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-AUTH-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-01-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-AUTH-01#0",
+            "text": "Scenario S-AUTH-01 (Login)\nGoal: The SIMASIS login form is complete and accessible.\nAcceptance criteria:\n- Username and password inputs are reachable by accessible name/placeholder\n- Password input masks text\n- Submit enabled\n- CSRF token present\nOracle: explicit"
+          }
+        ],
+        "note": null,
+        "pattern": "button",
+        "path": "main > button \" Masuk\"",
+        "executionFailed": false
+      },
+      {
+        "type": "expectVisible",
+        "role": "heading",
+        "name": "Selamat Datang",
+        "value": "Selamat Datang",
+        "attribute": "aria-level",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-AUTH-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-01-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-AUTH-01#0",
+            "text": "Scenario S-AUTH-01 (Login)\nGoal: The SIMASIS login form is complete and accessible.\nAcceptance criteria:\n- Username and password inputs are reachable by accessible name/placeholder\n- Password input masks text\n- Submit enabled\n- CSRF token present\nOracle: explicit"
+          }
+        ],
+        "note": null,
+        "pattern": "heading",
+        "path": "main > heading [level=2]",
+        "executionFailed": false
+      },
+      {
+        "type": "expectVisible",
+        "role": "heading",
+        "name": "Selamat Datang",
+        "value": "Selamat Datang",
+        "attribute": "aria-level",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-AUTH-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "audit",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": "accept",
+        "reviewMs": 0,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-01-step3.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-AUTH-01#0",
+            "text": "Scenario S-AUTH-01 (Login)\nGoal: The SIMASIS login form is complete and accessible.\nAcceptance criteria:\n- Username and password inputs are reachable by accessible name/placeholder\n- Password input masks text\n- Submit enabled\n- CSRF token present\nOracle: explicit"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "heading",
+        "path": "main > heading [level=2]",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-02",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "infraError": false,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 16.879,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl8b-r2-A7/compiled/S-AUTH-02.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "button",
+        "name": " Masuk",
+        "value": "submit",
+        "attribute": "type",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-AUTH-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-02-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-AUTH-01#0",
+            "text": "Scenario S-AUTH-01 (Login)\nGoal: The SIMASIS login form is complete and accessible.\nAcceptance criteria:\n- Username and password inputs are reachable by accessible name/placeholder\n- Password input masks text\n- Submit enabled\n- CSRF token present\nOracle: explicit"
+          }
+        ],
+        "note": null,
+        "pattern": "submit",
+        "path": "main > button \" Masuk\"",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "button",
+        "name": " Masuk",
+        "value": "submit",
+        "attribute": "type",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-AUTH-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-02-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-AUTH-01#0",
+            "text": "Scenario S-AUTH-01 (Login)\nGoal: The SIMASIS login form is complete and accessible.\nAcceptance criteria:\n- Username and password inputs are reachable by accessible name/placeholder\n- Password input masks text\n- Submit enabled\n- CSRF token present\nOracle: explicit"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "submit",
+        "path": "main > button \" Masuk\"",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-03",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "infraError": false,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 13.846,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl8b-r2-A7/compiled/S-AUTH-03.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectVisible",
+        "role": "heading",
+        "name": "Selamat Datang",
+        "value": "Selamat Datang",
+        "attribute": "aria-level",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-AUTH-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-03-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-AUTH-01#0",
+            "text": "Scenario S-AUTH-01 (Login)\nGoal: The SIMASIS login form is complete and accessible.\nAcceptance criteria:\n- Username and password inputs are reachable by accessible name/placeholder\n- Password input masks text\n- Submit enabled\n- CSRF token present\nOracle: explicit"
+          }
+        ],
+        "note": null,
+        "pattern": "heading",
+        "path": "main > heading[2]",
+        "executionFailed": false
+      },
+      {
+        "type": "expectVisible",
+        "role": "heading",
+        "name": "Selamat Datang",
+        "value": "Selamat Datang",
+        "attribute": "aria-level",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-AUTH-01#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-03-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-AUTH-01#0",
+            "text": "Scenario S-AUTH-01 (Login)\nGoal: The SIMASIS login form is complete and accessible.\nAcceptance criteria:\n- Username and password inputs are reachable by accessible name/placeholder\n- Password input masks text\n- Submit enabled\n- CSRF token present\nOracle: explicit"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "heading",
+        "path": "main > heading[2]",
+        "executionFailed": false
+      }
+    ]
+  },
+  {
+    "id": "S-AUTH-05",
+    "done": true,
+    "verdict": "PASS",
+    "error": null,
+    "infraError": false,
+    "steps": 2,
+    "hallucinated": 0,
+    "seconds": 23.78,
+    "compiledPath": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/raqa/runs/abl8b-r2-A7/compiled/S-AUTH-05.spec.js",
+    "gate": [
+      "auto",
+      "auto"
+    ],
+    "trace": [
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Kembali ke Landing Page",
+        "value": "http://127.0.0.1:8000",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-AUTH-05#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-05-step1.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-AUTH-05#0",
+            "text": "Scenario S-AUTH-05 (Login)\nGoal: 'Kembali ke Landing Page' returns to the portal.\nAcceptance criteria:\n- URL is the portal root\nOracle: explicit"
+          }
+        ],
+        "note": null,
+        "pattern": "url",
+        "path": "link / Kembali ke Landing Page",
+        "executionFailed": false
+      },
+      {
+        "type": "expectAttribute",
+        "role": "link",
+        "name": "Kembali ke Landing Page",
+        "value": "http://127.0.0.1:8000",
+        "attribute": "href",
+        "done": false,
+        "citedUnits": [
+          "catalog:S-AUTH-05#0"
+        ],
+        "scores": {
+          "c_act": 1,
+          "c_loc": 1,
+          "c_orc": 1,
+          "c_t": 1
+        },
+        "gate": "auto",
+        "accepted": true,
+        "hallucinated": false,
+        "decision": null,
+        "reviewMs": null,
+        "url": "http://127.0.0.1:8000/login",
+        "title": "SIMASIS - Sistem Manajemen Pesantren Persis 27",
+        "screenshot": "shots/S-AUTH-05-step2.png",
+        "citedUnitsText": [
+          {
+            "id": "catalog:S-AUTH-05#0",
+            "text": "Scenario S-AUTH-05 (Login)\nGoal: 'Kembali ke Landing Page' returns to the portal.\nAcceptance criteria:\n- URL is the portal root\nOracle: explicit"
+          }
+        ],
+        "note": "auto-done: pengulangan step identik",
+        "pattern": "expectAttribute",
+        "path": "link / Kembali ke Landing Page / url",
+        "executionFailed": false
+      }
+    ]
+  }
+]

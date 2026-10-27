@@ -1,0 +1,28 @@
+{
+  "label": "abl4b-r3-A1",
+  "retrieval": false,
+  "sources": [],
+  "retrievers": [],
+  "corpus": {},
+  "reviewer": "stub",
+  "persistMemory": false,
+  "memoryDir": "/var/folders/cn/wjs9rhzd4fs4nms594v411v40000gn/T/raqa-mem-abl4b-r3-A1-qPXHJ5",
+  "auditSeed": 1,
+  "auditRate": 0.05,
+  "tau": 0.8,
+  "seed": 42,
+  "maxSteps": 8,
+  "model": "qwen3:4b",
+  "llmTimeoutMs": 300000,
+  "scenarios": 17,
+  "done": 0,
+  "verdicts": {
+    "INCOMPLETE": 17
+  },
+  "tsrPct": 0,
+  "harPct": 0,
+  "totalSteps": 17,
+  "escalations": 17,
+  "compiledCount": 0,
+  "generatedAt": "2026-10-26T18:02:37.572Z"
+}

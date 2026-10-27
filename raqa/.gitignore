@@ -5,3 +5,7 @@ node_modules/
 # Berkas kembalian reviewer (mentah; metadata Excel bisa memuat nama asli), paket kirim, dan salinan screenshot
 paket-reviewer/
 review/*.xlsx
+
+# Screenshot pengulangan ablasi (±256 MB; hanya bahan lembar penilaian, tidak dipakai analisis)
+runs/abl4b-*/shots/
+runs/abl8b-*/shots/

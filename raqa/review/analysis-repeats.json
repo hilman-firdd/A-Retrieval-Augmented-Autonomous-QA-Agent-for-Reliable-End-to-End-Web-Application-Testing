@@ -1,0 +1,557 @@
+{
+  "generatedAt": "2026-10-27T01:36:04.977Z",
+  "groups": {
+    "4b": {
+      "prefixes": [
+        "abl",
+        "abl4b-r2",
+        "abl4b-r3"
+      ],
+      "configs": {
+        "A0": {
+          "reps": 3,
+          "tsr": [
+            0.29411764705882354,
+            0.29411764705882354,
+            0.29411764705882354
+          ],
+          "infra": [
+            0,
+            0,
+            0
+          ],
+          "steps": [
+            22,
+            22,
+            21
+          ],
+          "scenarioErrors": [
+            0,
+            0,
+            1
+          ],
+          "minutes": [
+            8.595666666666666,
+            9.365416666666668,
+            12.835516666666665
+          ],
+          "sameOutcome": 17,
+          "sameTrace": 15,
+          "nScenarios": 17
+        },
+        "A1": {
+          "reps": 3,
+          "tsr": [
+            0,
+            0,
+            0
+          ],
+          "infra": [
+            0,
+            0,
+            0
+          ],
+          "steps": [
+            16,
+            16,
+            17
+          ],
+          "scenarioErrors": [
+            1,
+            1,
+            0
+          ],
+          "minutes": [
+            5.823316666666667,
+            5.627300000000001,
+            5.598283333333333
+          ],
+          "sameOutcome": 17,
+          "sameTrace": 15,
+          "nScenarios": 17
+        },
+        "A2": {
+          "reps": 3,
+          "tsr": [
+            0.29411764705882354,
+            0.23529411764705882,
+            0.29411764705882354
+          ],
+          "infra": [
+            0,
+            0,
+            0
+          ],
+          "steps": [
+            24,
+            22,
+            23
+          ],
+          "scenarioErrors": [
+            0,
+            1,
+            1
+          ],
+          "minutes": [
+            30.594899999999996,
+            14.045933333333332,
+            13.499433333333332
+          ],
+          "sameOutcome": 15,
+          "sameTrace": 7,
+          "nScenarios": 17
+        },
+        "A3": {
+          "reps": 3,
+          "tsr": [
+            0.29411764705882354,
+            0.29411764705882354,
+            0.4
+          ],
+          "infra": [
+            0,
+            0,
+            2
+          ],
+          "steps": [
+            22,
+            22,
+            22
+          ],
+          "scenarioErrors": [
+            1,
+            0,
+            0
+          ],
+          "minutes": [
+            104.84750000000001,
+            8.909350000000002,
+            8.883883333333333
+          ],
+          "sameOutcome": 13,
+          "sameTrace": 6,
+          "nScenarios": 15
+        },
+        "A6": {
+          "reps": 3,
+          "tsr": [
+            0.29411764705882354,
+            0.35714285714285715,
+            0.25
+          ],
+          "infra": [
+            0,
+            3,
+            1
+          ],
+          "steps": [
+            25,
+            23,
+            21
+          ],
+          "scenarioErrors": [
+            0,
+            0,
+            0
+          ],
+          "minutes": [
+            9.256083333333333,
+            10.093333333333334,
+            7.908666666666664
+          ],
+          "sameOutcome": 12,
+          "sameTrace": 6,
+          "nScenarios": 13
+        },
+        "A7": {
+          "reps": 3,
+          "tsr": [
+            0.35294117647058826,
+            0.35294117647058826,
+            0.35294117647058826
+          ],
+          "infra": [
+            0,
+            0,
+            0
+          ],
+          "steps": [
+            24,
+            24,
+            23
+          ],
+          "scenarioErrors": [
+            0,
+            0,
+            0
+          ],
+          "minutes": [
+            9.509666666666666,
+            9.068483333333335,
+            8.320633333333333
+          ],
+          "sameOutcome": 17,
+          "sameTrace": 14,
+          "nScenarios": 17
+        }
+      },
+      "models": [
+        "qwen3:4b"
+      ],
+      "tau": [
+        0.8
+      ],
+      "signals": {
+        "nSteps": 340,
+        "selfRefShare": 0.3911764705882353,
+        "expectAttributeShare": 0.9323529411764706,
+        "cActBelowTau": 0.008823529411764706,
+        "cOrcBelowTau": 0,
+        "cLocBelowTau": 0.12352941176470589,
+        "cActValues": [
+          0,
+          1
+        ],
+        "cOrcValues": [
+          1
+        ]
+      },
+      "gate": {
+        "nLabelledOccurrences": 294,
+        "nOccurrences": 340,
+        "uniqueSteps": 84,
+        "uniqueLabelled": 59,
+        "variants": {
+          "Gate penuh (skor)": {
+            "tp": 127,
+            "fn": 13,
+            "fp": 13,
+            "tn": 141,
+            "kappa": 0.8227272727272728,
+            "recall": 0.9071428571428571,
+            "autoErr": 0.08441558441558442,
+            "autoErrCi": [
+              0.04999525563471404,
+              0.13906444416566377
+            ]
+          },
+          "min(c_act, c_loc, c_orc) tanpa aturan self-ref": {
+            "tp": 14,
+            "fn": 126,
+            "fp": 13,
+            "tn": 141,
+            "kappa": 0.01617795753286156,
+            "recall": 0.1,
+            "autoErr": 0.47191011235955055,
+            "autoErrCi": [
+              0.41285414542937965,
+              0.5317629007742797
+            ]
+          },
+          "Aturan self-ref saja": {
+            "tp": 124,
+            "fn": 16,
+            "fp": 0,
+            "tn": 154,
+            "kappa": 0.8903394255874675,
+            "recall": 0.8857142857142857,
+            "autoErr": 0.09411764705882353,
+            "autoErrCi": [
+              0.058764358872737586,
+              0.14740889268552387
+            ]
+          },
+          "Terima semua (tanpa gate)": {
+            "tp": 0,
+            "fn": 140,
+            "fp": 0,
+            "tn": 154,
+            "kappa": null,
+            "recall": 0,
+            "autoErr": 0.47619047619047616,
+            "autoErrCi": [
+              0.4197772099170841,
+              0.5332179169016162
+            ]
+          }
+        }
+      }
+    },
+    "8b": {
+      "prefixes": [
+        "abl8b-r1",
+        "abl8b-r2",
+        "abl8b-r3"
+      ],
+      "configs": {
+        "A0": {
+          "reps": 3,
+          "tsr": [
+            0.7647058823529411,
+            0.8,
+            0.7647058823529411
+          ],
+          "infra": [
+            0,
+            2,
+            0
+          ],
+          "steps": [
+            32,
+            31,
+            32
+          ],
+          "scenarioErrors": [
+            0,
+            0,
+            0
+          ],
+          "minutes": [
+            15.677933333333332,
+            16.96485,
+            17.476999999999997
+          ],
+          "sameOutcome": 15,
+          "sameTrace": 13,
+          "nScenarios": 15
+        },
+        "A1": {
+          "reps": 3,
+          "tsr": [
+            0,
+            0,
+            0
+          ],
+          "infra": [
+            0,
+            0,
+            0
+          ],
+          "steps": [
+            13,
+            14,
+            13
+          ],
+          "scenarioErrors": [
+            4,
+            3,
+            4
+          ],
+          "minutes": [
+            32.077333333333335,
+            22.545566666666662,
+            27.085816666666666
+          ],
+          "sameOutcome": 17,
+          "sameTrace": 16,
+          "nScenarios": 17
+        },
+        "A2": {
+          "reps": 3,
+          "tsr": [
+            0.6470588235294118,
+            0.6875,
+            0.7058823529411765
+          ],
+          "infra": [
+            0,
+            1,
+            0
+          ],
+          "steps": [
+            30,
+            29,
+            30
+          ],
+          "scenarioErrors": [
+            0,
+            0,
+            0
+          ],
+          "minutes": [
+            15.161816666666665,
+            15.045516666666668,
+            15.919983333333334
+          ],
+          "sameOutcome": 15,
+          "sameTrace": 4,
+          "nScenarios": 16
+        },
+        "A3": {
+          "reps": 3,
+          "tsr": [
+            0.75,
+            0.7647058823529411,
+            0.6875
+          ],
+          "infra": [
+            1,
+            0,
+            1
+          ],
+          "steps": [
+            29,
+            33,
+            29
+          ],
+          "scenarioErrors": [
+            0,
+            0,
+            0
+          ],
+          "minutes": [
+            14.486733333333335,
+            16.86645,
+            13.784933333333335
+          ],
+          "sameOutcome": 13,
+          "sameTrace": 6,
+          "nScenarios": 15
+        },
+        "A6": {
+          "reps": 3,
+          "tsr": [
+            0.5882352941176471,
+            0.5625,
+            0.6666666666666666
+          ],
+          "infra": [
+            0,
+            1,
+            2
+          ],
+          "steps": [
+            32,
+            29,
+            28
+          ],
+          "scenarioErrors": [
+            0,
+            0,
+            0
+          ],
+          "minutes": [
+            16.972083333333334,
+            15.137833333333335,
+            13.356533333333335
+          ],
+          "sameOutcome": 13,
+          "sameTrace": 6,
+          "nScenarios": 14
+        },
+        "A7": {
+          "reps": 3,
+          "tsr": [
+            0.7058823529411765,
+            0.75,
+            0.6875
+          ],
+          "infra": [
+            0,
+            1,
+            1
+          ],
+          "steps": [
+            34,
+            29,
+            27
+          ],
+          "scenarioErrors": [
+            0,
+            1,
+            1
+          ],
+          "minutes": [
+            16.905783333333336,
+            19.452016666666662,
+            18.73553333333334
+          ],
+          "sameOutcome": 13,
+          "sameTrace": 9,
+          "nScenarios": 15
+        }
+      },
+      "models": [
+        "qwen3:8b"
+      ],
+      "tau": [
+        0.8
+      ],
+      "signals": {
+        "nSteps": 454,
+        "selfRefShare": 0,
+        "expectAttributeShare": 0.737885462555066,
+        "cActBelowTau": 0.004405286343612335,
+        "cOrcBelowTau": 0,
+        "cLocBelowTau": 0.09030837004405286,
+        "cActValues": [
+          0,
+          1
+        ],
+        "cOrcValues": [
+          1
+        ]
+      },
+      "gate": {
+        "nLabelledOccurrences": 0,
+        "nOccurrences": 454,
+        "uniqueSteps": 107,
+        "uniqueLabelled": 0,
+        "variants": {
+          "Gate penuh (skor)": {
+            "tp": 0,
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "kappa": null,
+            "recall": null,
+            "autoErr": null,
+            "autoErrCi": [
+              0,
+              1
+            ]
+          },
+          "min(c_act, c_loc, c_orc) tanpa aturan self-ref": {
+            "tp": 0,
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "kappa": null,
+            "recall": null,
+            "autoErr": null,
+            "autoErrCi": [
+              0,
+              1
+            ]
+          },
+          "Aturan self-ref saja": {
+            "tp": 0,
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "kappa": null,
+            "recall": null,
+            "autoErr": null,
+            "autoErrCi": [
+              0,
+              1
+            ]
+          },
+          "Terima semua (tanpa gate)": {
+            "tp": 0,
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "kappa": null,
+            "recall": null,
+            "autoErr": null,
+            "autoErrCi": [
+              0,
+              1
+            ]
+          }
+        }
+      }
+    }
+  }
+}

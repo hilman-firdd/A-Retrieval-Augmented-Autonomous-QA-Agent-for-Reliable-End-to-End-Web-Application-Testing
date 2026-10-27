@@ -1,0 +1,43 @@
+{
+  "label": "abl8b-r2-A0",
+  "retrieval": true,
+  "sources": [
+    "catalog",
+    "traces",
+    "defects",
+    "qa_docs",
+    "verdicts"
+  ],
+  "retrievers": [
+    "bm25",
+    "dense"
+  ],
+  "corpus": {
+    "catalog": 31,
+    "baseline-runs": 101,
+    "readme": 6
+  },
+  "reviewer": "stub",
+  "persistMemory": false,
+  "memoryDir": "/var/folders/cn/wjs9rhzd4fs4nms594v411v40000gn/T/raqa-mem-abl8b-r2-A0-lS0EzY",
+  "auditSeed": 1,
+  "auditRate": 0.05,
+  "tau": 0.8,
+  "seed": 42,
+  "maxSteps": 8,
+  "model": "qwen3:8b",
+  "llmTimeoutMs": 300000,
+  "scenarios": 17,
+  "done": 12,
+  "verdicts": {
+    "PASS": 12,
+    "FAIL": 2,
+    "INCOMPLETE": 3
+  },
+  "tsrPct": 70.59,
+  "harPct": 0,
+  "totalSteps": 31,
+  "escalations": 4,
+  "compiledCount": 12,
+  "generatedAt": "2026-10-26T22:22:21.339Z"
+}

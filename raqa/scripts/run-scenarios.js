@@ -116,7 +116,7 @@ function parseArgs(argv) {
       try { compiledPath = agent.compile(scenario.id, scenario.goal.slice(0, 70), compiledDir); } catch (e) { log.error = `compile: ${/** @type {Error} */ (e).message}`; }
     }
     results.push({
-      id: scenario.id, done: log.done, verdict: log.verdict, error: log.error, steps: llmSteps.length, hallucinated, seconds, compiledPath,
+      id: scenario.id, done: log.done, verdict: log.verdict, error: log.error, infraError: !!log.infraError, steps: llmSteps.length, hallucinated, seconds, compiledPath,
       gate: llmSteps.map((s) => s.gate),
       trace: llmSteps.map((s) => ({
         type: s.proposal.type, role: s.proposal.role, name: s.proposal.name, value: s.proposal.value,
@@ -150,6 +150,7 @@ function parseArgs(argv) {
     seed: CONFIG.llm.seed,
     maxSteps: args.maxSteps,
     model: CONFIG.llm.model,
+    llmTimeoutMs: CONFIG.llm.timeoutMs,
     scenarios: results.length,
     done: results.filter((r) => r.done).length,
     verdicts: results.reduce((a, r) => { a[r.verdict] = (a[r.verdict] || 0) + 1; return a; }, {}),

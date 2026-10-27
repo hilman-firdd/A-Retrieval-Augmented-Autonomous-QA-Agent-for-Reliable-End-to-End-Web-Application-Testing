@@ -16,6 +16,9 @@ const CONFIG = Object.freeze({
     numCtx: Number(process.env.RAQA_NUM_CTX || 16384),
     // Qwen3 punya mode berpikir; dimatikan agar keluaran JSON ringkas dan lebih stabil antar-run.
     think: process.env.RAQA_THINK === '1',
+    // Batas waktu per panggilan model (ms); 0 = tanpa batas (perilaku run awal). Panggilan yang macet lalu gagal
+    // dicatat sebagai error skenario, sama seperti hang 96 menit pada run abl-A3, hanya lebih cepat.
+    timeoutMs: Number(process.env.RAQA_LLM_TIMEOUT_MS || 0),
   },
   embedding: { model: process.env.RAQA_EMBED_MODEL || 'nomic-embed-text' },
   // chunkSize/chunkOverlap dihitung dalam KARAKTER (panjang string), bukan token.

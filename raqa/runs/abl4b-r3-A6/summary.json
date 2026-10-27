@@ -1,0 +1,42 @@
+{
+  "label": "abl4b-r3-A6",
+  "retrieval": true,
+  "sources": [
+    "catalog",
+    "traces",
+    "defects",
+    "qa_docs",
+    "verdicts"
+  ],
+  "retrievers": [
+    "bm25"
+  ],
+  "corpus": {
+    "catalog": 31,
+    "baseline-runs": 101,
+    "readme": 6
+  },
+  "reviewer": "stub",
+  "persistMemory": false,
+  "memoryDir": "/var/folders/cn/wjs9rhzd4fs4nms594v411v40000gn/T/raqa-mem-abl4b-r3-A6-xW1cM4",
+  "auditSeed": 1,
+  "auditRate": 0.05,
+  "tau": 0.8,
+  "seed": 42,
+  "maxSteps": 8,
+  "model": "qwen3:4b",
+  "llmTimeoutMs": 300000,
+  "scenarios": 17,
+  "done": 4,
+  "verdicts": {
+    "INCOMPLETE": 12,
+    "PASS": 4,
+    "FAIL": 1
+  },
+  "tsrPct": 23.53,
+  "harPct": 4.76,
+  "totalSteps": 21,
+  "escalations": 12,
+  "compiledCount": 4,
+  "generatedAt": "2026-10-27T01:34:22.606Z"
+}

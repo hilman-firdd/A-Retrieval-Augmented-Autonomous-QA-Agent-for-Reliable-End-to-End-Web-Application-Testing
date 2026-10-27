@@ -136,7 +136,7 @@ class RAQAAgent {
     const raw = await this.llm.invoke([
       new SystemMessage(SYSTEM_PROMPT),
       new HumanMessage(`<goal>${goal}</goal>\n<context>\n${contextText}\n</context>\n<page url="${obs.url}" title="${obs.title}">\n${obs.snapshot}\n</page>`),
-    ]);
+    ], CONFIG.llm.timeoutMs > 0 ? { signal: AbortSignal.timeout(CONFIG.llm.timeoutMs) } : undefined);
     // Validasi ulang di sisi klien: model 4B bisa saja menghasilkan JSON yang lolos format tapi melanggar skema.
     const proposal = StepProposal.parse(raw);
     return { proposal, units, obs };
@@ -267,7 +267,15 @@ class RAQAAgent {
     const log = { id: scenario.id, goal: scenario.goal, steps: [], done: false, error: null, verdict: 'INCOMPLETE', failedStep: null };
     if (scenario.startPath) {
       const step = { type: 'goto', path: scenario.startPath };
-      await this.execute(step);
+      try {
+        await this.execute(step);
+      } catch (e) {
+        // Kegagalan infrastruktur (server lambat), bukan perilaku agen: skenario dihentikan dan ditandai,
+        // tanpa menghentikan skenario lain dalam konfigurasi yang sama.
+        log.error = `infra: halaman awal ${scenario.startPath} gagal dimuat: ${/** @type {Error} */ (e).message.split('\n')[0]}`;
+        log.infraError = true;
+        return log;
+      }
       log.steps.push({ proposal: { type: 'goto', path: scenario.startPath, done: false }, scores: null, gate: 'fixed-start', accepted: true, hallucinated: false });
     }
     /** Sidik jari langkah sebelumnya, untuk mendeteksi pengulangan persis (lihat catatan di bawah). */
