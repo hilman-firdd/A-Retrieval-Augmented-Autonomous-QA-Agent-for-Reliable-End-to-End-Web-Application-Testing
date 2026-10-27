@@ -59,11 +59,11 @@ Keputusan dihitung ulang dari skor tercatat; undian audit acak tidak dihitung se
 | c_loc saja | 3 | 50 | 6 | 53 | -0.047 | 5.7% | 48.5% [39.1%, 58.1%] |
 | Terima semua (tanpa gate) | 0 | 53 | 0 | 59 | n/a | 0.0% | 47.3% [38.3%, 56.5%] |
 
-TP = manusia tidak menerima & gate mengeskalasi; FN = manusia tidak menerima & gate meloloskan. Gabungan kemunculan menghitung item yang sama lebih dari sekali bila muncul di beberapa konfigurasi.
+TP = manusia tidak menerima & gate mengeskalasi; FN = manusia tidak menerima & gate meloloskan. Gabungan kemunculan menghitung item yang sama lebih dari sekali bila muncul di beberapa konfigurasi, sehingga kemunculan bukan observasi independen. Naskah JUITA (Tabel IV) memakai 57 langkah unik dari lima konfigurasi ber-retrieval: `cd reanalysis && python3 -I gate_irr_reanalysis.py .. reanalysis.json` (κ gate penuh 0.747; galat lolos-otomatis 4/24).
 
 ## Tabel A1 — Studi ablasi (tingkat skenario, n = 17 skenario)
 
-| Konfigurasi | TSR otomatis | TSR terverifikasi | Δ vs A0 [95% CI] | p (McNemar, Holm) | Cakupan kriteria | Δ cakupan [95% CI] | p (Wilcoxon, Holm) | "Selesai" palsu | Cacat tertutupi |
+| Konfigurasi | TSR otomatis | TSR terverifikasi (pra-registrasi) | Δ vs A0 [95% CI] | p (McNemar, Holm) | Cakupan kriteria | Δ cakupan [95% CI] | p (Wilcoxon, Holm) | "Selesai" palsu | Cacat tertutupi |
 |---|---|---|---|---|---|---|---|---|---|
 | A0 (acuan) | 29.4% | 29.4% | — | — | 15.7% | — | — | 0 | 0 |
 | A1 | 0.0% | 0.0% | -29.4 pp [-52.9, -11.8] | 0.313 | 0.0% | -15.7 pp [-30.4, -4.9] | 0.313 | 0 | 0 |
@@ -80,11 +80,11 @@ Ground truth: 4 skenario harus FAIL (S-AUTH-03, S-LINK-02, S-QUAL-01, S-QUAL-02)
 
 Reliabilitas skenario: cakupan per-kriteria α = 0.720, penilaian keseluruhan α (ordinal) = 0.321.
 
-## Tabel A1-S — Sensitivitas: deteksi cacat butuh ekspektasi benar
+## Tabel A1-S — Endpoint correct-oracle (post hoc): deteksi cacat butuh ekspektasi benar
 
-Definisi ini ditetapkan SETELAH data terlihat, sehingga dilaporkan sebagai analisis sensitivitas, bukan hasil utama. Skenario harus-FAIL dihitung benar hanya bila assertion yang gagal dinilai relevan (R1 = 2) DAN ekspektasinya benar (konsensus R2 = yes).
+Definisi ini ditetapkan SETELAH data terlihat, sehingga diberi label post hoc. Di naskah JUITA, endpoint ini dipakai sebagai endpoint utama (Tabel III, kolom "Verified, correct oracle"), dan endpoint pra-registrasi tetap dilaporkan di sampingnya. Skenario harus-FAIL dihitung benar hanya bila assertion yang gagal dinilai relevan (R1 = 2) DAN ekspektasinya benar (konsensus R2 = yes). Label kebenaran ekspektasi berkesepakatan rendah (α = 0,296) dan belum diadjudikasi.
 
-| Konfigurasi | TSR terverifikasi (utama) | TSR terverifikasi (sensitivitas) | Δ sensitivitas vs A0 [95% CI] | p (McNemar, Holm) |
+| Konfigurasi | TSR terverifikasi (pra-registrasi) | TSR terverifikasi (correct-oracle) | Δ correct-oracle vs A0 [95% CI] | p (McNemar, Holm) |
 |---|---|---|---|---|
 | A0 (acuan) | 29.4% | 29.4% | — | — |
 | A1 | 0.0% | 0.0% | -29.4 pp [-52.9, -11.8] | 0.313 |

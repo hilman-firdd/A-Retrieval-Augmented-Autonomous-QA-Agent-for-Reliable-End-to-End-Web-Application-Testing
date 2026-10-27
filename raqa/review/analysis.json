@@ -303,7 +303,7 @@
     }
   },
   "groundTruth": {
-    "file": "/Users/macbookprom3pro/Documents/RISET/A Retrieval-Augmented Autonomous QA Agent for Reliable End-to-End Web Application Testing/files/ppi27-e2e/scenarios/ground-truth.json",
+    "file": "scenarios/ground-truth.json",
     "expectedFail": [
       "S-AUTH-03",
       "S-LINK-02",

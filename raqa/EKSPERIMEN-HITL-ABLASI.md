@@ -1,5 +1,11 @@
 # Runbook Eksperimen: Human-in-the-Loop & Ablasi RAQA
 
+> **Status dokumen (26 Oktober 2026).** Ini adalah **rencana** yang ditulis sebelum run (commit `59fd9b2`,
+> sebelum pre-registrasi `7b08f79`). Isinya sengaja tidak diubah agar rencana awal tetap bisa diaudit. Yang berbeda
+> dari rencana: H2 (sesi interaktif) dan konfigurasi A4 tidak dijalankan; endpoint correct-oracle, kolom "semua kriteria
+> tercakup", analisis gate per sinyal, dan analisis 57 langkah unik ditambahkan post hoc; seleksi berkas penilai
+> diputuskan saat berkas diterima. Rujukan "Tabel 4" di bawah adalah penomoran draf lama (sekarang Tabel II naskah
+> JUITA). Hasil dan daftar deviasi lengkap ada di `HASIL-HITL-ABLASI.md`.
 Runbook ini menjawab masukan pembimbing: *"perlu diperkuat dengan pengujian yang melibatkan reviewer manusia
 (Human-in-the-Loop), dan studi ablasi untuk melihat kontribusi masing-masing atribut."*
 

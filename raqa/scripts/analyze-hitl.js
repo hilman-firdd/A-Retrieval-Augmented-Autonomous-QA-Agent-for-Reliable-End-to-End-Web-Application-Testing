@@ -212,7 +212,10 @@ function main() {
     out.gateComponents.sets[name] = set;
   }
   md.push('TP = manusia tidak menerima & gate mengeskalasi; FN = manusia tidak menerima & gate meloloskan. ' +
-    'Gabungan kemunculan menghitung item yang sama lebih dari sekali bila muncul di beberapa konfigurasi.', '');
+    'Gabungan kemunculan menghitung item yang sama lebih dari sekali bila muncul di beberapa konfigurasi, ' +
+    'sehingga kemunculan bukan observasi independen. Naskah JUITA (Tabel IV) memakai 57 langkah unik dari lima ' +
+    'konfigurasi ber-retrieval: `cd reanalysis && python3 -I gate_irr_reanalysis.py .. reanalysis.json` ' +
+    '(κ gate penuh 0.747; galat lolos-otomatis 4/24).', '');
 
   // ---------- 4. Skenario: cakupan kriteria & TSR terverifikasi ----------
   let scenData = null;
@@ -236,7 +239,7 @@ function main() {
     // Ground truth: vonis yang BENAR per skenario pada versi aplikasi yang diuji. PASS bila aplikasi benar,
     // FAIL bila skenario menguji cacat nyata yang masih ada. Skenario yang tidak tercantum dianggap PASS.
     const gt = fs.existsSync(args.groundTruth) ? JSON.parse(fs.readFileSync(args.groundTruth, 'utf8')).expected : {};
-    out.groundTruth = { file: fs.existsSync(args.groundTruth) ? args.groundTruth : null, expectedFail: Object.keys(gt).filter((k) => gt[k] === 'FAIL') };
+    out.groundTruth = { file: fs.existsSync(args.groundTruth) ? path.relative(path.join(__dirname, '..', '..'), args.groundTruth) : null, expectedFail: Object.keys(gt).filter((k) => gt[k] === 'FAIL') };
     const relevanceOf = new Map(key.steps.flatMap((it) => it.occurrences.map((o) => [`${o.label}|${it.scenarioId}|${o.stepIndex}`, consensus.get(it.itemId)?.relevance ?? null])));
     const correctOf = new Map(key.steps.flatMap((it) => it.occurrences.map((o) => [`${o.label}|${it.scenarioId}|${o.stepIndex}`, consensus.get(it.itemId)?.correct ?? null])));
     const failedIdx = (r) => r.trace.findIndex((t) => t.executionFailed);
@@ -283,7 +286,7 @@ function main() {
     if (!ids.length) throw new Error(`Konfigurasi baseline ${args.baseline} tidak ditemukan di kunci`);
     out.scenario = {};
     md.push('## Tabel A1 — Studi ablasi (tingkat skenario, n = ' + ids.length + ' skenario)', '',
-      '| Konfigurasi | TSR otomatis | TSR terverifikasi | Δ vs ' + args.baseline + ' [95% CI] | p (McNemar, Holm) | Cakupan kriteria | Δ cakupan [95% CI] | p (Wilcoxon, Holm) | "Selesai" palsu | Cacat tertutupi |',
+      '| Konfigurasi | TSR otomatis | TSR terverifikasi (pra-registrasi) | Δ vs ' + args.baseline + ' [95% CI] | p (McNemar, Holm) | Cakupan kriteria | Δ cakupan [95% CI] | p (Wilcoxon, Holm) | "Selesai" palsu | Cacat tertutupi |',
       '|---|---|---|---|---|---|---|---|---|---|');
     const rows = [];
     for (const c of Object.keys(perCfg).sort()) {
@@ -331,10 +334,12 @@ function main() {
       `Reliabilitas skenario: cakupan per-kriteria α = ${f3(out.irr.criterionCoverage_nominal.alpha)}, penilaian keseluruhan α (ordinal) = ${f3(out.irr.scenarioOverall_ordinal.alpha)}.`, '');
 
     out.sensitivityStrictDetection = {};
-    md.push('## Tabel A1-S — Sensitivitas: deteksi cacat butuh ekspektasi benar', '',
-      'Definisi ini ditetapkan SETELAH data terlihat, sehingga dilaporkan sebagai analisis sensitivitas, bukan hasil utama. ' +
-      'Skenario harus-FAIL dihitung benar hanya bila assertion yang gagal dinilai relevan (R1 = 2) DAN ekspektasinya benar (konsensus R2 = yes).', '',
-      `| Konfigurasi | TSR terverifikasi (utama) | TSR terverifikasi (sensitivitas) | Δ sensitivitas vs ${args.baseline} [95% CI] | p (McNemar, Holm) |`, '|---|---|---|---|---|');
+    md.push('## Tabel A1-S — Endpoint correct-oracle (post hoc): deteksi cacat butuh ekspektasi benar', '',
+      'Definisi ini ditetapkan SETELAH data terlihat, sehingga diberi label post hoc. Di naskah JUITA, endpoint ini dipakai sebagai ' +
+      'endpoint utama (Tabel III, kolom "Verified, correct oracle"), dan endpoint pra-registrasi tetap dilaporkan di sampingnya. ' +
+      'Skenario harus-FAIL dihitung benar hanya bila assertion yang gagal dinilai relevan (R1 = 2) DAN ekspektasinya benar (konsensus R2 = yes). ' +
+      'Label kebenaran ekspektasi berkesepakatan rendah (α = 0,296) dan belum diadjudikasi.', '',
+      `| Konfigurasi | TSR terverifikasi (pra-registrasi) | TSR terverifikasi (correct-oracle) | Δ correct-oracle vs ${args.baseline} [95% CI] | p (McNemar, Holm) |`, '|---|---|---|---|---|');
     const sOthers = [];
     for (const c of rows) {
       const d = perCfg[c];

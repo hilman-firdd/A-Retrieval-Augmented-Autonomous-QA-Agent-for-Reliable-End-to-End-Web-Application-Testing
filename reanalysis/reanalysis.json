@@ -1,0 +1,1065 @@
+{
+ "irr": {
+  "relevance": {
+   "alpha": 0.618,
+   "alpha_ci": [
+    0.47,
+    0.744
+   ]
+  },
+  "decision3": {
+   "alpha": 0.481,
+   "alpha_ci": [
+    0.361,
+    0.595
+   ],
+   "ac1": 0.56,
+   "ac1_ci": [
+    0.43,
+    0.688
+   ],
+   "pa": 0.69,
+   "pe_gwet": 0.297,
+   "n": 70,
+   "fleiss_kappa_complete": 0.479,
+   "n_complete": 70
+  },
+  "correct": {
+   "alpha": 0.296,
+   "alpha_ci": [
+    0.144,
+    0.437
+   ],
+   "ac1": 0.353,
+   "ac1_ci": [
+    0.174,
+    0.53
+   ],
+   "pa": 0.662,
+   "pe_gwet": 0.477,
+   "n": 70
+  },
+  "accept_binary": {
+   "alpha": 0.495,
+   "alpha_ci": [
+    0.336,
+    0.642
+   ],
+   "ac1": 0.584,
+   "ac1_ci": [
+    0.431,
+    0.732
+   ],
+   "pa": 0.771,
+   "pe_gwet": 0.451,
+   "n": 70
+  },
+  "pairwise_decision": {
+   "R1-R2": {
+    "kappa": 0.754,
+    "raw": 0.857,
+    "n": 70
+   },
+   "R1-R3": {
+    "kappa": 0.38,
+    "raw": 0.6,
+    "n": 70
+   },
+   "R2-R3": {
+    "kappa": 0.355,
+    "raw": 0.614,
+    "n": 70
+   }
+  },
+  "pairwise_accept_binary": {
+   "R1-R2": {
+    "kappa": 0.712,
+    "raw": 0.857,
+    "n": 70
+   },
+   "R1-R3": {
+    "kappa": 0.359,
+    "raw": 0.686,
+    "n": 70
+   },
+   "R2-R3": {
+    "kappa": 0.45,
+    "raw": 0.771,
+    "n": 70
+   }
+  },
+  "marginals_decision": {
+   "R1": {
+    "accept": 34,
+    "edit": 6,
+    "reject": 30
+   },
+   "R2": {
+    "accept": 26,
+    "edit": 6,
+    "reject": 38
+   },
+   "R3": {
+    "accept": 12,
+    "edit": 17,
+    "reject": 41
+   }
+  }
+ },
+ "n_occurrences": 133,
+ "signal_variation": {
+  "A0": {
+   "c_act_values": [
+    1
+   ],
+   "c_orc_values": [
+    1
+   ],
+   "c_loc_values": [
+    0.075,
+    0.3,
+    0.7,
+    0.925,
+    1
+   ],
+   "selfref_n": 10,
+   "n": 22,
+   "gate_counts": {
+    "reviewer": 12,
+    "auto": 9,
+    "audit": 1
+   }
+  },
+  "A1": {
+   "c_act_values": [
+    0
+   ],
+   "c_orc_values": [
+    1
+   ],
+   "c_loc_values": [
+    0.225,
+    0.3,
+    1
+   ],
+   "selfref_n": 0,
+   "n": 16,
+   "gate_counts": {
+    "reviewer": 15,
+    "audit": 1
+   }
+  },
+  "A2": {
+   "c_act_values": [
+    0,
+    1
+   ],
+   "c_orc_values": [
+    1
+   ],
+   "c_loc_values": [
+    0.075,
+    0.3,
+    0.925,
+    1
+   ],
+   "selfref_n": 9,
+   "n": 24,
+   "gate_counts": {
+    "reviewer": 12,
+    "auto": 10,
+    "audit": 2
+   }
+  },
+  "A3": {
+   "c_act_values": [
+    1
+   ],
+   "c_orc_values": [
+    1
+   ],
+   "c_loc_values": [
+    0.075,
+    0.3,
+    0.7,
+    0.925,
+    1
+   ],
+   "selfref_n": 9,
+   "n": 22,
+   "gate_counts": {
+    "auto": 9,
+    "reviewer": 12,
+    "audit": 1
+   }
+  },
+  "A6": {
+   "c_act_values": [
+    1
+   ],
+   "c_orc_values": [
+    1
+   ],
+   "c_loc_values": [
+    0.075,
+    0.3,
+    0.7,
+    0.925,
+    1
+   ],
+   "selfref_n": 9,
+   "n": 25,
+   "gate_counts": {
+    "audit": 2,
+    "reviewer": 10,
+    "auto": 13
+   }
+  },
+  "A7": {
+   "c_act_values": [
+    1
+   ],
+   "c_orc_values": [
+    1
+   ],
+   "c_loc_values": [
+    0.075,
+    0.3,
+    0.7,
+    0.925,
+    1
+   ],
+   "selfref_n": 9,
+   "n": 24,
+   "gate_counts": {
+    "reviewer": 11,
+    "auto": 11,
+    "audit": 2
+   }
+  }
+ },
+ "gate_variants": {
+  "A0": {
+   "full (as implemented)": {
+    "n": 21,
+    "tp": 10,
+    "fn": 0,
+    "fp": 1,
+    "tn": 10,
+    "kappa": 0.905,
+    "coverage": 0.476,
+    "esc_recall": 1.0,
+    "esc_recall_wilson": [
+     0.722,
+     1.0
+    ],
+    "esc_recall_cp": [
+     0.692,
+     1.0
+    ],
+    "auto_err": 0.0,
+    "auto_err_wilson": [
+     0.0,
+     0.278
+    ],
+    "auto_err_cp": [
+     0.0,
+     0.308
+    ],
+    "esc_precision": 0.909
+   },
+   "min(c_act,c_loc,c_orc), no self-ref rule": {
+    "n": 21,
+    "tp": 1,
+    "fn": 9,
+    "fp": 1,
+    "tn": 10,
+    "kappa": 0.009,
+    "coverage": 0.905,
+    "esc_recall": 0.1,
+    "esc_recall_wilson": [
+     0.018,
+     0.404
+    ],
+    "esc_recall_cp": [
+     0.003,
+     0.445
+    ],
+    "auto_err": 0.474,
+    "auto_err_wilson": [
+     0.273,
+     0.683
+    ],
+    "auto_err_cp": [
+     0.244,
+     0.711
+    ],
+    "esc_precision": 0.5
+   },
+   "c_act only": {
+    "n": 21,
+    "tp": 0,
+    "fn": 10,
+    "fp": 0,
+    "tn": 11,
+    "kappa": 0.0,
+    "coverage": 1.0,
+    "esc_recall": 0.0,
+    "esc_recall_wilson": [
+     0.0,
+     0.278
+    ],
+    "esc_recall_cp": [
+     0.0,
+     0.308
+    ],
+    "auto_err": 0.476,
+    "auto_err_wilson": [
+     0.283,
+     0.676
+    ],
+    "auto_err_cp": [
+     0.257,
+     0.702
+    ],
+    "esc_precision": null
+   },
+   "c_loc only": {
+    "n": 21,
+    "tp": 1,
+    "fn": 9,
+    "fp": 1,
+    "tn": 10,
+    "kappa": 0.009,
+    "coverage": 0.905,
+    "esc_recall": 0.1,
+    "esc_recall_wilson": [
+     0.018,
+     0.404
+    ],
+    "esc_recall_cp": [
+     0.003,
+     0.445
+    ],
+    "auto_err": 0.474,
+    "auto_err_wilson": [
+     0.273,
+     0.683
+    ],
+    "auto_err_cp": [
+     0.244,
+     0.711
+    ],
+    "esc_precision": 0.5
+   },
+   "c_orc only": {
+    "n": 21,
+    "tp": 0,
+    "fn": 10,
+    "fp": 0,
+    "tn": 11,
+    "kappa": 0.0,
+    "coverage": 1.0,
+    "esc_recall": 0.0,
+    "esc_recall_wilson": [
+     0.0,
+     0.278
+    ],
+    "esc_recall_cp": [
+     0.0,
+     0.308
+    ],
+    "auto_err": 0.476,
+    "auto_err_wilson": [
+     0.283,
+     0.676
+    ],
+    "auto_err_cp": [
+     0.257,
+     0.702
+    ],
+    "esc_precision": null
+   },
+   "self-ref rule only": {
+    "n": 21,
+    "tp": 10,
+    "fn": 0,
+    "fp": 0,
+    "tn": 11,
+    "kappa": 1.0,
+    "coverage": 0.524,
+    "esc_recall": 1.0,
+    "esc_recall_wilson": [
+     0.722,
+     1.0
+    ],
+    "esc_recall_cp": [
+     0.692,
+     1.0
+    ],
+    "auto_err": 0.0,
+    "auto_err_wilson": [
+     0.0,
+     0.259
+    ],
+    "auto_err_cp": [
+     0.0,
+     0.285
+    ],
+    "esc_precision": 1.0
+   },
+   "self-ref rule + c_loc": {
+    "n": 21,
+    "tp": 10,
+    "fn": 0,
+    "fp": 1,
+    "tn": 10,
+    "kappa": 0.905,
+    "coverage": 0.476,
+    "esc_recall": 1.0,
+    "esc_recall_wilson": [
+     0.722,
+     1.0
+    ],
+    "esc_recall_cp": [
+     0.692,
+     1.0
+    ],
+    "auto_err": 0.0,
+    "auto_err_wilson": [
+     0.0,
+     0.278
+    ],
+    "auto_err_cp": [
+     0.0,
+     0.308
+    ],
+    "esc_precision": 0.909
+   },
+   "accept all": {
+    "n": 21,
+    "tp": 0,
+    "fn": 10,
+    "fp": 0,
+    "tn": 11,
+    "kappa": 0.0,
+    "coverage": 1.0,
+    "esc_recall": 0.0,
+    "esc_recall_wilson": [
+     0.0,
+     0.278
+    ],
+    "esc_recall_cp": [
+     0.0,
+     0.308
+    ],
+    "auto_err": 0.476,
+    "auto_err_wilson": [
+     0.283,
+     0.676
+    ],
+    "auto_err_cp": [
+     0.257,
+     0.702
+    ],
+    "esc_precision": null
+   },
+   "escalate all": {
+    "n": 21,
+    "tp": 10,
+    "fn": 0,
+    "fp": 11,
+    "tn": 0,
+    "kappa": 0.0,
+    "coverage": 0.0,
+    "esc_recall": 1.0,
+    "esc_recall_wilson": [
+     0.722,
+     1.0
+    ],
+    "esc_recall_cp": [
+     0.692,
+     1.0
+    ],
+    "auto_err": null,
+    "auto_err_wilson": null,
+    "auto_err_cp": null,
+    "esc_precision": 0.476
+   }
+  },
+  "pooled A0,A2,A3,A6,A7 (occurrences)": {
+   "full (as implemented)": {
+    "n": 112,
+    "tp": 47,
+    "fn": 6,
+    "fp": 6,
+    "tn": 53,
+    "kappa": 0.785,
+    "coverage": 0.527,
+    "esc_recall": 0.887,
+    "esc_recall_wilson": [
+     0.774,
+     0.947
+    ],
+    "esc_recall_cp": [
+     0.77,
+     0.957
+    ],
+    "auto_err": 0.102,
+    "auto_err_wilson": [
+     0.047,
+     0.205
+    ],
+    "auto_err_cp": [
+     0.038,
+     0.208
+    ],
+    "esc_precision": 0.887
+   },
+   "min(c_act,c_loc,c_orc), no self-ref rule": {
+    "n": 112,
+    "tp": 4,
+    "fn": 49,
+    "fp": 6,
+    "tn": 53,
+    "kappa": -0.027,
+    "coverage": 0.911,
+    "esc_recall": 0.075,
+    "esc_recall_wilson": [
+     0.03,
+     0.179
+    ],
+    "esc_recall_cp": [
+     0.021,
+     0.182
+    ],
+    "auto_err": 0.48,
+    "auto_err_wilson": [
+     0.386,
+     0.576
+    ],
+    "auto_err_cp": [
+     0.38,
+     0.582
+    ],
+    "esc_precision": 0.4
+   },
+   "c_act only": {
+    "n": 112,
+    "tp": 1,
+    "fn": 52,
+    "fp": 0,
+    "tn": 59,
+    "kappa": 0.02,
+    "coverage": 0.991,
+    "esc_recall": 0.019,
+    "esc_recall_wilson": [
+     0.003,
+     0.099
+    ],
+    "esc_recall_cp": [
+     0.0,
+     0.101
+    ],
+    "auto_err": 0.468,
+    "auto_err_wilson": [
+     0.378,
+     0.561
+    ],
+    "auto_err_cp": [
+     0.373,
+     0.566
+    ],
+    "esc_precision": 1.0
+   },
+   "c_loc only": {
+    "n": 112,
+    "tp": 3,
+    "fn": 50,
+    "fp": 6,
+    "tn": 53,
+    "kappa": -0.047,
+    "coverage": 0.92,
+    "esc_recall": 0.057,
+    "esc_recall_wilson": [
+     0.019,
+     0.154
+    ],
+    "esc_recall_cp": [
+     0.012,
+     0.157
+    ],
+    "auto_err": 0.485,
+    "auto_err_wilson": [
+     0.391,
+     0.581
+    ],
+    "auto_err_cp": [
+     0.386,
+     0.586
+    ],
+    "esc_precision": 0.333
+   },
+   "c_orc only": {
+    "n": 112,
+    "tp": 0,
+    "fn": 53,
+    "fp": 0,
+    "tn": 59,
+    "kappa": 0.0,
+    "coverage": 1.0,
+    "esc_recall": 0.0,
+    "esc_recall_wilson": [
+     0.0,
+     0.068
+    ],
+    "esc_recall_cp": [
+     0.0,
+     0.067
+    ],
+    "auto_err": 0.473,
+    "auto_err_wilson": [
+     0.383,
+     0.565
+    ],
+    "auto_err_cp": [
+     0.378,
+     0.57
+    ],
+    "esc_precision": null
+   },
+   "self-ref rule only": {
+    "n": 112,
+    "tp": 46,
+    "fn": 7,
+    "fp": 0,
+    "tn": 59,
+    "kappa": 0.874,
+    "coverage": 0.589,
+    "esc_recall": 0.868,
+    "esc_recall_wilson": [
+     0.752,
+     0.935
+    ],
+    "esc_recall_cp": [
+     0.747,
+     0.945
+    ],
+    "auto_err": 0.106,
+    "auto_err_wilson": [
+     0.052,
+     0.203
+    ],
+    "auto_err_cp": [
+     0.044,
+     0.206
+    ],
+    "esc_precision": 1.0
+   },
+   "self-ref rule + c_loc": {
+    "n": 112,
+    "tp": 46,
+    "fn": 7,
+    "fp": 6,
+    "tn": 53,
+    "kappa": 0.767,
+    "coverage": 0.536,
+    "esc_recall": 0.868,
+    "esc_recall_wilson": [
+     0.752,
+     0.935
+    ],
+    "esc_recall_cp": [
+     0.747,
+     0.945
+    ],
+    "auto_err": 0.117,
+    "auto_err_wilson": [
+     0.058,
+     0.222
+    ],
+    "auto_err_cp": [
+     0.048,
+     0.226
+    ],
+    "esc_precision": 0.885
+   },
+   "accept all": {
+    "n": 112,
+    "tp": 0,
+    "fn": 53,
+    "fp": 0,
+    "tn": 59,
+    "kappa": 0.0,
+    "coverage": 1.0,
+    "esc_recall": 0.0,
+    "esc_recall_wilson": [
+     0.0,
+     0.068
+    ],
+    "esc_recall_cp": [
+     0.0,
+     0.067
+    ],
+    "auto_err": 0.473,
+    "auto_err_wilson": [
+     0.383,
+     0.565
+    ],
+    "auto_err_cp": [
+     0.378,
+     0.57
+    ],
+    "esc_precision": null
+   },
+   "escalate all": {
+    "n": 112,
+    "tp": 53,
+    "fn": 0,
+    "fp": 59,
+    "tn": 0,
+    "kappa": 0.0,
+    "coverage": 0.0,
+    "esc_recall": 1.0,
+    "esc_recall_wilson": [
+     0.932,
+     1.0
+    ],
+    "esc_recall_cp": [
+     0.933,
+     1.0
+    ],
+    "auto_err": null,
+    "auto_err_wilson": null,
+    "auto_err_cp": null,
+    "esc_precision": 0.473
+   }
+  }
+ },
+ "A0_legacy_audit_as_escalated": {
+  "auto": 9,
+  "escalated": 12,
+  "audited_items": [
+   [
+    "L051",
+    1
+   ]
+  ],
+  "no_majority_items": [
+   [
+    "L049",
+    "reviewer"
+   ]
+  ]
+ },
+ "random_budget_matched": {
+  "A0": {
+   "N": 21,
+   "non_accepted": 10,
+   "escalated": 11,
+   "caught": 10,
+   "p_random_catch_ge_observed": 3.118656369430363e-05,
+   "expected_caught_random": 5.24
+  },
+  "pooled A0,A2,A3,A6,A7 (occurrences)": {
+   "N": 112,
+   "non_accepted": 53,
+   "escalated": 53,
+   "caught": 47,
+   "p_random_catch_ge_observed": 3.1493877516153897e-18,
+   "expected_caught_random": 25.08
+  }
+ },
+ "distinct_c_t": {
+  "A0": [
+   0,
+   0.075,
+   0.3,
+   0.925,
+   1
+  ],
+  "pooled A0,A2,A3,A6,A7 (occurrences)": [
+   0,
+   0.075,
+   0.3,
+   0.7,
+   0.925,
+   1
+  ]
+ },
+ "tau_sweep": {
+  "A0": {
+   "0.05": {
+    "tp": 10,
+    "fn": 0,
+    "fp": 0,
+    "tn": 11,
+    "kappa": 1.0,
+    "coverage": 0.524,
+    "auto_err": 0.0
+   },
+   "0.1": {
+    "tp": 10,
+    "fn": 0,
+    "fp": 0,
+    "tn": 11,
+    "kappa": 1.0,
+    "coverage": 0.524,
+    "auto_err": 0.0
+   },
+   "0.3": {
+    "tp": 10,
+    "fn": 0,
+    "fp": 0,
+    "tn": 11,
+    "kappa": 1.0,
+    "coverage": 0.524,
+    "auto_err": 0.0
+   },
+   "0.5": {
+    "tp": 10,
+    "fn": 0,
+    "fp": 1,
+    "tn": 10,
+    "kappa": 0.905,
+    "coverage": 0.476,
+    "auto_err": 0.0
+   },
+   "0.7": {
+    "tp": 10,
+    "fn": 0,
+    "fp": 1,
+    "tn": 10,
+    "kappa": 0.905,
+    "coverage": 0.476,
+    "auto_err": 0.0
+   },
+   "0.8": {
+    "tp": 10,
+    "fn": 0,
+    "fp": 1,
+    "tn": 10,
+    "kappa": 0.905,
+    "coverage": 0.476,
+    "auto_err": 0.0
+   },
+   "0.9": {
+    "tp": 10,
+    "fn": 0,
+    "fp": 1,
+    "tn": 10,
+    "kappa": 0.905,
+    "coverage": 0.476,
+    "auto_err": 0.0
+   },
+   "0.95": {
+    "tp": 10,
+    "fn": 0,
+    "fp": 3,
+    "tn": 8,
+    "kappa": 0.717,
+    "coverage": 0.381,
+    "auto_err": 0.0
+   },
+   "1.0": {
+    "tp": 10,
+    "fn": 0,
+    "fp": 3,
+    "tn": 8,
+    "kappa": 0.717,
+    "coverage": 0.381,
+    "auto_err": 0.0
+   }
+  },
+  "pooled A0,A2,A3,A6,A7 (occurrences)": {
+   "0.05": {
+    "tp": 47,
+    "fn": 6,
+    "fp": 0,
+    "tn": 59,
+    "kappa": 0.892,
+    "coverage": 0.58,
+    "auto_err": 0.092
+   },
+   "0.1": {
+    "tp": 47,
+    "fn": 6,
+    "fp": 0,
+    "tn": 59,
+    "kappa": 0.892,
+    "coverage": 0.58,
+    "auto_err": 0.092
+   },
+   "0.3": {
+    "tp": 47,
+    "fn": 6,
+    "fp": 0,
+    "tn": 59,
+    "kappa": 0.892,
+    "coverage": 0.58,
+    "auto_err": 0.092
+   },
+   "0.5": {
+    "tp": 47,
+    "fn": 6,
+    "fp": 5,
+    "tn": 54,
+    "kappa": 0.803,
+    "coverage": 0.536,
+    "auto_err": 0.1
+   },
+   "0.7": {
+    "tp": 47,
+    "fn": 6,
+    "fp": 5,
+    "tn": 54,
+    "kappa": 0.803,
+    "coverage": 0.536,
+    "auto_err": 0.1
+   },
+   "0.8": {
+    "tp": 47,
+    "fn": 6,
+    "fp": 6,
+    "tn": 53,
+    "kappa": 0.785,
+    "coverage": 0.527,
+    "auto_err": 0.102
+   },
+   "0.9": {
+    "tp": 47,
+    "fn": 6,
+    "fp": 6,
+    "tn": 53,
+    "kappa": 0.785,
+    "coverage": 0.527,
+    "auto_err": 0.102
+   },
+   "0.95": {
+    "tp": 47,
+    "fn": 6,
+    "fp": 16,
+    "tn": 43,
+    "kappa": 0.61,
+    "coverage": 0.438,
+    "auto_err": 0.122
+   },
+   "1.0": {
+    "tp": 47,
+    "fn": 6,
+    "fp": 16,
+    "tn": 43,
+    "kappa": 0.61,
+    "coverage": 0.438,
+    "auto_err": 0.122
+   }
+  }
+ },
+ "risk_coverage": {
+  "A0": [
+   {
+    "threshold": 1,
+    "coverage": 0.381,
+    "risk": 0.0,
+    "n_acc": 8
+   },
+   {
+    "threshold": 0.925,
+    "coverage": 0.476,
+    "risk": 0.0,
+    "n_acc": 10
+   },
+   {
+    "threshold": 0.3,
+    "coverage": 0.524,
+    "risk": 0.0,
+    "n_acc": 11
+   },
+   {
+    "threshold": 0,
+    "coverage": 1.0,
+    "risk": 0.476,
+    "n_acc": 21
+   }
+  ],
+  "pooled A0,A2,A3,A6,A7 (occurrences)": [
+   {
+    "threshold": 1,
+    "coverage": 0.438,
+    "risk": 0.122,
+    "n_acc": 49
+   },
+   {
+    "threshold": 0.925,
+    "coverage": 0.527,
+    "risk": 0.102,
+    "n_acc": 59
+   },
+   {
+    "threshold": 0.7,
+    "coverage": 0.536,
+    "risk": 0.1,
+    "n_acc": 60
+   },
+   {
+    "threshold": 0.3,
+    "coverage": 0.58,
+    "risk": 0.092,
+    "n_acc": 65
+   },
+   {
+    "threshold": 0,
+    "coverage": 1.0,
+    "risk": 0.473,
+    "n_acc": 112
+   }
+  ]
+ },
+ "cause_vs_human": {
+  "A0": {
+   "c_act": {},
+   "self-ref": {
+    "not-accept": 10
+   },
+   "c_loc": {
+    "accept": 1,
+    "no-majority": 1
+   },
+   "c_orc": {},
+   "none (c_t>=tau)": {
+    "accept": 10
+   }
+  },
+  "pooled A0,A2,A3,A6,A7 (occurrences)": {
+   "c_act": {
+    "not-accept": 1
+   },
+   "self-ref": {
+    "not-accept": 46
+   },
+   "c_loc": {
+    "no-majority": 5,
+    "accept": 6
+   },
+   "c_orc": {},
+   "none (c_t>=tau)": {
+    "accept": 53,
+    "not-accept": 6
+   }
+  },
+  "A1": {
+   "c_act": {
+    "not-accept": 8,
+    "accept": 7,
+    "no-majority": 1
+   },
+   "self-ref": {},
+   "c_loc": {},
+   "c_orc": {},
+   "none (c_t>=tau)": {}
+  }
+ },
+ "selfref_types": {
+  "expectAttribute": 46
+ }
+}

@@ -1,0 +1,301 @@
+{
+ "qwen3:4b": {
+  "success": {
+   "A0": [
+    "5/17",
+    "5/17",
+    "5/17"
+   ],
+   "A1": [
+    "0/17",
+    "0/17",
+    "0/17"
+   ],
+   "A2": [
+    "5/17",
+    "4/17",
+    "5/17"
+   ],
+   "A3": [
+    "5/17",
+    "5/17",
+    "6/15"
+   ],
+   "A6": [
+    "5/17",
+    "5/14",
+    "4/16"
+   ],
+   "A7": [
+    "6/17",
+    "6/17",
+    "6/17"
+   ]
+  },
+  "infra_errors": 6,
+  "completions": {
+   "repeated-step rule": 77
+  },
+  "s_auth_03": [
+   {
+    "run": "abl-A0",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl-A2",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl-A3",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl-A6",
+    "verdict": "FAIL",
+    "done": false
+   },
+   {
+    "run": "abl-A7",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl4b-r2-A0",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl4b-r2-A2",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl4b-r2-A3",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl4b-r2-A6",
+    "verdict": "FAIL",
+    "done": false
+   },
+   {
+    "run": "abl4b-r2-A7",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl4b-r3-A0",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl4b-r3-A2",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl4b-r3-A3",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl4b-r3-A6",
+    "verdict": "FAIL",
+    "done": false
+   },
+   {
+    "run": "abl4b-r3-A7",
+    "verdict": "INCOMPLETE",
+    "done": false
+   }
+  ],
+  "signals": {
+   "steps": 340,
+   "self_referential": 133,
+   "auto_accepted": 155,
+   "c_act_values": [
+    0,
+    1
+   ],
+   "c_orc_values": [
+    1
+   ],
+   "c_loc_below_tau": 42
+  },
+  "s_auth_03_declared_pass": "0/15",
+  "unique_steps": {
+   "total": 84,
+   "already_rated": 63,
+   "with_majority": 59,
+   "not_yet_rated": 21
+  },
+  "gate_unique_labelled": {
+   "full gate": {
+    "n": 59,
+    "tp": 31,
+    "fn": 4,
+    "fp": 3,
+    "tn": 21,
+    "kappa": 0.756,
+    "auto_err": "4/25"
+   },
+   "three signals without the rule": {
+    "n": 59,
+    "tp": 2,
+    "fn": 33,
+    "fp": 3,
+    "tn": 21,
+    "kappa": -0.057,
+    "auto_err": "33/54"
+   },
+   "self-referential rule only": {
+    "n": 59,
+    "tp": 30,
+    "fn": 5,
+    "fp": 0,
+    "tn": 24,
+    "kappa": 0.83,
+    "auto_err": "5/29"
+   }
+  }
+ },
+ "qwen3:8b": {
+  "success": {
+   "A0": [
+    "13/17",
+    "12/15",
+    "13/17"
+   ],
+   "A1": [
+    "0/17",
+    "0/17",
+    "0/17"
+   ],
+   "A2": [
+    "11/17",
+    "11/16",
+    "12/17"
+   ],
+   "A3": [
+    "12/16",
+    "13/17",
+    "11/16"
+   ],
+   "A6": [
+    "10/17",
+    "9/16",
+    "10/15"
+   ],
+   "A7": [
+    "12/17",
+    "12/16",
+    "11/16"
+   ]
+  },
+  "infra_errors": 10,
+  "completions": {
+   "repeated-step rule": 172
+  },
+  "s_auth_03": [
+   {
+    "run": "abl8b-r1-A0",
+    "verdict": "PASS",
+    "done": true
+   },
+   {
+    "run": "abl8b-r1-A2",
+    "verdict": "FAIL",
+    "done": false
+   },
+   {
+    "run": "abl8b-r1-A3",
+    "verdict": "PASS",
+    "done": true
+   },
+   {
+    "run": "abl8b-r1-A6",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl8b-r1-A7",
+    "verdict": "PASS",
+    "done": true
+   },
+   {
+    "run": "abl8b-r2-A0",
+    "verdict": "PASS",
+    "done": true
+   },
+   {
+    "run": "abl8b-r2-A2",
+    "verdict": "FAIL",
+    "done": false
+   },
+   {
+    "run": "abl8b-r2-A3",
+    "verdict": "PASS",
+    "done": true
+   },
+   {
+    "run": "abl8b-r2-A6",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl8b-r2-A7",
+    "verdict": "PASS",
+    "done": true
+   },
+   {
+    "run": "abl8b-r3-A0",
+    "verdict": "PASS",
+    "done": true
+   },
+   {
+    "run": "abl8b-r3-A2",
+    "verdict": "FAIL",
+    "done": false
+   },
+   {
+    "run": "abl8b-r3-A3",
+    "verdict": "PASS",
+    "done": true
+   },
+   {
+    "run": "abl8b-r3-A6",
+    "verdict": "INCOMPLETE",
+    "done": false
+   },
+   {
+    "run": "abl8b-r3-A7",
+    "verdict": "PASS",
+    "done": true
+   }
+  ],
+  "signals": {
+   "steps": 454,
+   "self_referential": 0,
+   "auto_accepted": 381,
+   "c_act_values": [
+    0,
+    1
+   ],
+   "c_orc_values": [
+    1
+   ],
+   "c_loc_below_tau": 41
+  },
+  "s_auth_03_declared_pass": "9/15",
+  "unique_steps": {
+   "total": 107,
+   "already_rated": 0,
+   "with_majority": 0,
+   "not_yet_rated": 107
+  }
+ }
+}

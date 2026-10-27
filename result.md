@@ -1,5 +1,17 @@
 # Hasil eksekusi lengkap — ppi27-e2e (B1): kalibrasi, FR (Langkah 3), dan FDR (Langkah 4)
 
+> **Status dokumen (26 Oktober 2026).** Ini catatan kerja baseline B1 yang ditulis sebelum naskah final. Angka FR,
+> deteksi fault (8/25), dan lingkungan tetap berlaku. Yang sudah dikoreksi oleh naskah JUITA dan `raqa/HASIL-HITL-ABLASI.md`:
+> - **RC1 (bucket gambar staging 403)** di bawah ditulis "cacat aplikasi nyata (infra)". Di naskah ini diperlakukan
+>   sebagai masalah **lingkungan** staging, bukan cacat kode aplikasi.
+> - **S-HOME-05 (mobile)** di bagian 3 disebut "kandidat cacat nyata". Setelah rater kedua dan uji ulang (H0), kasus
+>   ini dikoreksi menjadi **cacat test** (artikel terbuka 10 dari 10 di HP).
+> - Klasifikasi final 19 kegagalan lokal: **5 test cacat produk dengan 4 penyebab** (bukan 6 test / 5 penyebab),
+>   13 cacat test, 1 timing (Tabel II naskah; κ = 0,648).
+> - Perbandingan flakiness staging vs lokal di naskah memakai **McNemar eksak berpasangan** (p = 0,0034).
+> - Catatan "Jalur A/B" dan "kontribusi RAQA belum ada datanya" di bagian 7 sudah tidak berlaku; agen sudah
+>   dijalankan (lihat `raqa/HASIL-HITL-ABLASI.md`). Agen tidak dijalankan pada fault yang ditanam.
+> - Patch di `faults/patches/` berisi potongan kode SIMASIS; lihat catatan di `REPLICATION.md`.
 Dokumen ini menggantikan draf sebelumnya. Semua angka di sini berasal dari **pengukuran resmi sesuai prosedur README** (bukan lagi run ad-hoc 1-2 kali): FR dari `run-repeated.js --k 10` terhadap staging, dan FDR dari fault seeding sungguhan pada instance Laravel lokal (`erapor-ppi27` di `/Users/macbookprom3pro/Sites/erapor-ppi27`, database `simasis27prod2`).
 
 **Update terbaru:** menindaklanjuti evaluasi kesiapan manuskrip (3 isu critical, 5 major, 8 minor), FDR diperluas dari 5 fault (CI 95% 23–88%, hampir tidak informatif) menjadi **25 fault** (CI 95% 17.2–51.6%) — lihat bagian 5. Isu critical lain dari evaluasi (kontribusi RAQA belum ada data, etika data PII, kecocokan scope JSC) adalah keputusan strategis penulis naskah, dicatat di bagian 7 tapi tidak dieksekusi di sini.

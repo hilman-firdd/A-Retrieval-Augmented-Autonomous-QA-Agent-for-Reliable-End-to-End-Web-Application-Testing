@@ -1,5 +1,21 @@
 # RAQA — implementasi & hasil eksperimen awal (stack offline: Qwen3 4B + Ollama + LangChain + Playwright)
 
+> **Status dokumen (26 Oktober 2026).** Dokumen ini adalah catatan pengembangan dan **pilot** agen (6 skenario,
+> run `raqa/runs/raqa-v3` dan `raqa/runs/b2-v1`), ditulis sebelum eksperimen utama. Angka di bagian 7–8 adalah angka
+> pilot dan **tidak dipakai di naskah**. Hasil yang dipakai naskah ada di `raqa/HASIL-HITL-ABLASI.md`, dan cara
+> menghitung ulangnya di `REPLICATION.md`. Koreksi penting terhadap isi lama:
+> - Rumus keyakinan langkah yang benar adalah Persamaan (5) naskah: c_t = 0 bila langkah self-referential
+>   (assertion atribut yang nilainya sama dengan nama atributnya), selain itu c_t = min(c_act, c_loc, c_orc).
+>   Aturan ini ada di `src/agent.js` sejak commit pertama dan aktif di run pilot `raqa-v3`. Lihat bagian 6.4.
+> - c_act juga bernilai 0 bila agen tidak mengutip unit apa pun (U_t kosong).
+> - Klaim di bagian 7.3 bahwa B2 adalah "demonstrasi kuantitatif untuk RQ1" dan bahwa retrieval memberi "arah pengujian
+>   yang tepat" (7.6) hanya berdasarkan 6 skenario pilot. Di eksperimen utama, A1 (tanpa retrieval) tidak mungkin
+>   menyelesaikan skenario karena gate dan stub menolak semua langkahnya, sehingga A0 vs A1 tidak mengukur efek
+>   retrieval saja.
+> - Placeholder naskah di bagian 8 merujuk ke draf lama (JSC). Jangan dipakai untuk naskah JUITA.
+> - Pada run ablasi, memori locator (φ_hist) dipisah per konfigurasi dan tidak disimpan antar sesi
+>   (`--memory-dir` terpisah, `--no-persist`), jadi φ_hist hanya mengingat locator yang berhasil di run yang sama.
+
 Dokumen ini menjelaskan agen RAQA di folder `raqa/`: arsitektur lengkap (bukan lagi cuma pondasi), parameter desain, dan **hasil eksperimen sungguhan** dengan Qwen3 4B pada 6 skenario nyata dari `scenarios/catalog.json`, dibandingkan dengan B2 (agen sama tanpa retrieval). Semua angka di bagian 7 berasal dari run nyata yang tersimpan di `raqa/runs/` dan `results/metrics/raqa-fr/` — tidak ada yang dikarang. Skala eksperimen (6 dari 31 skenario) jauh lebih kecil dari cakupan B1; ini dijelaskan gamblang di bagian 9.
 
 ## 1. Keputusan bahasa: JavaScript, bukan Python
@@ -127,9 +143,14 @@ Tiga kandidat terbaik disimpan; `execute()` mencoba #1 lalu #2/#3 bila gagal, di
 ### 6.4 c_t, gate, dan loop skenario penuh
 
 ```
-c_t = min(c_act, c_loc, c_orc)     (Persamaan 3 naskah)
-c_act = 1 jika retrieval aktif DAN semua citedUnits benar-benar ada di unit yang diambil, else 0
+c_t   = 0                          jika langkah self-referential (expectAttribute dengan value == attribute)
+c_t   = min(c_act, c_loc, c_orc)   selain itu                     (Persamaan 5 naskah JUITA)
+c_act = 1 jika retrieval aktif DAN citedUnits tidak kosong DAN semua citedUnits ada di unit yang diambil, else 0
 ```
+
+Aturan self-referential ada di `score()` pada `src/agent.js`. Aturan ini dibuat saat pilot untuk pola kegagalan
+Qwen3 4B yang menaruh nama atribut sebagai nilainya (bagian 7.5 butir 2), dan pada eksperimen utama menjadi sumber
+hampir seluruh kesepakatan gate dengan penilai manusia (lihat `raqa/HASIL-HITL-ABLASI.md`).
 
 `runScenario(scenario, maxSteps)`: navigasi awal deterministik (bagian 7.2) → loop usul→skor→gate→eksekusi sampai `done` atau `maxSteps` habis. Gate: terima otomatis bila `c_t ≥ τ` dan tidak terpilih audit acak (5%); selain itu ke reviewer (`human.js` interaktif, atau `stubReviewer.js` untuk run tanpa pengawasan). Keputusan reviewer ditulis ke `.memory/reviewer-verdicts.jsonl` saat `close()` dan ikut jadi unit yang bisa diambil retrieval pada sesi berikutnya (memori tumbuh, RQ5) — **kecuali** `persistMemory:false` diset (dipakai `offline-check.js` dan `demo.js` default, supaya data sintetis/spot-check tidak mencemari memori sungguhan; lihat bug yang ditemukan dan diperbaiki di bagian 7.1).
 
@@ -200,7 +221,7 @@ Diperiksa satu per satu: **tak satu pun** dari 3 kasus "done" berasal dari model
 
 Dari proposal langkah PERTAMA tiap skenario (tabel lengkap di `raqa/runs/b2-v1/results.json`): B2 (tanpa retrieval) tetap menghasilkan locator yang valid (c_loc=1, HAR 0%) untuk semua 6 skenario — *page representation* saja sudah cukup untuk grounding locator dasar. Yang berbeda: (a) B2 tidak pernah bisa mencapai `c_act=1` *by construction*, jadi 100% langkahnya butuh eskalasi meski usulannya sendiri kadang identik dengan RAQA (mis. href "Daftar PSB" persis sama); (b) untuk S-SMOKE-01, RAQA (membaca acceptance criteria "page title contains...") memilih menguji **judul halaman**, sedangkan B2 (menebak dari snapshot semata) memilih menguji **teks heading** — dua tafsir berbeda dari goal yang sama, di mana RAQA lebih tepat sasaran karena tahu PERSIS kriteria yang diminta. Retrieval, pada sampel ini, menyumbang *arah* pengujian yang tepat dan *audit trail* (`citedUnits`), bukan kualitas locator itu sendiri.
 
-## 8. Placeholder naskah yang sekarang bisa diisi
+## 8. Placeholder naskah yang sekarang bisa diisi (draf lama, sudah tidak berlaku)
 
 | Placeholder | Nilai |
 |---|---|
@@ -220,7 +241,7 @@ Dari proposal langkah PERTAMA tiap skenario (tabel lengkap di `raqa/runs/b2-v1/r
 | Tabel 5 baris RAQA | TSR 33,3%\*, FR staging tidak diukur ulang / FR lokal 0%, FDR belum, HAR 0% (\*audit manual; 50% bila hanya memakai klaim `done` otomatis — laporkan keduanya) |
 | Tabel 5 baris B2 | TSR 0%\*, FR/FDR/HAR tidak relevan (tidak ada skrip terverifikasi untuk dikompilasi) |
 
-## 9. Batasan cakupan eksperimen — mohon dibaca sebelum menulis Bagian 5 naskah
+## 9. Batasan cakupan eksperimen pilot
 
 - **6 dari 31 skenario**, dipilih karena kosakata langkah RAQA saat ini (`goto/click/hover/fill/expectVisible/expectURL/expectTitle/expectAttribute`) bisa mengekspresikannya. Skenario yang butuh perbandingan nilai lintas-halaman (mis. "H1 artikel = judul kartu", S-HOME-05/S-NEWS-05/09), penghitungan/agregasi (S-NEWS-02/03/04), pemindaian non-UI (axe-core S-QUAL-01, viewport S-QUAL-03, canonical S-QUAL-02), atau pengecekan banyak elemen sekaligus (S-LINK-01/02/03, S-NAV-01) **tidak achievable** dengan desain step-tunggal-per-giliran saat ini — ini keterbatasan arsitektur yang nyata, bukan sekadar belum sempat dicoba.
 - **budget=8, τ=0.8 belum dikalibrasi** — dipilih sebagai nilai awal yang masuk akal, bukan hasil tuning.

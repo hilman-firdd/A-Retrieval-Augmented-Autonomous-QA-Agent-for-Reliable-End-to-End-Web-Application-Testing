@@ -1,216 +1,285 @@
 # Hasil Eksperimen HITL & Ablasi RAQA — Kesimpulan
 
-Semua angka berasal dari berkas di repo ini (sumber di akhir dokumen). Tidak ada angka yang dibulatkan ulang
-secara manual. Aplikasi yang diuji: instance lokal SIMASIS pada commit `91db4a96` (dibekukan; lihat
-`scenarios/ground-truth.json`). Model: Qwen3 4B lokal, temperature 0, seed 42, τ = 0,8. Uji ketahanan (bagian 2,
-"Pengulangan dan model lebih besar"): keenam konfigurasi diulang 3 kali dengan Qwen3 4B dan 3 kali dengan Qwen3 8B.
+Dokumen ini diselaraskan dengan naskah JUITA versi 27 Oktober 2026, berjudul
+**"Offline Human Review Reveals Overstated Success and Confidence Signals in an LLM Web Testing Agent"**.
+Bila ada perbedaan antara dokumen lama di repo ini dan naskah, yang berlaku adalah naskah dan dokumen ini.
+
+Semua angka berasal dari berkas di repo ini. Cara menghitung ulang setiap tabel dan gambar ada di
+[`REPLICATION.md`](../REPLICATION.md). Aplikasi yang diuji: instance lokal SIMASIS pada commit `91db4a96`
+(dibekukan; lihat `scenarios/ground-truth.json`). Model: Qwen3 4B lokal (`qwen3:4b`, Q4_K_M, Ollama 0.33.3),
+temperature 0, seed 42, τ = 0,8. Uji ketahanan (bagian 3, "Uji ketahanan"): keenam konfigurasi diulang tiga kali
+dengan Qwen3 4B (run asli + 2 pengulangan) dan tiga kali dengan Qwen3 8B. Uji ini **tidak dipra-registrasi**.
+
+Sumber angka:
+- `raqa/review/analysis.md` (dari `raqa/scripts/analyze-hitl.js`): endpoint pra-registrasi, Δ, p Holm, Tabel H3-K.
+- `reanalysis/` (skrip Python): endpoint correct-oracle, cakupan semua kriteria, gate pada 57 langkah unik
+  (Tabel IV naskah), reliabilitas label (Tabel V naskah), Gambar 2.
+- `raqa/review/analysis-repeats.md` (dari `raqa/scripts/analyze-repeats.js`) dan `reanalysis/repeats_unique.json`
+  (dari `reanalysis/repeats_unique.py`): pengulangan dan model 8B.
 
 ## 1. Kesimpulan singkat
 
-| Pertanyaan | Jawaban berdasarkan data | Kuat? |
+| Pertanyaan | Jawaban berdasarkan data | Kekuatan bukti |
 |---|---|---|
-| Apakah retrieval diperlukan? | Ya. Tanpa retrieval 0/17 skenario berhasil; dengan retrieval 17,6–35,3%. Tanpa retrieval tetap 0% di ketiga pengulangan, pada 4B maupun 8B | Arah konsisten di 2 model × 3 pengulangan; uji pada run pertama belum signifikan setelah Holm (p = 0,31) |
-| Apakah gate tahu kapan harus bertanya ke manusia? | Sebagian, tetapi bukan karena skor keyakinan. Di A0 κ = 0,81 dan semua 10 langkah yang ditolak manusia dieskalasi, namun seluruh 10 eskalasi itu berasal dari aturan self-referential (assertion seperti `href` berisi "href"). Tanpa aturan itu, skor min(c_act, c_loc, c_orc) setara tanpa gate (κ = 0,01 di A0; −0,03 gabungan) | Kuat untuk kesimpulan "skor keyakinan tidak berkontribusi"; bertahan di 3 pengulangan 4B (tanpa aturan κ = 0,016; dengan aturan κ = 0,82) |
-| Apakah temuan gate bertahan pada model lebih besar? | Pola kegagalannya bergeser. Qwen3 8B tidak pernah memicu aturan self-referential (0% dari 454 langkah; 4B 39,1%), c_act dan c_orc tetap praktis konstan, dan 83,9% langkah lolos otomatis (4B 45,6%). Gate tidak lagi menahan langkah 8B; κ terhadap manusia untuk 8B tidak dihitung karena langkahnya belum dinilai | Kuat untuk sinyal komponen (objektif); kualitas langkah 8B belum diverifikasi manusia |
-| Apakah hasil stabil antar-pengulangan? | Ya pada tingkat skenario: rentang TSR otomatis antar-pengulangan paling besar 10,6 pp (A0: 0 pp di 4B, 3,5 pp di 8B); 12–17 skenario per konfigurasi bernasib sama di ketiga pengulangan. Urutan langkah tidak selalu identik (temperature 0 tidak sepenuhnya deterministik) | Kuat (3 pengulangan, 2 model) |
-| Apakah keluaran agen andal? | Belum. 33–46% langkah dinilai tidak relevan/tautologis; keberhasilan terverifikasi hanya 17,6–35,3% | Kuat (3 reviewer) |
-| Komponen mana yang paling berkontribusi? | Tidak terbedakan. Selain retrieval, tidak ada konfigurasi yang berbeda terdeteksi dari A0 | Daya uji rendah (n = 17) |
-| Apakah agen menemukan cacat nyata? | Tidak. Cacat S-AUTH-03 tidak ditemukan oleh run mana pun (36 run, 2 model). Qwen3 8B bahkan **menutupinya**: dinyatakan lulus di 9 dari 15 run ber-retrieval hanya dengan memeriksa judul halaman login, tanpa mengisi kredensial | Hanya 1 cacat di set 17 skenario; penutupan cacat dihitung objektif dari ground truth |
-| Apakah agen lebih cepat dari manual? | Tidak terbukti. Manual 6,8 menit untuk 17 skenario, agen 8,6 menit dan hanya menyelesaikan 5 | Pendahuluan: 1 penguji, kondisi uji berbeda |
-| Apakah klasifikasi kegagalan penulis konsisten? | Ya. κ = 0,648 (substansial) | Sedang (1 rater kedua) |
+| Apakah status "selesai" dari agen bisa dipercaya? | Sebagian. Skenario yang selesai biasanya terkonfirmasi (TSR otomatis = TSR correct-oracle di 5 dari 6 konfigurasi), tetapi hanya 1 skenario (2 di A7) yang semua kriteria penerimaannya tercakup. Yang berlebihan adalah **kelengkapan**, bukan keberhasilan palsu | Kuat untuk pola; n = 17 skenario |
+| Apakah gate tahu kapan harus bertanya ke manusia? | Ya, tetapi bukan karena skor keyakinan. A0: κ = 0,905 (21 langkah). 57 langkah unik dari lima konfigurasi ber-retrieval: κ = 0,747, dan 4 dari 24 langkah yang lolos otomatis tidak diterima penilai. Kesepakatan ini berasal dari aturan self-referential; tiga sinyal tanpa aturan itu: κ = 0,009 (A0) dan −0,059 (57 langkah unik) | Kuat untuk "sinyal keyakinan tidak berkontribusi"; n kecil |
+| Apakah retrieval diperlukan? | **Tidak bisa disimpulkan dari studi ini.** Tanpa retrieval, setiap langkah bernilai 0 dan ditolak stub, jadi A1 tidak mungkin menyelesaikan skenario (0% di semua pengulangan, 4B dan 8B, juga karena desain ini). A0 vs A1 membandingkan dua kebijakan utuh, bukan efek retrieval saja. Kualitas langkah A0 dan A1 mirip (11/21 vs 7/15 langkah diterima) | Lemah |
+| Apakah hasil stabil bila run diulang? | Pada tingkat skenario cukup stabil (12–17 skenario per konfigurasi bernasib sama di ketiga pengulangan), tetapi urutan langkah tidak selalu sama walaupun temperature 0. Pada 4B, kesepakatan gate di tiga pengulangan sama polanya: 59 langkah unik berlabel, κ gate penuh 0,756, tanpa aturan self-referential −0,057 | Sedang; eksploratif, tidak dipra-registrasi |
+| Apakah temuan gate bertahan pada model lebih besar? | Polanya bergeser. Qwen3 8B tidak pernah memicu aturan self-referential (0 dari 454 langkah; 4B 133 dari 340), c_act dan c_orc tetap hampir konstan, dan gate meloloskan 381 dari 454 langkah (4B 155 dari 340). Pada 9 dari 15 run ber-retrieval, 8B menyatakan skenario cacat S-AUTH-03 **lulus** | Kuat untuk ukuran objektif; langkah 8B belum dinilai manusia |
+| Apakah keluaran agen andal? | Belum. 33,3–45,8% langkah dinilai tidak relevan atau tautologis | Sedang (kesepakatan penilai moderat) |
+| Komponen retrieval mana yang paling berkontribusi? | Tidak terbedakan. Tidak ada beda yang tetap signifikan setelah koreksi Holm | Daya uji rendah (n = 17) |
+| Apakah agen menemukan cacat nyata? | Tidak. Tidak ada konfigurasi yang menemukan cacat S-AUTH-03 dengan oracle yang benar; suite buatan tangan menemukannya. Pada 8B cacat ini malah tertutupi (lihat atas) | Hanya 1 cacat di 17 skenario |
+| Apakah label manusia stabil? | Moderat. α keputusan = 0,481 (di bawah 0,667); sebagian besar ketidaksepakatan dari satu penilai (R3) | Label mayoritas = acuan, bukan ground truth stabil |
+| Apakah klasifikasi kegagalan baseline konsisten? | Ya. κ = 0,648 (16 dari 19) | Sedang (1 rater kedua) |
 
-**Dampak ke klaim naskah.** Kata "Reliable" pada judul belum didukung, baik untuk keluaran agen maupun untuk skor
-keyakinan c_t = min(c_act, c_loc, c_orc). Dalam eksperimen ini dua dari tiga komponen konstan (c_act = 1 dan c_orc = 1
-pada semua langkah A0), dan kesepakatan gate dengan manusia hampir seluruhnya berasal dari satu aturan heuristik
-(self-referential) yang ditambahkan setelah pilot untuk satu pola kegagalan model. Bingkai yang jujur: studi empiris
-yang menunjukkan bahwa metrik otomatis menyesatkan tanpa verifikasi manusia, dan bahwa sinyal keyakinan yang
-dirancang belum diskriminatif pada model kecil. Aturan self-referential harus dijelaskan di bagian metode (saat ini
-tidak tercakup oleh persamaan c_t di naskah). Uji pada Qwen3 8B memperkuat ini: model lebih besar menghasilkan
-TSR otomatis lebih tinggi (56–80%), tetapi aturan self-referential tidak pernah aktif, sinyal lain tetap konstan, gate
-meloloskan 84% langkah, dan satu cacat nyata dinyatakan lulus di 9 dari 15 run. Metrik otomatis yang tampak membaik
-justru menyertai penutupan cacat. Keputusan judul ada pada penulis.
+**Klaim yang sudah dihapus dari naskah dan tidak boleh muncul lagi di repo:** "Reliable" pada judul; agen atau gate
+"dapat dipercaya"; run "deterministik" karena temperature 0; retrieval "meningkatkan" keberhasilan; kolaborasi
+manusia–agen yang diukur; TSR terverifikasi sebagai "batas bawah"; uji Fisher untuk perbandingan staging dan lokal
+(diganti McNemar eksak berpasangan).
 
-## 2. Hasil per studi
+## 2. Alur item
+
+| Tahap | Jumlah | Catatan |
+|---|---|---|
+| Episode (skenario × konfigurasi) | 102 | 17 skenario × 6 konfigurasi |
+| Kemunculan langkah | 133 | deskripsi log, bukan observasi independen |
+| Langkah unik yang dinilai | 70 | digabung hanya di dalam skenario yang sama (skenario + langkah identik) |
+| Langkah unik dari lima konfigurasi ber-retrieval | 57 | unit analisis gate (Tabel IV naskah); A1 tidak dihitung |
+| Kemunculan self-referential (di luar A1) | 46 | semuanya `expectAttribute`, semuanya ditolak mayoritas |
+| Episode dengan skrip | 30 | menjadi 22 skrip unik yang dinilai |
+
+Unit analisis: skenario untuk keberhasilan tugas, langkah unik untuk kesepakatan gate.
+
+## 3. Hasil per studi
+
+### RQ1 — Baseline suite (B1)
+- Staging: 12 dari 101 test flaky (11,88%). Lokal: 1 dari 101 (0,99%). Uji McNemar eksak berpasangan: 12 vs 1,
+  p = 0,0034 (`reanalysis/baseline_mcnemar.py`).
+- Fault: 8 dari 25 terdeteksi (32%, Wilson 17,2–51,6%). Agen **tidak** dijalankan pada fault, jadi tidak ada
+  perbandingan deteksi fault antara agen dan suite.
 
 ### H0 — rater kedua untuk klasifikasi 19 kegagalan baseline
 - κ sebelum diskusi = **0,648**; sepakat 16 dari 19.
 - Tidak sepakat: F01 (S-AUTH-03), F04 (S-HOME-05 tampilan HP), F18 (S-QUAL-01). Setelah diskusi dengan bukti uji ulang:
   F01 dan F18 tetap cacat aplikasi; F04 dikoreksi menjadi kesalahan pengecekan (artikel terbuka 10 dari 10 di HP).
-- Klasifikasi final: product 5, test 13, timing 1, environment 0. Kesepakatan akhir 19/19 adalah hasil diskusi,
-  bukan κ independen kedua.
-- Ground truth S-AUTH-03 tetap FAIL. Temuan rater: login dengan username salah menampilkan pesan error, dengan
-  email salah tidak.
+- Klasifikasi final: product 5 test (4 penyebab), test 13, timing 1, environment 0. Kesepakatan akhir 19 dari 19
+  adalah hasil diskusi, bukan κ independen kedua.
 
-### H1 — penilaian buta 3 reviewer (70 langkah unik, 22 skrip)
-- Reliabilitas langkah: R1 relevansi α = 0,618 [0,474–0,743]; R3 keputusan α = 0,481 [0,355–0,603], Fleiss κ = 0,479;
-  R2 kebenaran ekspektasi α = 0,296 [0,149–0,429] (rendah, tidak dipakai sebagai hasil utama).
-- Reliabilitas skrip: cakupan kriteria α = 0,720; penilaian keseluruhan (ordinal) α = 0,321 (rendah). Akibatnya TSR
-  terverifikasi, yang bergantung pada penilaian ini, harus dibaca dengan hati-hati.
-- Gate vs manusia (A0, 21 langkah dengan konsensus, Tabel H3): κ = 0,811; recall eskalasi 10/10 = 100% [72,2–100%];
-  presisi eskalasi 10/12 = 83,3%; galat lolos-otomatis 0/9 = 0% [0–29,9%]. Tabel H3 menghitung 1 langkah yang
-  terkena undian audit acak (diterima manusia) sebagai eskalasi; bila keputusan dihitung dari skor saja, κ = 0,905.
-- **Kontribusi komponen (Tabel H3-K).** Di A0, c_act dan c_orc bernilai 1 pada semua langkah, sehingga tidak pernah
-  memicu eskalasi. Kesepuluh langkah yang ditolak manusia dieskalasi oleh aturan self-referential. Tanpa aturan itu:
-  κ = 0,009, recall 1/10, galat lolos-otomatis 9/19 = 47,4% [27,3–68,3%], setara "terima semua" (47,6%).
-  Aturan self-referential saja: κ = 1,000. Gabungan kelima konfigurasi ber-retrieval (112 kemunculan): gate penuh
-  κ = 0,785, galat lolos-otomatis 6/59 = 10,2% [4,7–20,5%]; tanpa aturan self-ref κ = −0,027 dan galat 48,0%; aturan
-  self-ref saja κ = 0,874. Jadi angka 0/9 di A0 tidak berlaku umum: di gabungan konfigurasi, 6 langkah yang
-  ditolak manusia lolos otomatis.
-- Langkah tak relevan/tautologis (konsensus R1 = 0): A0 40,9%; A1 43,8%; A2 45,8%; A3 36,4%; A6 44,0%; A7 33,3%.
+### RQ2 — Keberhasilan otomatis vs terverifikasi (Tabel III naskah)
 
-### Ablasi (17 skenario pre-registrasi, 1 run per konfigurasi, reviewer eskalasi = tiruan mekanis)
-| Konfigurasi | TSR otomatis | TSR terverifikasi | Δ vs A0 [CI 95%] | p (McNemar, Holm) |
+| Konfigurasi | TSR otomatis | Pra-registrasi | Correct-oracle (utama, post hoc) | Δ correct-oracle vs A0 [CI 95%] | p Holm | Semua kriteria tercakup | Langkah diterima |
+|---|---|---|---|---|---|---|---|
+| A0 Full | 29,4% | 29,4% | 29,4% | – | – | 1 | 11/21 |
+| A1 tanpa retrieval | 0% | 0% | 0% | −29,4 [−52,9; −11,8] | 0,313 | 0 | 7/15 |
+| A2 tanpa katalog | 29,4% | 17,6% | 17,6% | −11,8 [−29,4; 0,0] | 1,000 | 1 | 11/23 |
+| A3 tanpa trace | 29,4% | 29,4% | 29,4% | 0,0 [0,0; 0,0] | 1,000 | 1 | 12/21 |
+| A6 BM25 saja | 29,4% | 35,3% | 29,4% | 0,0 [0,0; 0,0] | 1,000 | 1 | 11/24 |
+| A7 dense saja | 35,3% | 35,3% | 35,3% | +5,9 [0,0; 17,6] | 1,000 | 2 | 14/23 |
+
+- Δ: bootstrap persentil atas skenario, tidak disesuaikan per perbandingan. p Holm: McNemar eksak, disesuaikan atas
+  lima perbandingan. "Langkah diterima": penyebut tanpa langkah yang tidak punya mayoritas.
+- **Tiga endpoint.** (1) Pra-registrasi: skenario harus-PASS terverifikasi bila agen selesai dan mayoritas menilai
+  skripnya menguji minimal satu kriteria; skenario harus-FAIL bila agen gagal pada assertion yang dinilai relevan.
+  (2) Correct-oracle: sama, ditambah ekspektasi assertion harus dinilai benar. Aturan ini dibuat **setelah** melihat
+  data (post hoc), tetapi dipakai sebagai endpoint utama. (3) Semua kriteria tercakup.
+- Correct-oracle hanya mengubah A6: S-AUTH-03 gagal pada assertion yang mengecek nilai field password berisi "clear",
+  padahal field kosong. Kegagalan itu karena ekspektasi keliru, bukan karena pesan error yang hilang.
+- Label kebenaran ekspektasi berkesepakatan rendah (α = 0,296) dan **belum diadjudikasi** oleh pemeriksa independen.
+  Jejak setiap keberhasilan ada di `appendix/verified_success_trace.csv`.
+- **Asal status "selesai".** Ke-26 episode yang selesai semuanya dihentikan oleh aturan pengulangan di
+  `raqa/src/agent.js`: bila langkah yang sudah diterima diusulkan lagi persis sama, harness menganggap tujuan tercapai
+  (catatan `auto-done: pengulangan step identik` di log). Planner tidak pernah menyetel `done = true` (0 dari 133
+  langkah). Jadi "TSR otomatis" adalah sinyal selesai dari sistem (planner + harness), bukan pernyataan planner.
+  Dihitung oleh `reanalysis/endpoints_and_trace.py`.
+- Setiap skenario dimulai dari halaman awal tetap sesuai fiturnya (`startPath`, tidak diusulkan LLM).
+- Pengecualian otomatis = pra-registrasi ada di A2 dan A6 (empat dari enam konfigurasi sama).
+- Agen berhenti di langkah pertama yang ditolak pada S-AUTH-03 di lima konfigurasi.
+
+### RQ3 — Gate (Tabel IV dan Gambar 2 naskah)
+
+**A0 (21 langkah dengan mayoritas).** Penilai tidak menerima 10 langkah; gate mengeskalasi kesepuluhnya, plus 1 langkah
+yang diterima penilai. Tidak ada dari 10 langkah lolos-otomatis yang ditolak. κ = 0,905; cakupan 10/21; galat
+lolos-otomatis 0/10 (Clopper–Pearson 0–30,8%). Bila langkah yang terkena undian audit dihitung sebagai eskalasi
+(definisi lama di Tabel H3 `analysis.md`), κ = 0,811. Peluang menangkap kesepuluh langkah bila 11 dari 21 dipilih acak:
+3,1 × 10⁻⁵. Ini perhitungan kondisional, bukan eksperimen dengan gate acak di dalam loop.
+
+**57 langkah unik dari lima konfigurasi ber-retrieval** (`reanalysis/table_iv_unique.json`):
+
+| Varian gate | κ | Recall eskalasi | Galat lolos-otomatis [CP 95%] | Cakupan |
 |---|---|---|---|---|
-| A0 Full | 29,4% | 29,4% | – | – |
-| A1 tanpa retrieval | 0% | 0% | −29,4 pp [−52,9; −11,8] | 0,313 |
-| A2 − catalog | 29,4% | 17,6% | −11,8 pp [−29,4; 0,0] | 1,000 |
-| A3 − traces | 29,4% | 29,4% | 0,0 pp | 1,000 |
-| A6 BM25 saja | 29,4% | 35,3% (29,4%*) | +5,9 pp [0,0; 17,6] | 1,000 |
-| A7 dense saja | 35,3% | 35,3% | +5,9 pp [0,0; 17,6] | 1,000 |
+| Gate penuh (sesuai kode) | 0,747 [bootstrap skenario 0,474; 0,961] | 30/34 | 4/24 = 16,7% [4,7; 37,4] | 42,1% |
+| Aturan self-referential saja | 0,824 | 29/34 | 5/28 = 17,9% [6,1; 36,9] | 49,1% |
+| min(c_act, c_loc, c_orc) tanpa aturan | −0,059 [−0,243; 0,047] | 2/34 | 32/52 = 61,5% [47,0; 74,7] | 91,2% |
+| c_loc saja | −0,083 | 1/34 | 33/53 = 62,3% [47,9; 75,2] | 93,0% |
+| c_act saja | 0,024 | 1/34 | 33/56 = 58,9% [45,0; 71,9] | 98,2% |
+| c_orc saja / terima semua | 0,000 | 0/34 | 34/57 = 59,6% [45,8; 72,4] | 100% |
 
-\* Aturan sensitivitas (Tabel A1-S di `review/analysis.md`): deteksi cacat hanya dihitung bila assertion yang gagal
-berekspektasi benar. Aturan ini ditetapkan **setelah** melihat data, sehingga dilaporkan sebagai analisis
-sensitivitas, bukan hasil utama. Pada A6, S-AUTH-03 gagal karena ekspektasi keliru (`value` berisi "clear"), bukan
-karena cacat ditemukan.
+Peluang gate acak dengan anggaran sama menangkap ≥ 30 dari 34 langkah yang tidak diterima: 1,1 × 10⁻⁸ (kondisional).
 
-Cacat tertutupi = 0 pada semua konfigurasi hanya karena agen tidak pernah menyatakan S-AUTH-03 lulus: pada A0, A1,
-A2, A3, dan A7 skenario berhenti di langkah pertama (ditolak reviewer tiruan); pada A6 gagal pada assertion
-berekspektasi keliru. Tidak ada konfigurasi yang menemukan cacat tersebut.
+**Kenapa gate sepakat dengan penilai.**
+- c_orc = 1 pada seluruh 133 kemunculan. c_act = 1 di semua konfigurasi ber-retrieval kecuali satu langkah di A2.
+  Akibatnya c_t hanya punya enam nilai berbeda.
+- Di A0, 12 eskalasi: 10 karena aturan self-referential (semuanya tidak diterima penilai), 2 karena c_loc (satu diterima,
+  satu tanpa mayoritas).
+- Di luar A1, aturan self-referential aktif pada 46 kemunculan, semuanya `expectAttribute`, semuanya ditolak mayoritas.
+- Empat langkah unik yang lolos gate tetapi tidak diterima penilai: tiga mengecek tautan pendaftaran di skenario smoke
+  yang kriterianya tentang judul dan heading halaman, satu mengecek field password berisi "clear". Masalahnya relevansi;
+  tidak ada sinyal gate yang membandingkan langkah dengan kriteria penerimaan.
 
-### Pengulangan dan model lebih besar (3 × 6 konfigurasi per model; `review/analysis-repeats.md`)
-Qwen3 4B: rep 1 = run asli; rep 2–3 dan Qwen3 8B rep 1–3 dijalankan 2026-10-26/27 terhadap salinan beku SIMASIS
-`91db4a96`, dengan batas 5 menit per panggilan model. Total 510 skenario; 16 (3%) gagal karena infrastruktur (halaman
-awal tidak termuat dalam 30 detik) dan dikeluarkan sebagai data hilang. Panggilan model yang melewati 5 menit dihitung
-sebagai kegagalan agen (8B tanpa retrieval: 3–4 skenario yang sama di tiap pengulangan).
+**Ambang τ.** Pada A0, semua τ di atas 0,3 sampai 0,925 memberi keputusan yang sama dengan τ = 0,8, dan κ tetap 0,717–1,0
+untuk semua ambang, dengan galat lolos-otomatis nol. Pada 57 langkah unik, keputusan sama untuk τ di atas 0,7 sampai
+0,925; menurunkan τ hanya meloloskan langkah yang memang diterima penilai (galat lolos-otomatis tetap 4).
 
-| Konfigurasi | 4B: TSR otomatis rep 1 / 2 / 3 | 8B: TSR otomatis rep 1 / 2 / 3 |
+**Batas tafsir.** Analisis varian gate menilai ulang langkah yang sudah tercatat. Ini menunjukkan kontribusi tiap bagian
+gate terhadap keputusan pada langkah itu, **bukan** performa gate pengganti bila dipasang saat agen berjalan (agen bisa
+mengambil langkah, menyelesaikan skenario, dan menghasilkan skrip yang berbeda).
+
+**Tabel H3-K di `analysis.md`.** Tabel itu menghitung **kemunculan** gabungan (n = 112; κ gate penuh 0,785; galat 6/59;
+tanpa aturan κ −0,027). Angkanya sah tetapi satu langkah bisa terhitung beberapa kali. Naskah memakai **langkah unik**
+(n = 57). Jangan mencampur kedua set angka dalam satu klaim.
+
+**Asal aturan self-referential.** Aturan ini ada di `raqa/src/agent.js` sejak commit pertama repo (`0eda785`,
+22 September 2026) dan sudah aktif pada run pilot `raqa/runs/raqa-v3`. Jadi aturan ini dibuat saat pengembangan pilot,
+untuk pola kegagalan Qwen3 4B yang menaruh nama atribut sebagai nilainya, dan sudah ada sebelum pre-registrasi
+(`7b08f79`, 23 September 2026, 21.45 WIB) dan sebelum semua run ablasi. Aturan ini tidak dijelaskan di versi naskah
+sebelumnya (JSC) dan sekarang menjadi Persamaan (5).
+
+**Parameter gate lain.** Stub menerima langkah bila c_t ≥ τ − 0,2 (= 0,6) dan menolak bila tidak. Audit acak 5%
+(seed 1) aktif di setiap run. φ_hist dihitung dari memori locator di dalam satu run: setiap konfigurasi memakai folder
+memori terpisah dan `--no-persist` (`raqa/scripts/run-ablation.js`).
+
+### Uji ketahanan: pengulangan dan model lebih besar (eksploratif, tidak dipra-registrasi)
+
+Sumber: `review/analysis-repeats.md`, `runs/repeats-manifest.json`, `../reanalysis/repeats_unique.json`.
+
+**Cara run.** Qwen3 4B pengulangan 1 = run asli (`abl-*`, 23 September). Pengulangan 2–3 (`abl4b-r2/r3-*`) dan Qwen3 8B
+pengulangan 1–3 (`abl8b-r1/r2/r3-*`) dijalankan 26–27 Oktober 2026 pada salinan beku SIMASIS `91db4a96`, dengan
+pengaturan agen yang sama. Perbedaan dengan run asli:
+- kode agen di commit `92ede45`: batas 5 menit per panggilan model (run asli tanpa batas), dan skenario yang halaman
+  awalnya gagal dimuat ditandai sebagai error infrastruktur;
+- server `php artisan serve` diberi `PHP_CLI_SERVER_WORKERS=4` mulai sesi 27 Oktober 04.33;
+- rencana run ulang **tidak di-commit sebelum run** (tidak ada pre-registrasi), dan analisisnya dibuat setelah hasil
+  run asli diketahui.
+
+**Keberhasilan otomatis** (selesai / skenario yang bisa dinilai; skenario dengan error infrastruktur dikeluarkan:
+4B 6 dan 8B 10 dari 510 eksekusi skenario):
+
+| Konfigurasi | 4B rep 1 / 2 / 3 | 8B rep 1 / 2 / 3 |
 |---|---|---|
-| A0 Full | 29,4 / 29,4 / 29,4% | 76,5 / 80,0 / 76,5% |
-| A1 tanpa retrieval | 0 / 0 / 0% | 0 / 0 / 0% |
-| A2 − catalog | 29,4 / 23,5 / 29,4% | 64,7 / 68,8 / 70,6% |
-| A3 − traces | 29,4 / 29,4 / 40,0% | 75,0 / 76,5 / 68,8% |
-| A6 BM25 saja | 29,4 / 35,7 / 25,0% | 58,8 / 56,3 / 66,7% |
-| A7 dense saja | 35,3 / 35,3 / 35,3% | 70,6 / 75,0 / 68,8% |
+| A0 | 5/17, 5/17, 5/17 | 13/17, 12/15, 13/17 |
+| A1 | 0/17, 0/17, 0/17 | 0/17, 0/17, 0/17 |
+| A2 | 5/17, 4/17, 5/17 | 11/17, 11/16, 12/17 |
+| A3 | 5/17, 5/17, 6/15 | 12/16, 13/17, 11/16 |
+| A6 | 5/17, 5/14, 4/16 | 10/17, 9/16, 10/15 |
+| A7 | 6/17, 6/17, 6/17 | 12/17, 12/16, 11/16 |
 
-TSR di tabel ini **otomatis** (reviewer tiruan), bukan terverifikasi manusia. Semua "selesai" di kedua model berasal
-dari pengaman pengulangan (4B 77 dari 77, 8B 172 dari 172), tidak ada yang dari model menyatakan selesai sendiri.
+Persentase di `analysis-repeats.md` memakai penyebut tanpa error infrastruktur (misalnya A3 4B rep 3 = 6/15 = 40,0%).
+Ini keberhasilan **otomatis** (dengan stub), bukan terverifikasi manusia.
 
-| Sinyal (konfigurasi ber-retrieval, semua pengulangan) | Qwen3 4B (340 langkah) | Qwen3 8B (454 langkah) |
+**Ukuran objektif** (konfigurasi ber-retrieval, semua pengulangan):
+
+| Ukuran | Qwen3 4B | Qwen3 8B |
 |---|---|---|
-| Langkah self-referential | 39,1% | 0,0% |
-| c_act < τ | 0,9% | 0,4% |
-| c_orc < τ | 0,0% | 0,0% |
-| c_loc < τ | 12,4% | 9,0% |
-| Lolos otomatis (gate) | 45,6% | 83,9% |
-| S-AUTH-03 dinyatakan lulus (cacat tertutupi) | 0 dari 15 run | 9 dari 15 run |
+| Langkah | 340 | 454 |
+| Langkah self-referential | 133 (39,1%) | 0 |
+| Lolos otomatis oleh gate | 155 (45,6%) | 381 (83,9%) |
+| Nilai c_act / c_orc yang muncul | {0, 1} / {1} | {0, 1} / {1} |
+| Status "selesai" dari aturan pengulangan | 77 dari 77 | 172 dari 172 |
+| S-AUTH-03 dinyatakan PASS (cacat tertutupi) | 0 dari 15 run | 9 dari 15 run |
 
-- **Stabilitas.** Skenario yang bernasib sama di ketiga pengulangan: 4B 12–17 per konfigurasi, 8B 13–17. Urutan langkah
-  identik di ketiga pengulangan hanya pada 6–15 (4B) dan 4–16 (8B) skenario, jadi run tidak sepenuhnya deterministik
-  meskipun temperature 0.
-- **Gate 4B lintas 3 pengulangan** (294 kemunculan berlabel, label manusia dari H1 untuk langkah yang identik): gate
-  penuh κ = 0,823, galat lolos-otomatis 8,4% [5,0–13,9%]; tanpa aturan self-ref κ = 0,016 dan galat 47,2%; aturan
-  self-ref saja κ = 0,890. Temuan Tabel H3-K bertahan.
-- **8B dan S-AUTH-03.** Pada A0, A3, dan A7 di ketiga pengulangan, 8B menyatakan skenario "kredensial salah ditolak"
-  lulus dengan assertion `heading "Selamat Datang" terlihat` (diulang), tanpa pernah mengisi kredensial. Pada A2 vonis
-  FAIL di ketiga pengulangan, tetapi karena assertion yang tidak terkait (`aria-label` tombol Masuk), bukan pesan error.
-- **Belum diverifikasi manusia.** Tidak satu pun dari 107 langkah unik 8B identik dengan langkah yang sudah dinilai
-  reviewer, sehingga κ gate vs manusia dan TSR terverifikasi untuk 8B tidak dilaporkan.
-- Waktu: 8B ±2 kali lebih lambat (A0 15,7–17,5 menit per 17 skenario; 4B 8,6–12,8 menit).
+- **8B dan S-AUTH-03.** Di A0, A3, dan A7 pada ketiga pengulangan, 8B mengusulkan `expectVisible heading "Selamat
+  Datang"` dua kali tanpa pernah mengisi kredensial. Gate meloloskannya (c_t = 1), aturan pengulangan menyatakan selesai,
+  dan skenario cacat tercatat PASS. Di A2, vonisnya FAIL, tetapi karena assertion yang tidak terkait (`aria-label`
+  tombol Masuk), bukan karena pesan error yang hilang.
+- **Gate 4B lintas pengulangan, unit langkah unik** (sama dengan Tabel IV naskah): 84 langkah unik, 63 identik dengan
+  item yang sudah dinilai, 59 punya mayoritas, 21 belum pernah dinilai. Gate penuh κ = 0,756 (galat lolos-otomatis 4/25);
+  tiga sinyal tanpa aturan κ = −0,057 (33/54); aturan self-referential saja κ = 0,830 (5/29). Versi gabungan kemunculan
+  di `analysis-repeats.md` (294 kemunculan; κ 0,823 / 0,016 / 0,890) menghitung langkah yang sama berkali-kali.
+- **8B belum dinilai manusia.** Tidak satu pun dari 107 langkah unik 8B identik dengan langkah yang sudah dinilai,
+  sehingga κ gate dan keberhasilan terverifikasi untuk 8B belum ada.
+- Waktu: 8B kira-kira dua kali lebih lambat (A0 15,7–17,5 menit per 17 skenario; 4B 8,6–12,8 menit).
+- Versi model 8B (ID Ollama) belum tercatat di repo.
 
-### Studi waktu manual (1 penguji, pendahuluan)
-- 17 skenario, total 410 detik (6,8 menit), median 23 detik, rata-rata 24,1 detik, rentang 11–47 detik; semua PASS.
-- Pembanding agen A0: total 8,6 menit, median 27,2 detik per skenario, 5 dari 17 selesai, 13 eskalasi.
-- Penguji memakai HP + situs produksi (bukan desktop + instance lokal), pernah melihat langkah/hasil RAQA, dan pada
-  S-AUTH-03 mengisi username sehingga cacat (email) terlewat. Detail: `review/manual-timing-provenance.json`.
+### RQ4 — Reliabilitas label manusia (Tabel V naskah)
 
-## 3. Keterbatasan yang wajib ditulis di paper
-1. **Reviewer eskalasi adalah tiruan mekanis** (`stubReviewer`), bukan manusia. TSR dan laju eskalasi adalah
-   kondisional terhadap aturan tiruan itu; sesi HITL interaktif (H2) tidak dijalankan, jadi tidak ada data waktu
-   keputusan manusia (RQ5) dan tidak ada efek memori reviewer (A5).
-2. n = 17 skenario. Uji statistik ablasi (Tabel A1) memakai run pertama; pengulangan menunjukkan hasil tingkat skenario
-   stabil tetapi urutan langkah tidak sepenuhnya deterministik meskipun temperature 0. Hanya satu cacat nyata
-   (S-AUTH-03) di set pre-registrasi. Ablasi bersifat eksploratif.
-3. Reviewer adalah rekan kerja penulis; penilaian buta terhadap konfigurasi, tetapi kedekatan tidak bisa dihapus.
-   Satu reviewer ikut H1 dan H0. Riwayat kualitas data: dua pengiriman satu reviewer ditolak sebelum penilaian ketiga
-   diterima (pertama seragam seluruhnya, kedua turunan dari berkas reviewer lain, 65 dari 70 item identik); satu
-   berkas tambahan tidak dipakai karena independensinya tidak terjamin. Kriteria penolakan: jawaban seragam penuh atau
-   kemiripan tidak wajar dengan reviewer lain.
-4. Aturan "deteksi cacat butuh ekspektasi benar" ditambahkan setelah data terlihat (hanya mengubah A6).
-5. Studi waktu: dikumpulkan satu penguji, kondisi berbeda dari agen (HP, produksi, pernah melihat RAQA); keterangan
-   penguji dikumpulkan setelah pengerjaan. Arah bias campuran, sehingga tidak ada rasio kecepatan yang dilaporkan.
-6. Konfigurasi A4 (− defect reports) tidak dijalankan.
-7. Aturan self-referential pada gate ditambahkan setelah pilot untuk satu pola kegagalan Qwen3 4B, dan menjadi
-   sumber hampir seluruh kesepakatan gate dengan manusia. Skor min(c_act, c_loc, c_orc) sendiri tidak diskriminatif;
-   c_act dan c_orc konstan pada konfigurasi ber-retrieval. Ambang τ = 0,8 tidak dikalibrasi.
-8. Hasil diukur pada instance lokal yang dibekukan; staging/produksi tidak diuji ulang penuh (pemeriksaan pasif
-   menunjukkan judul, tautan Daftar PSB, dan 5 tombol "Selengkapnya" sama).
-9. Langkah Qwen3 8B tidak dinilai manusia; untuk 8B hanya dilaporkan metrik objektif (sinyal komponen, laju lolos
-   otomatis, cacat tertutupi terhadap ground truth) dan TSR otomatis. Hanya satu ukuran model tambahan dari keluarga
-   yang sama yang diuji.
-10. Pengulangan dijalankan dengan batas 5 menit per panggilan model (run asli tanpa batas) dan terhadap salinan beku
-    aplikasi; 16 dari 510 skenario gagal karena infrastruktur dan dikeluarkan. Korpus retrieval memuat trace baseline B1
-    dari staging, sementara agen menguji instance lokal; hal ini sama di semua run.
+| Penilaian | Krippendorff α [CI 95%] | Gwet AC1 [CI 95%] |
+|---|---|---|
+| Relevansi langkah (ordinal) | 0,618 [0,470; 0,744] | – |
+| Keputusan langkah (terima/edit/tolak) | 0,481 [0,361; 0,595] | 0,560 [0,430; 0,688] |
+| Diterima vs tidak diterima | 0,495 [0,336; 0,642] | 0,584 [0,431; 0,732] |
+| Ekspektasi benar | 0,296 [0,144; 0,437] | 0,353 [0,174; 0,530] |
+| Kriteria yang dicakup skrip | 0,720 [0,550; 0,861] | – |
 
-## 4. Draf teks paper (English; semua angka dari tabel di atas)
+- Fleiss κ keputusan = 0,479. κ berpasangan untuk keputusan: R1–R2 0,754; R1–R3 0,380; R2–R3 0,355.
+- R3 menerima 12 langkah; R1 dan R2 menerima 34 dan 26.
+- 5 dari 70 langkah tanpa mayoritas karena tiga penilai memilih terima, edit, dan tolak.
+- CI di tabel ini dari `reanalysis/gate_irr_reanalysis.py`. `analysis.md` memakai bootstrap lain, sehingga batas CI
+  sedikit berbeda (misalnya relevansi [0,474–0,743]); nilai α-nya sama.
+- Penilai tidak melihat unit yang dikutip agen, jadi penilaian mereka menilai langkahnya sendiri, bukan apakah
+  retrieval mendukungnya.
 
-**Human-in-the-loop evaluation (setup).** Three QA practitioners who were not involved in building SIMASIS or RAQA
-independently and blindly rated every distinct step (n = 70) and every compiled scenario script (n = 22) produced
-across six configurations, without access to the configuration, gate score or cited units. Items identical across
-configurations were rated once and mapped back through a separate key; order was randomised with a fixed seed.
-Steps received a relevance score (0–2), an expectation-correctness judgement and an accept/edit/reject decision.
-A fourth submission was excluded because its independence could not be assured. A separate QA practitioner
-re-classified the 19 baseline failures.
+## 4. Seleksi berkas penilai
 
-**Results.** Inter-rater agreement was moderate (Krippendorff's α = 0.62 [0.47, 0.74] for relevance; α = 0.48
-[0.36, 0.60] and Fleiss' κ = 0.48 for the decision; α = 0.30 for expectation correctness, which we therefore do not
-use as a primary outcome). For the full configuration, the gate's escalation decisions agreed with the reviewers'
-consensus (Cohen's κ = 0.81): all 10 steps that reviewers did not accept were escalated (recall 100%, 95% CI
-[72.2, 100]), and none of the 9 auto-accepted steps was rejected (0%, [0, 29.9]). A component analysis shows that this
-agreement does not come from the confidence score. Two of its three components were constant (c_act = c_orc = 1 on
-every step), and all 10 escalations of rejected steps were triggered by a rule that zeroes confidence for
-self-referential attribute assertions (e.g. an `href` expected to contain "href"), added after the pilot. Without that
-rule, min(c_act, c_loc, c_orc) did not discriminate (κ = 0.01; 9 of 19 auto-accepted steps rejected, versus 10 of 21
-with no gate). Pooled over the five retrieval configurations (112 occurrences), the gate reached κ = 0.79 with 6 of 59
-auto-accepted steps rejected (10.2%, [4.7, 20.5]), and κ = −0.03 without the rule. Between 33% and 46% of steps in each
-configuration were judged irrelevant or tautological. Verified task success was 29.4% for the full configuration and
-0% without retrieval (Δ = −29.4 pp, bootstrap 95% CI [−52.9, −11.8]; exact McNemar p = 0.31 after Holm correction);
-no other ablation differed detectably (|Δ| ≤ 11.8 pp). No configuration detected the one naturally occurring defect
-in the scenario set. The author's failure classification agreed with the independent rater at κ = 0.65 (16/19).
+Sebelum menerima berkas ketiga dari satu penilai, dua berkas awal dari penilai itu disisihkan: berkas pertama memberi
+jawaban yang sama untuk semua item; berkas kedua sama dengan berkas penilai lain pada 65 dari 70 jawaban. Kesamaan
+itu alasan untuk memeriksa independensi, **bukan bukti penyalinan**; karena independensi tidak bisa dikonfirmasi,
+berkas itu tidak dipakai. Satu berkas lain disisihkan dengan alasan yang sama. Keputusan ini dibuat saat berkas
+diterima dan tidak ada di pre-registrasi. Ledger anonim (jumlah orang unik, urutan pengiriman, siapa yang memutuskan,
+prosedur menjaga independensi) belum lengkap di repo dan akan ditambahkan sebagai `raqa/review/rater-ledger.csv`.
+Satu penilai ikut H1 dan H0.
 
-**Robustness: repetitions and a larger model.** We repeated all six configurations three times with Qwen3 4B and
-three times with Qwen3 8B (510 scenario runs; 16 lost to infrastructure time-outs and treated as missing). Scenario
-outcomes were stable across repetitions (the range of automatic success across repetitions was at most 10.6 pp per configuration), although
-step sequences were not always identical despite temperature 0. Without retrieval no scenario succeeded in any
-repetition of either model. Across the three 4B repetitions the component analysis held: the gate agreed with
-reviewers at κ = 0.82 with the self-referential rule and κ = 0.02 without it. With the 8B model, automatic success rose
-to 56–80%, but the self-referential rule never fired (0% of 454 steps, versus 39% for 4B), c_act and c_orc remained
-effectively constant, and 84% of steps were auto-accepted (46% for 4B). In 9 of 15 retrieval runs the 8B agent declared
-the scenario with the real login defect successful by asserting only that the login heading was visible, without
-entering any credentials. Higher automatic success thus coincided with a masked defect. The 8B steps were not rated by
-humans, so we report only these objective measures for that model.
+## 5. Deviasi dari pre-registrasi dan analisis post hoc
 
-**Threats to validity.** The escalation reviewer used in all unattended runs was a mechanical stub, so success rates
-are conditional on it and decision time and the effect of reviewer memory were not measured. With 17 scenarios and
-one defect the ablation is exploratory and reports effect sizes with intervals. Reviewers are colleagues of the
-author, which may bias ratings towards acceptance; blinding limits but cannot remove this. One stricter defect-
-detection rule was introduced after inspecting the data and is reported as a sensitivity analysis. The gate's
-agreement with reviewers rests on a single post-pilot heuristic for one failure mode of a 4B model; the confidence
-components and the threshold τ = 0.8 were not calibrated, so the gate result should not be generalised to other
-models or step types; with a larger model the rule never fired and the remaining signals did not hold back steps
-that masked a defect. Only one additional model size from the same family was tested, and its steps were not rated
-by humans. A single QA
-practitioner timed the manual baseline on a phone against the production site, having previously seen RAQA output;
-we therefore report it as a pilot and make no speed-up claim.
+| Item | Status |
+|---|---|
+| Endpoint correct-oracle | Post hoc; dipakai sebagai endpoint utama, endpoint pra-registrasi tetap dilaporkan |
+| Kolom "semua kriteria tercakup" | Post hoc |
+| Analisis gate per sinyal dan per aturan | Post hoc; ditambahkan setelah terlihat bahwa satu skor tidak pernah berubah |
+| Analisis 57 langkah unik | Post hoc |
+| Seleksi berkas penilai | Diputuskan saat berkas diterima |
+| Konfigurasi A4 (tanpa catatan cacat) | Tidak dijalankan |
+| H2 (sesi review interaktif) | Tidak dijalankan; semua eskalasi dijawab stub, review manusia dilakukan offline |
+| Studi waktu manual | Dikumpulkan tetapi **tidak dilaporkan di naskah** (lihat bagian 7) |
+| Pengulangan 4B dan model 8B | Tidak dipra-registrasi; dijalankan setelah hasil asli diketahui, dengan kode yang sedikit berubah (batas waktu model, penanganan error infrastruktur) |
 
-## 5. Sumber data
+## 6. Keterbatasan yang wajib ada di naskah
+1. Reviewer eskalasi adalah stub mekanis. TSR dan laju eskalasi bergantung pada aturan stub. Waktu, upaya, dan
+   ketergantungan reviewer tidak diukur.
+2. Analisis utama (Tabel III–V) memakai satu run per konfigurasi. Pengulangan (tidak dipra-registrasi) menunjukkan
+   hasil tingkat skenario cukup stabil, tetapi urutan langkah berubah walaupun temperature 0.
+3. n = 17 skenario, satu cacat nyata, 21 langkah A0: hanya efek besar yang bisa terdeteksi. Ablasi bersifat eksploratif.
+4. Penulis pertama mengembangkan SIMASIS dan merancang test, fault, dan agen. Penilai buta dan rater kedua mengurangi
+   bias ini, tetapi penilai adalah rekan kerja penulis.
+5. Kesepakatan keputusan penilai di bawah ambang Krippendorff; kebenaran ekspektasi belum diadjudikasi.
+6. Analisis gate dan aturan correct-oracle post hoc; analisis gate menilai ulang log, bukan menjalankan ulang agen.
+7. Satu browser. Analisis utama memakai satu model kecil (Qwen3 4B). Pada Qwen3 8B aturan self-referential tidak
+   pernah aktif, sehingga gate tinggal bergantung pada sinyal yang tidak diskriminatif dan meloloskan 84% langkah,
+   termasuk langkah yang menutupi cacat. Langkah 8B belum dinilai manusia.
+8. Kode dan database SIMASIS tidak publik: angka bisa dihitung ulang dari log, tetapi agen tidak bisa dijalankan ulang
+   oleh pihak luar.
+
+## 7. Data tambahan yang tidak dilaporkan di naskah
+
+**Studi waktu manual (1 penguji, pendahuluan).** 17 skenario, total 410 detik (6,8 menit), median 23 detik, rentang
+11–47 detik; semua PASS. Agen A0: total 8,6 menit, 5 dari 17 selesai. Penguji memakai HP dan situs produksi, pernah
+melihat keluaran RAQA, dan pada S-AUTH-03 mengisi username sehingga cacat (email) terlewat. Karena kondisi berbeda,
+tidak ada rasio kecepatan yang boleh diklaim. Detail: `review/manual-timing-provenance.json`.
+
+**Run lanjutan.** Hasil pengulangan dan model 8B ada di bagian 3 ("Uji ketahanan"). Untuk run berikutnya, commit
+rencananya lebih dulu sebagai pre-registrasi, lalu bandingkan dengan `scripts/analyze-repeats.js` atau
+`python3 -I scripts/compare_runs.py abl <prefix-baru> --ref abl` (dari folder `raqa/`).
+
+## 8. Sumber data
 - `review/analysis.md`, `review/analysis.json` (Tabel H1, H2, H3, H3-K, A1, A1-S)
-- `review/step-ratings-R1..R3.csv`, `review/scenario-ratings-R1..R3.csv` (ID reviewer anonim; pemetaan tidak disimpan di repo)
+- `../reanalysis/reanalysis.json`, `../reanalysis/table_iv_unique.json`, `../reanalysis/fig_data.json`
+- `../appendix/verified_success_trace.csv`, `../appendix/example_traces.md`
+- `review/step-ratings-R1..R3.csv`, `review/scenario-ratings-R1..R3.csv` (ID penilai anonim; pemetaan tidak disimpan di repo)
 - `review/h0-sheet-R2.csv`, `review/h0-final-overrides.csv`, `review/h0-KEY-jangan-dibagikan.json`
 - `review/manual-timing.csv`, `review/manual-timing-provenance.json`
 - `runs/abl-A0 … abl-A7/` (`results.json`, `summary.json`), `runs/abl-manifest.json`
-- `review/analysis-repeats.md`, `review/analysis-repeats.json` (pengulangan dan model 8B; `scripts/analyze-repeats.js`)
-- `runs/abl4b-r2-*`, `runs/abl4b-r3-*`, `runs/abl8b-r1-*` … `abl8b-r3-*`, `runs/repeats-manifest.json` (screenshot tidak
-  disertakan)
+- `review/analysis-repeats.md`, `review/analysis-repeats.json`, `../reanalysis/repeats_unique.json`
+- `runs/abl4b-r2-*`, `runs/abl4b-r3-*`, `runs/abl8b-r1-*` … `abl8b-r3-*`, `runs/repeats-manifest.json` (screenshot
+  pengulangan tidak disertakan)
 - `instrumen/` — templat kosong (H1, H0, studi waktu, keterangan penguji). Tautan screenshot di templat H1 mengacu ke
   `shots/L###.png` yang tidak disertakan; screenshot asli ada di `review/shots/`.
-- `scenarios/prereg-ablation.json`, `scenarios/ground-truth.json`
+- `../scenarios/prereg-ablation.json`, `../scenarios/ground-truth.json`

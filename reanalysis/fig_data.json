@@ -1,0 +1,498 @@
+{
+ "A0": {
+  "full (as implemented)": {
+   "n": 21,
+   "tp": 10,
+   "fn": 0,
+   "fp": 1,
+   "tn": 10,
+   "kappa": 0.905,
+   "coverage": 0.476,
+   "esc_recall": 1.0,
+   "esc_recall_wilson": [
+    0.722,
+    1.0
+   ],
+   "esc_recall_cp": [
+    0.692,
+    1.0
+   ],
+   "auto_err": 0.0,
+   "auto_err_wilson": [
+    0.0,
+    0.278
+   ],
+   "auto_err_cp": [
+    0.0,
+    0.308
+   ],
+   "esc_precision": 0.909
+  },
+  "min(c_act,c_loc,c_orc), no self-ref rule": {
+   "n": 21,
+   "tp": 1,
+   "fn": 9,
+   "fp": 1,
+   "tn": 10,
+   "kappa": 0.009,
+   "coverage": 0.905,
+   "esc_recall": 0.1,
+   "esc_recall_wilson": [
+    0.018,
+    0.404
+   ],
+   "esc_recall_cp": [
+    0.003,
+    0.445
+   ],
+   "auto_err": 0.474,
+   "auto_err_wilson": [
+    0.273,
+    0.683
+   ],
+   "auto_err_cp": [
+    0.244,
+    0.711
+   ],
+   "esc_precision": 0.5
+  },
+  "c_act only": {
+   "n": 21,
+   "tp": 0,
+   "fn": 10,
+   "fp": 0,
+   "tn": 11,
+   "kappa": 0.0,
+   "coverage": 1.0,
+   "esc_recall": 0.0,
+   "esc_recall_wilson": [
+    0.0,
+    0.278
+   ],
+   "esc_recall_cp": [
+    0.0,
+    0.308
+   ],
+   "auto_err": 0.476,
+   "auto_err_wilson": [
+    0.283,
+    0.676
+   ],
+   "auto_err_cp": [
+    0.257,
+    0.702
+   ],
+   "esc_precision": null
+  },
+  "c_loc only": {
+   "n": 21,
+   "tp": 1,
+   "fn": 9,
+   "fp": 1,
+   "tn": 10,
+   "kappa": 0.009,
+   "coverage": 0.905,
+   "esc_recall": 0.1,
+   "esc_recall_wilson": [
+    0.018,
+    0.404
+   ],
+   "esc_recall_cp": [
+    0.003,
+    0.445
+   ],
+   "auto_err": 0.474,
+   "auto_err_wilson": [
+    0.273,
+    0.683
+   ],
+   "auto_err_cp": [
+    0.244,
+    0.711
+   ],
+   "esc_precision": 0.5
+  },
+  "c_orc only": {
+   "n": 21,
+   "tp": 0,
+   "fn": 10,
+   "fp": 0,
+   "tn": 11,
+   "kappa": 0.0,
+   "coverage": 1.0,
+   "esc_recall": 0.0,
+   "esc_recall_wilson": [
+    0.0,
+    0.278
+   ],
+   "esc_recall_cp": [
+    0.0,
+    0.308
+   ],
+   "auto_err": 0.476,
+   "auto_err_wilson": [
+    0.283,
+    0.676
+   ],
+   "auto_err_cp": [
+    0.257,
+    0.702
+   ],
+   "esc_precision": null
+  },
+  "self-ref rule only": {
+   "n": 21,
+   "tp": 10,
+   "fn": 0,
+   "fp": 0,
+   "tn": 11,
+   "kappa": 1.0,
+   "coverage": 0.524,
+   "esc_recall": 1.0,
+   "esc_recall_wilson": [
+    0.722,
+    1.0
+   ],
+   "esc_recall_cp": [
+    0.692,
+    1.0
+   ],
+   "auto_err": 0.0,
+   "auto_err_wilson": [
+    0.0,
+    0.259
+   ],
+   "auto_err_cp": [
+    0.0,
+    0.285
+   ],
+   "esc_precision": 1.0
+  },
+  "self-ref rule + c_loc": {
+   "n": 21,
+   "tp": 10,
+   "fn": 0,
+   "fp": 1,
+   "tn": 10,
+   "kappa": 0.905,
+   "coverage": 0.476,
+   "esc_recall": 1.0,
+   "esc_recall_wilson": [
+    0.722,
+    1.0
+   ],
+   "esc_recall_cp": [
+    0.692,
+    1.0
+   ],
+   "auto_err": 0.0,
+   "auto_err_wilson": [
+    0.0,
+    0.278
+   ],
+   "auto_err_cp": [
+    0.0,
+    0.308
+   ],
+   "esc_precision": 0.909
+  },
+  "accept all": {
+   "n": 21,
+   "tp": 0,
+   "fn": 10,
+   "fp": 0,
+   "tn": 11,
+   "kappa": 0.0,
+   "coverage": 1.0,
+   "esc_recall": 0.0,
+   "esc_recall_wilson": [
+    0.0,
+    0.278
+   ],
+   "esc_recall_cp": [
+    0.0,
+    0.308
+   ],
+   "auto_err": 0.476,
+   "auto_err_wilson": [
+    0.283,
+    0.676
+   ],
+   "auto_err_cp": [
+    0.257,
+    0.702
+   ],
+   "esc_precision": null
+  },
+  "escalate all": {
+   "n": 21,
+   "tp": 10,
+   "fn": 0,
+   "fp": 11,
+   "tn": 0,
+   "kappa": 0.0,
+   "coverage": 0.0,
+   "esc_recall": 1.0,
+   "esc_recall_wilson": [
+    0.722,
+    1.0
+   ],
+   "esc_recall_cp": [
+    0.692,
+    1.0
+   ],
+   "auto_err": null,
+   "auto_err_wilson": null,
+   "auto_err_cp": null,
+   "esc_precision": 0.476
+  }
+ },
+ "unique": {
+  "full (as implemented)": {
+   "n": 57,
+   "tp": 30,
+   "fn": 4,
+   "fp": 3,
+   "tn": 20,
+   "kappa": 0.747,
+   "coverage": 0.421,
+   "esc_recall": 0.882,
+   "esc_recall_wilson": [
+    0.734,
+    0.953
+   ],
+   "esc_recall_cp": [
+    0.725,
+    0.967
+   ],
+   "auto_err": 0.167,
+   "auto_err_wilson": [
+    0.067,
+    0.359
+   ],
+   "auto_err_cp": [
+    0.047,
+    0.374
+   ],
+   "esc_precision": 0.909
+  },
+  "min(c_act,c_loc,c_orc), no self-ref rule": {
+   "n": 57,
+   "tp": 2,
+   "fn": 32,
+   "fp": 3,
+   "tn": 20,
+   "kappa": -0.059,
+   "coverage": 0.912,
+   "esc_recall": 0.059,
+   "esc_recall_wilson": [
+    0.016,
+    0.191
+   ],
+   "esc_recall_cp": [
+    0.007,
+    0.197
+   ],
+   "auto_err": 0.615,
+   "auto_err_wilson": [
+    0.48,
+    0.735
+   ],
+   "auto_err_cp": [
+    0.47,
+    0.747
+   ],
+   "esc_precision": 0.4
+  },
+  "c_act only": {
+   "n": 57,
+   "tp": 1,
+   "fn": 33,
+   "fp": 0,
+   "tn": 23,
+   "kappa": 0.024,
+   "coverage": 0.982,
+   "esc_recall": 0.029,
+   "esc_recall_wilson": [
+    0.005,
+    0.149
+   ],
+   "esc_recall_cp": [
+    0.001,
+    0.153
+   ],
+   "auto_err": 0.589,
+   "auto_err_wilson": [
+    0.459,
+    0.708
+   ],
+   "auto_err_cp": [
+    0.45,
+    0.719
+   ],
+   "esc_precision": 1.0
+  },
+  "c_loc only": {
+   "n": 57,
+   "tp": 1,
+   "fn": 33,
+   "fp": 3,
+   "tn": 20,
+   "kappa": -0.083,
+   "coverage": 0.93,
+   "esc_recall": 0.029,
+   "esc_recall_wilson": [
+    0.005,
+    0.149
+   ],
+   "esc_recall_cp": [
+    0.001,
+    0.153
+   ],
+   "auto_err": 0.623,
+   "auto_err_wilson": [
+    0.488,
+    0.741
+   ],
+   "auto_err_cp": [
+    0.479,
+    0.752
+   ],
+   "esc_precision": 0.25
+  },
+  "c_orc only": {
+   "n": 57,
+   "tp": 0,
+   "fn": 34,
+   "fp": 0,
+   "tn": 23,
+   "kappa": 0.0,
+   "coverage": 1.0,
+   "esc_recall": 0.0,
+   "esc_recall_wilson": [
+    0.0,
+    0.102
+   ],
+   "esc_recall_cp": [
+    0.0,
+    0.103
+   ],
+   "auto_err": 0.596,
+   "auto_err_wilson": [
+    0.467,
+    0.714
+   ],
+   "auto_err_cp": [
+    0.458,
+    0.724
+   ],
+   "esc_precision": null
+  },
+  "self-ref rule only": {
+   "n": 57,
+   "tp": 29,
+   "fn": 5,
+   "fp": 0,
+   "tn": 23,
+   "kappa": 0.824,
+   "coverage": 0.491,
+   "esc_recall": 0.853,
+   "esc_recall_wilson": [
+    0.699,
+    0.936
+   ],
+   "esc_recall_cp": [
+    0.689,
+    0.95
+   ],
+   "auto_err": 0.179,
+   "auto_err_wilson": [
+    0.079,
+    0.356
+   ],
+   "auto_err_cp": [
+    0.061,
+    0.369
+   ],
+   "esc_precision": 1.0
+  },
+  "self-ref rule + c_loc": {
+   "n": 57,
+   "tp": 29,
+   "fn": 5,
+   "fp": 3,
+   "tn": 20,
+   "kappa": 0.712,
+   "coverage": 0.439,
+   "esc_recall": 0.853,
+   "esc_recall_wilson": [
+    0.699,
+    0.936
+   ],
+   "esc_recall_cp": [
+    0.689,
+    0.95
+   ],
+   "auto_err": 0.2,
+   "auto_err_wilson": [
+    0.089,
+    0.391
+   ],
+   "auto_err_cp": [
+    0.068,
+    0.407
+   ],
+   "esc_precision": 0.906
+  },
+  "accept all": {
+   "n": 57,
+   "tp": 0,
+   "fn": 34,
+   "fp": 0,
+   "tn": 23,
+   "kappa": 0.0,
+   "coverage": 1.0,
+   "esc_recall": 0.0,
+   "esc_recall_wilson": [
+    0.0,
+    0.102
+   ],
+   "esc_recall_cp": [
+    0.0,
+    0.103
+   ],
+   "auto_err": 0.596,
+   "auto_err_wilson": [
+    0.467,
+    0.714
+   ],
+   "auto_err_cp": [
+    0.458,
+    0.724
+   ],
+   "esc_precision": null
+  },
+  "escalate all": {
+   "n": 57,
+   "tp": 34,
+   "fn": 0,
+   "fp": 23,
+   "tn": 0,
+   "kappa": 0.0,
+   "coverage": 0.0,
+   "esc_recall": 1.0,
+   "esc_recall_wilson": [
+    0.898,
+    1.0
+   ],
+   "esc_recall_cp": [
+    0.897,
+    1.0
+   ],
+   "auto_err": null,
+   "auto_err_wilson": null,
+   "auto_err_cp": null,
+   "esc_precision": 0.596
+  }
+ }
+}

@@ -1,110 +1,90 @@
-# Verifikasi klaim naskah terhadap data mentah — hanya bagian B1 (baseline)
+# Verifikasi klaim naskah JUITA terhadap data di repo
 
-Dokumen ini memeriksa **setiap angka dan pernyataan faktual yang sudah tertulis** (bukan placeholder `[...]`) di 8 potongan naskah yang dikirim, lalu mencocokkannya satu per satu dengan file data mentah di `results/`. Setiap baris di bawah mencantumkan **perintah/file yang dipakai untuk mengecek ulang**, supaya bisa direproduksi. Placeholder yang belum diisi (`[X]`, `[Y]`, `[m]`, dst.) **tidak saya isi** — dijelaskan terpisah di bagian akhir kenapa tidak bisa.
+Naskah: **"Offline Human Review Reveals Overstated Success and Confidence Signals in an LLM Web Testing Agent"**
+(versi JUITA, 27 Oktober 2026, dengan uji ketahanan). Dokumen ini menggantikan verifikasi lama untuk draf JSC (yang masih memakai 5 fault,
+"6 dari 19 test" dan "5 penyebab"; angka-angka itu sudah tidak berlaku).
 
-## Ringkasan status
+Setiap baris menyebut angka di naskah, sumbernya, dan perintah untuk mengecek ulang. Semua perintah dijalankan dari
+akar repo kecuali disebut lain; semuanya dijalankan ulang pada 27 Oktober 2026 dan hasilnya sama dengan naskah.
 
-| Bagian naskah | Jumlah klaim terperiksa | Cocok | Tidak cocok / perlu perhatian |
+Perintah ringkas:
+
+```bash
+python3 -I reanalysis/baseline_mcnemar.py
+node raqa/scripts/h0-failure-classification.js analyze raqa/review/h0-sheet-R2.csv
+(cd raqa && node scripts/analyze-hitl.js --baseline A0)          # menulis raqa/review/analysis.md/json
+python3 -I reanalysis/endpoints_and_trace.py .                   # Tabel III + asal status selesai
+(cd reanalysis && python3 -I gate_irr_reanalysis.py .. reanalysis.json && python3 -I make_fig2.py)
+python3 -I reanalysis/repeats_unique.py . reanalysis/repeats_unique.json   # uji ketahanan
+```
+
+## Abstrak
+
+| Klaim | Nilai | Sumber | Status |
 |---|---|---|---|
-| Abstract (statistik B1) | 4 | 4 | 1 (lihat **PERINGATAN** di bawah) |
-| RQ1 — rincian flaky staging | 4 | 4 | 0 |
-| RQ1 — 6 dari 19 cacat nyata | 2 | 2 | 0 |
-| RQ3 — Tabel 6 (FDR 5-fault) | 6 | 6 | 0 |
-| 4.7 Implementation — lingkungan | 4 | 4 | 0 |
-| Ethics — data pribadi lokal | 1 | 1 | 0 |
+| Suite dijalankan 10 kali; 25 fault; 6 konfigurasi; 17 skenario; 3 penilai; 70 langkah; 22 skrip | sesuai | `results/runs/baseline*/k01..k10`, `faults/faults.csv`, `raqa/runs/abl-manifest.json`, `raqa/review/KEY-jangan-dibagikan.json` | ✅ |
+| Flaky 11,88% staging, 0,99% lokal | 12/101, 1/101 | `results/metrics/baseline/summary.json`, `results/metrics/baseline-local/summary.json` | ✅ |
+| 8 dari 25 fault | 8/25 | `results/metrics/fault-detection/summary.json` | ✅ |
+| Hanya satu atau dua dari 17 skenario semua kriterianya tercakup | 1 (A0–A3, A6), 2 (A7) | `endpoints_and_trace.py` | ✅ |
+| Tidak ada konfigurasi yang menemukan cacat nyata | 0 dengan oracle benar | `endpoints_and_trace.py`, `appendix/verified_success_trace.csv` | ✅ |
+| κ = 0,905 pada 21 langkah A0 | 0,905 | `reanalysis/reanalysis.json` → `gate_variants.A0` | ✅ |
+| κ = 0,747 pada 57 langkah unik; 4 dari 24 lolos-otomatis tidak diterima | 0,747; 4/24 | `reanalysis/table_iv_unique.json` | ✅ |
+| Tiga sinyal tanpa aturan: κ = −0,059 | −0,059 | `table_iv_unique.json` | ✅ |
 
----
+## Method
 
-## 1. Abstract
-
-> "a conventional Playwright suite of 101 tests had a flakiness rate of 11.88% on the staging server and 0.99% on a local instance"
-
-✅ **COCOK**. Sumber: `results/metrics/baseline/summary.json` → `"total": 101, "flakinessRatePct": 11.88`; `results/metrics/baseline-local/summary.json` → `"total": 101, "flakinessRatePct": 0.99`.
-
-> "and detected 3 of 5 seeded faults"
-
-⚠️ **COCOK untuk n=5, TAPI SUDAH TIDAK MUTAKHIR.** Diverifikasi ulang barusan (lihat bagian 4) — 3 dari 5 fault ORISINAL (F01–F05) memang terdeteksi (F02, F03, F05), sesuai naskah. **Tapi** sejak sesi ini juga memperluas FDR ke 25 fault (atas permintaan Anda sebelumnya, menindaklanjuti evaluasi manuskrip yang bilang CI 95% untuk n=5 terlalu lebar/tidak informatif), `results/metrics/fault-detection/summary.json` **saat ini** berisi **25 fault, 8 terdeteksi (32%, CI 95% 17.2–51.6%)** — bukan lagi 5/3/60%. Naskah yang dikirim ke saya masih memakai angka lama. **Ini bukan salah saya membaca data — ini pertanyaan keputusan Anda**: apakah naskah mau tetap melaporkan studi n=5 (dan n=25 jadi studi lanjutan terpisah), atau di-update total ke n=25. Saya tidak mengubah naskah, hanya melaporkan status ini.
-
-> "only 6 of the 19 tests that failed on the fault-free version revealed real defects"
-
-✅ **COCOK**. Sumber: dihitung ulang dari `results/runs/baseline-local/k01..k10.json` via `scripts/lib-results.js` — 18 stable-fail + 1 flaky = 19 test gagal total; setelah ditelusuri manual per test (bagian 3 `result.md`), tepat 6 di antaranya (S-AUTH-03, S-HOME-05[mobile], S-LINK-02, S-QUAL-01[daftar berita], S-QUAL-01[artikel santri], S-QUAL-02[login]) adalah cacat aplikasi nyata; 13 sisanya adalah cacat selector test (RC2, 10 test) atau cacat ekstraksi tanggal di test itu sendiri (2 test) atau flakiness murni (1 test).
-
----
-
-## 2. RQ1 — rincian penyebab flaky di staging (halaman "The implicit check therefore failed...")
-
-> "The implicit check therefore failed 22 tests in every run and 5 tests in some runs, depending on whether the broken image request finished before the test ended."
-
-✅ **COCOK PERSIS**. Dihitung ulang dari `results/runs/baseline/k01..k10.json`: 22 test stable-fail dengan error `Implicit oracle...` (gambar 403 dari bucket staging), 5 test flaky (verdict campuran pass/fail) dengan error yang sama.
-
-> "The other 7 flaky tests on staging were page loads that timed out after 30 seconds, although the same pages loaded in under one second when requested directly."
-
-✅ **COCOK**. 7 test flaky sisanya (dari 12 total flaky) bererror `TimeoutError: page.goto: Timeout 30000ms exceeded` atau `Error: status HTTP ...` pada URL `/portal/halaman/*` dan `S-AUTH-01`. Klaim "loaded in under one second when requested directly" sesuai temuan `curl` manual sebelumnya di sesi ini (bagian 4 `result.md`, RC7).
-
-> "We attribute them to the limited capacity of the staging server under parallel tests. None of these failures is caused by the application code."
-
-Ini kesimpulan interpretatif (bukan angka), konsisten dengan data di atas — tidak ada satu pun dari 12 test flaky staging yang errornya berupa assertion aplikasi (semua `TimeoutError`/`Implicit oracle` infra-level).
-
----
-
-## 3. RQ1 — "5 distinct causes" untuk 6 cacat nyata
-
-> "The most serious one concerns login: when a user types an e-mail address with a wrong password, the page shows no error message. The controller renames the validated field to email, but the page only displays errors for username and password."
-
-✅ **COCOK PERSIS**, dan ini deskripsi akurat dari akar penyebab yang saya temukan lewat pembacaan kode (`LoginController::username()` vs `login.blade.php`) dan verifikasi manual (login dengan username biasa → pesan muncul; login dengan format email → pesan hilang), dua kali di dua lingkungan (staging & lokal).
-
-> "The other defects were a link to the admission site that uses HTTP instead of HTTPS, a canonical URL on the login [page pointing to home]..."
-
-✅ **COCOK**, sesuai RC4 dan RC5.
-
-**5 penyebab berbeda** untuk 6 test (dihitung ulang): (1) email-format login tanpa pesan error, (2) link PSB HTTP, (3) canonical login salah, (4) tombol search tanpa nama aksesibel (1 penyebab, 2 test: daftar berita + artikel santri), (5) klik kartu berita ke-intercept elemen lain di mobile. ✅ **COCOK** dengan "5 distinct causes".
-
----
-
-## 4. RQ3 — Tabel 6 (fault seeding, kolom B1)
-
-Dihitung ulang **langsung dari file run mentah** `results/runs/fault-F01..F05/` (bukan dari file `summary.json` yang sekarang sudah berisi 25 fault), pakai baseline lokal sebagai detector:
-
-| ID | Klaim naskah | Hasil hitung ulang | Cocok? |
+| Klaim | Nilai | Sumber | Status |
 |---|---|---|---|
-| F01 | Missed | MISSED | ✅ |
-| F02 | Detected — "caught by the test that checks that the current article is not listed" | DETECTED oleh S-NEWS-07 ("Artikel Terkait tidak memuat artikel yang sedang dibuka") | ✅ |
-| F03 | Detected — "the archive fault by the test that checks that all dates belong to the selected month" | DETECTED oleh S-NEWS-04 ("halaman arsip bulanan hanya memuat berita dari bulan tersebut") | ✅ |
-| F04 | Missed | MISSED | ✅ |
-| F05 | Detected — "the real historical defect by the test that compares the two URL forms of a category page" | DETECTED oleh S-NEWS-03 ("kategori ... konsisten di kedua format URL") | ✅ |
-| FDR total | 60% | 3/5 = 60% | ✅ |
+| 31 skenario, 30 tanpa akun, 101 test | 30 skenario, 101 test | `summary.json` (`scenarios.total`, `tests.total`) | ✅ |
+| 1.010 eksekusi per deployment | 101 × 10 | `results/runs/baseline/`, `baseline-local/` | ✅ |
+| McNemar eksak berpasangan | p = 0,0034 (12 vs 1) | `baseline_mcnemar.py` | ✅ |
+| 20 fault baru di 4 kategori + 5 cacat historis; tiap fault 3 run | sesuai | `faults/faults.csv`, `results/runs/fault-F01..F25/` | ✅ |
+| Korpus: katalog 31, trace 101, catatan cacat 6 | 31 / 101 / 6 | `raqa/runs/abl-A0/summary.json` → `corpus` | ✅ |
+| RRF, w_r = 0,5, κ = 60, top-5; Qwen3 4B, temperature 0, seed 42 | sesuai | `raqa/src/config.js`, `raqa/src/retrieval.js`, `summary.json` | ✅ |
+| Setiap skenario mulai dari halaman tetap sesuai fitur | `startPath` | `raqa/scripts/run-scenarios.js` (`START_PATH_BY_FEATURE`, `START_PATH_BY_ID`) | ✅ |
+| Berhenti bila planner menyatakan selesai, bila langkah yang diterima diulang, atau setelah 8 langkah | sesuai | `raqa/src/agent.js` (`runScenario`), `maxSteps: 8` | ✅ |
+| Persamaan (3) c_act, termasuk U_t tidak kosong | sesuai | `agent.js` baris `const cAct = ...` | ✅ |
+| S(ℓ) = 0,5φ_hist − 0,3φ_str − 0,2φ_vol; φ_str = min(1, (m − 1)/4) | sesuai | `raqa/src/locatorScore.js` | ✅ |
+| φ_hist dari locator yang berhasil di run yang sama | memori per konfigurasi, `--no-persist` | `raqa/scripts/run-ablation.js` | ✅ |
+| Aturan self-referential, Persamaan (5), ada sebelum semua run | ada sejak commit `0eda785` (22 Sep 2026); aktif di pilot `raqa-v3` | `git log -S selfReferential -- raqa/src`; `raqa/runs/raqa-v3/results.json` | ✅ |
+| τ = 0,8; audit 5% dengan seed; stub menerima bila c_t ≥ τ − 0,2 | sesuai | `raqa/src/config.js` (`auditSeed: 1`), `raqa/src/stubReviewer.js` | ✅ |
+| Sumber QA docs dan verdict reviewer aktif tetapi kosong | korpus hanya 3 sumber terisi | `summary.json` → `sources`, `corpus` | ✅ |
+| Uji ketahanan tidak dipra-registrasi: 2 run tambahan 4B dan 3 run 8B, batas 5 menit per panggilan model; 16 dari 510 skenario dikeluarkan karena halaman awal gagal dimuat | sesuai | `raqa/runs/repeats-manifest.json`, `reanalysis/repeats_unique.json` → `infra_errors` (4B 6, 8B 10) | ✅ |
+| Commit aplikasi 91db4a96; pre-registrasi 23 Sep 2026 21.45 WIB sebelum run pertama | `7b08f79` 21:45:36 +0700; A0 selesai 21:54:54 WIB | `git log 7b08f79`; `raqa/runs/abl-A0/summary.json` → `generatedAt` | ✅ |
+| 102 episode, 133 kemunculan, 70 langkah unik, 30 episode berskrip, 22 skrip unik | sesuai | `KEY-jangan-dibagikan.json` (`steps`, `occurrences`, `scenarios[].runs`) | ✅ |
+| Dua berkas awal satu penilai disisihkan; 65 dari 70 jawaban sama; satu berkas lain disisihkan | sesuai catatan penulis | Belum ada ledger di repo (rencana: `raqa/review/rater-ledger.csv`) | ⚠️ perlu ledger |
 
-Semua 6 klaim di tabel ini **cocok persis**, termasuk deskripsi *bagaimana* tiap fault tertangkap (nama test dan alasan spesifik yang disebut di teks naskah).
+## Result and Discussion
 
----
+| Klaim | Nilai | Sumber | Status |
+|---|---|---|---|
+| Tabel I (50/39/12 dan 82/18/1; skenario 20,00% dan 3,33%) | sesuai | `summary.json` (`scenarios.flaky` 6/30 dan 1/30) | ✅ |
+| Tabel II; κ = 0,648 (16 dari 19); 5 test produk, 4 penyebab; 13 cacat test; 1 timing | sesuai | `h0-failure-classification.js`, `raqa/review/h0-final-overrides.csv` | ✅ |
+| Fault per kategori 1/3, 4/7, 2/5, 0/5, 1/5; Wilson 17,2–51,6% | sesuai | `fault-detection/summary.json` → `byCategory` | ✅ |
+| Tabel III (semua kolom) | sesuai | `analysis.md` Tabel A1 dan A1-S; `endpoints_and_trace.py` | ✅ |
+| Ke-26 penyelesaian berasal dari aturan pengulangan; planner tidak pernah menyatakan selesai | 26/26; 0/133 | `endpoints_and_trace.py` (baris terakhir output) | ✅ |
+| A6 gagal di S-AUTH-03 karena assertion "clear" pada field kosong | sesuai | `appendix/verified_success_trace.csv` (baris A6, S-AUTH-03), `raqa/runs/abl-A6/results.json` | ✅ |
+| 33,3–45,8% langkah tidak relevan; 11/21 vs 7/15 diterima | sesuai | `analysis.md`; `endpoints_and_trace.py` | ✅ |
+| A0: 10 dari 21 ditolak, semua dieskalasi; cakupan 10/21; galat 0/10 (CP 0–30,8%); 0,811 bila audit = eskalasi | sesuai | `reanalysis.json` → `gate_variants.A0`, `A0_legacy_audit_as_escalated` | ✅ |
+| Peluang acak 3,1 × 10⁻⁵ (A0) | 3,12 × 10⁻⁵ | `reanalysis.json` → `random_budget_matched` | ✅ |
+| c_orc = 1 pada 133 kemunculan; c_act = 1 kecuali satu langkah A2; 6 nilai c_t | sesuai | `reanalysis.json` → `signal_variation`, `distinct_c_t` | ✅ |
+| A0: 10 eskalasi dari aturan self-ref (semua ditolak), 2 dari c_loc | sesuai | `reanalysis.json` → `cause_vs_human.A0` | ✅ |
+| Aturan aktif 46 kali di luar A1, semua `expectAttribute`, semua ditolak | 46 | `reanalysis.json` → `selfref_types`, `cause_vs_human` | ✅ |
+| Tabel IV (semua baris) dan CI bootstrap [0,474; 0,961] dan [−0,243; 0,047] | sesuai | `reanalysis/table_iv_unique.json` | ✅ |
+| Peluang acak 1,1 × 10⁻⁸ (57 langkah unik) | 1,11 × 10⁻⁸ | `table_iv_unique.json` → `random_budget_matched` | ✅ |
+| Ambang: A0 sama untuk τ di (0,3; 0,925], κ 0,717–1,0; 57 langkah unik sama untuk τ di (0,7; 0,925], τ lebih rendah hanya meloloskan langkah yang diterima | sesuai | `reanalysis.json` → `tau_sweep.A0`; `table_iv_unique.json` → `tau_sweep` | ✅ (kalimat diperbaiki 27 Okt; versi 26 Okt belum membatasi ke A0) |
+| Uji ketahanan 4B: 12–17 skenario per konfigurasi bernasib sama di tiga run; 59 langkah unik berlabel, κ gate penuh 0,756, tiga sinyal tanpa aturan −0,057 | sesuai | `raqa/review/analysis-repeats.md`; `reanalysis/repeats_unique.json` → `qwen3:4b.gate_unique_labelled` | ✅ |
+| 8B: keberhasilan otomatis 56–80% (4B 24–40%) pada konfigurasi ber-retrieval; aturan self-ref 0 dari 454 langkah (4B 133 dari 340); gate meloloskan 84% | sesuai | `analysis-repeats.md`; `repeats_unique.json` → `signals`, `success` | ✅ |
+| 8B menyatakan S-AUTH-03 lulus di 9 dari 15 run ber-retrieval, hanya dengan mengecek heading login; gate meloloskan dan aturan pengulangan menghentikan skenario | 9/15 | `repeats_unique.json` → `s_auth_03`; `raqa/runs/abl8b-r1-A0/results.json` | ✅ |
+| Langkah 8B belum dinilai manusia | 0 dari 107 langkah unik sudah berlabel | `repeats_unique.json` → `qwen3:8b.unique_steps` | ✅ |
+| Tabel V; Fleiss 0,479; κ berpasangan 0,754 / 0,380 / 0,355; R3 menerima 12 vs 34 dan 26; 5 langkah tanpa mayoritas | sesuai | `reanalysis.json` → `irr` | ✅ |
+| Gambar 2 | identik dengan berkas naskah | `reanalysis/fig2_gate.png` | ✅ |
+| Tabel VI berdasarkan teks lengkap empat makalah; Lim et al. hanya abstrak | sesuai catatan penulis | — | ⚠️ cek ulang bila teks lengkap Lim et al. bisa diakses |
 
-## 5. Bagian 4.7 Implementation — lingkungan eksekusi
+## Hal yang belum bisa diverifikasi dari repo
 
-> "All runs used a MacBook with an Apple M3 Pro (11 cores, 18 GB RAM, macOS 26), Node.js 20.19.0, and Playwright 1.56.1 with Chromium."
-
-✅ **COCOK PERSIS**. Sumber: `results/env-info.json` → `"cpu": "Apple M3 Pro x 11", "memoryGB": 18, "node": "v20.19.0", "playwright": "1.56.1"`. `"os": "Darwin 25.6.0"` konsisten dengan penomoran versi macOS 26 (Darwin 25.x = generasi macOS Tahoe/26).
-
----
-
-## 6. Etika — data pribadi di instance lokal
-
-> "The local instance used a copy of production data that includes personal data of students and staff"
-
-✅ **COCOK**. Database lokal `simasis27prod2` memang berisi tabel `Santri` dan `Asatidz` dengan kolom PII (nama lengkap, tempat/tanggal lahir, nama orang tua, dll — sudah diperiksa strukturnya di sesi sebelumnya). **Yang perlu digarisbawahi**: seluruh test dan fault yang dijalankan di dokumen ini **hanya menyentuh portal publik** (posts, kategori, login) — tidak pernah query atau menampilkan isi tabel `Santri`/`Asatidz`. Ini sudah dicatat di `result.md` bagian 7.
-
----
-
-## 7. Placeholder yang TIDAK saya isi, dan kenapa
-
-Bagian-bagian berikut di naskah masih `[...]` dan **sengaja tidak saya isi** karena mengisinya tanpa data sungguhan akan jadi halusinasi:
-
-- **`[X]`, `[Y]`, `[Z]` di Abstract, seluruh Tabel 5 (TSR/FR/FDR/HAR untuk B2–B4 dan RAQA), RQ2–RQ5, bagian 6.1 "[After the RAQA experiments...]"** — semuanya butuh **agen RAQA yang belum diimplementasikan**. Tidak ada kode RAQA di direktori manapun yang saya akses sepanjang sesi ini (`ppi27-e2e` hanya berisi suite Playwright B1). Sesuai keputusan Jalur A/B yang sudah dibahas sebelumnya.
-- **`[m]`, `[c]`, `[report values]` di rumus retrieval (Bagian 3)** — ini parameter desain RAQA (jumlah unit yang di-*rerank*, ukuran konteks, bobot `φ_str`/`φ_vol`), bukan angka yang diukur dari eksperimen. Harus ditentukan penulis sebagai keputusan desain, bukan "dibuktikan" dari data.
-- **`[5]%` di audit sampel acak** — sudah terisi kuning (kemungkinan draf penulis), bukan blank kosong; saya tidak menyentuhnya.
-- **`[describe the safeguards...]`, `[State ethical approval...]`, `[confirm]`, `[names]`, `[Funding agency...]`, `[tool name and version]`, `[describe exactly how...]`, `[State how this was handled...]`, `[URL or DOI]`** — semuanya keputusan institusional/administratif (izin pesantren, persetujuan etik, nama reviewer, pendanaan, tautan repositori publik) yang hanya bisa diisi oleh Anda/pesantren, bukan dari data teknis yang saya punya.
-- **`[describe...]` di Threats to Validity (bias penulis merangkap developer)** — ini butuh pernyataan reflektif penulis, bukan angka.
-
-## 8. Rekomendasi konkret
-
-1. **Putuskan versi FDR mana yang dipakai naskah**: n=5 (seperti sekarang, konsisten dengan draf yang dikirim) atau n=25 (CI jauh lebih sempit, 17.2–51.6% vs 23–88%, sudah tersedia lengkap di `result.md` bagian 5). Kalau pakai n=25, Tabel 6 dan angka FDR di Abstract/RQ3 perlu direvisi total (25 baris, bukan 5).
-2. Semua nilai lain yang sudah tertulis di naskah (bukan placeholder) **terverifikasi akurat 100%** terhadap data mentah — aman dipakai apa adanya.
+1. **Ledger penilai** (jumlah orang unik, urutan pengiriman, siapa yang memutuskan eksklusi). Berkas yang disisihkan
+   tidak ada di repo.
+2. **Adjudikasi kebenaran ekspektasi** oleh pemeriksa independen belum dilakukan. Naskah sudah menyatakannya.
+3. **Izin pemilik aplikasi** untuk patch fault di `faults/patches/`, yang berisi potongan kode SIMASIS, sementara
+   naskah menyebut kode SIMASIS tidak publik (lihat `REPLICATION.md`).
