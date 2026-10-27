@@ -46,11 +46,11 @@ python3 -I reanalysis/repeats_unique.py . reanalysis/repeats_unique.json   # uji
 | Persamaan (3) c_act, termasuk U_t tidak kosong | sesuai | `agent.js` baris `const cAct = ...` | ✅ |
 | S(ℓ) = 0,5φ_hist − 0,3φ_str − 0,2φ_vol; φ_str = min(1, (m − 1)/4) | sesuai | `raqa/src/locatorScore.js` | ✅ |
 | φ_hist dari locator yang berhasil di run yang sama | memori per konfigurasi, `--no-persist` | `raqa/scripts/run-ablation.js` | ✅ |
-| Aturan self-referential, Persamaan (5), ada sebelum semua run | ada sejak commit `0eda785` (22 Sep 2026); aktif di pilot `raqa-v3` | `git log -S selfReferential -- raqa/src`; `raqa/runs/raqa-v3/results.json` | ✅ |
+| Aturan self-referential, Persamaan (5), ada sebelum semua run | ada sejak commit `939fb70` (22 Sep 2026); aktif di pilot `raqa-v3` | `git log -S selfReferential -- raqa/src`; `raqa/runs/raqa-v3/results.json` | ✅ |
 | τ = 0,8; audit 5% dengan seed; stub menerima bila c_t ≥ τ − 0,2 | sesuai | `raqa/src/config.js` (`auditSeed: 1`), `raqa/src/stubReviewer.js` | ✅ |
 | Sumber QA docs dan verdict reviewer aktif tetapi kosong | korpus hanya 3 sumber terisi | `summary.json` → `sources`, `corpus` | ✅ |
 | Uji ketahanan tidak dipra-registrasi: 2 run tambahan 4B dan 3 run 8B, batas 5 menit per panggilan model; 16 dari 510 skenario dikeluarkan karena halaman awal gagal dimuat | sesuai | `raqa/runs/repeats-manifest.json`, `reanalysis/repeats_unique.json` → `infra_errors` (4B 6, 8B 10) | ✅ |
-| Commit aplikasi 91db4a96; pre-registrasi 23 Sep 2026 21.45 WIB sebelum run pertama | `7b08f79` 21:45:36 +0700; A0 selesai 21:54:54 WIB | `git log 7b08f79`; `raqa/runs/abl-A0/summary.json` → `generatedAt` | ✅ |
+| Commit aplikasi 91db4a96; pre-registrasi 23 Sep 2026 21.45 WIB sebelum run pertama | `9a71508` 21:45:36 +0700; A0 selesai 21:54:54 WIB | `git log 9a71508`; `raqa/runs/abl-A0/summary.json` → `generatedAt` | ✅ |
 | 102 episode, 133 kemunculan, 70 langkah unik, 30 episode berskrip, 22 skrip unik | sesuai | `KEY-jangan-dibagikan.json` (`steps`, `occurrences`, `scenarios[].runs`) | ✅ |
 | Dua berkas awal satu penilai disisihkan; 65 dari 70 jawaban sama; satu berkas lain disisihkan | sesuai catatan penulis | Belum ada ledger di repo (rencana: `raqa/review/rater-ledger.csv`) | ⚠️ perlu ledger |
 
@@ -86,5 +86,5 @@ python3 -I reanalysis/repeats_unique.py . reanalysis/repeats_unique.json   # uji
 1. **Ledger penilai** (jumlah orang unik, urutan pengiriman, siapa yang memutuskan eksklusi). Berkas yang disisihkan
    tidak ada di repo.
 2. **Adjudikasi kebenaran ekspektasi** oleh pemeriksa independen belum dilakukan. Naskah sudah menyatakannya.
-3. **Izin pemilik aplikasi** untuk patch fault di `faults/patches/`, yang berisi potongan kode SIMASIS, sementara
-   naskah menyebut kode SIMASIS tidak publik (lihat `REPLICATION.md`).
+3. **Patch fault** tidak lagi ada di repo publik (dihapus dari seluruh riwayat 27 Oktober 2026), sehingga deteksi
+   fault 8/25 hanya bisa dicek dari `results/` dan `faults/faults.csv`, bukan dijalankan ulang. Lihat `REPLICATION.md`.

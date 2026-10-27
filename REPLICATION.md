@@ -21,7 +21,7 @@ LLM Web Testing Agent". It allows two different things, which should not be conf
 | `results/runs/baseline/`, `README.md` (section "Temuan awal") | The other two retrieval sources: baseline execution traces and defect notes. |
 | `raqa/runs/abl-*/results.json` | Per-step logs: proposed step, cited units, c_act, c_loc, c_orc, c_t, gate decision, stub answer, execution result. |
 | `raqa/review/` | Anonymised ratings (R1–R3), rating sheets, hidden key that maps items to configurations, rater guide. |
-| `results/metrics/` | Baseline flakiness and fault-detection summaries. `faults/faults.csv` lists the seeded faults. The patches in `faults/patches/` contain excerpts of the closed application's source code (see the note at the end). |
+| `results/metrics/` | Baseline flakiness and fault-detection summaries. `faults/faults.csv` describes each seeded fault (category, location, change). The patch files are not public because they contain source code of the closed application (see the note at the end). |
 | `raqa/scripts/compare_runs.py` | Compares later runs (larger model, repeated runs) with the original ablation; needs no human labels. Not used for any number in the manuscript. |
 | `reanalysis/` | Scripts added for the revised manuscript (gate signals, agreement, endpoints, figures, traces). |
 | `appendix/` | `verified_success_trace.csv` (success-tracing table) and `example_traces.md` (one successful and one failed trace). |
@@ -53,26 +53,42 @@ occurrences are not independent observations. Both come from the same logs and r
 
 ## Pre-registration and deviations
 
-- Application version frozen at commit 91db4a96; scenario set and ground truth pre-registered in commit 7b08f79
+- Application version frozen at commit 91db4a96; scenario set and ground truth pre-registered in commit 9a71508
   (23 September 2026, 21:45 WIB), before the first agent run.
 - Post hoc additions, all labelled as such in the manuscript: the correct-oracle rule; the signal-level gate
   analysis; the all-criteria column; the unique-step analysis.
 - The self-referential rule in the gate (`raqa/src/agent.js`, `score()`) is present from the first commit of this
-  repository (0eda785, 22 September 2026) and was active in the pilot run `raqa/runs/raqa-v3`, so it was in place
+  repository (939fb70, 22 September 2026) and was active in the pilot run `raqa/runs/raqa-v3`, so it was in place
   before the pre-registration and before every ablation run. It was not described in the earlier manuscript version
   and is now Eq. (5).
 - Not run although planned: configuration A4 (no defect notes) and the interactive review sessions (H2).
 - The robustness runs (`abl4b-r2/r3-*`, `abl8b-r1/r2/r3-*`, 26–27 October 2026) were not pre-registered. They used
-  the agent code of commit 92ede45, which adds a 5-minute limit per model call and marks scenarios whose start page
+  the agent code of commit f7c08a0, which adds a 5-minute limit per model call and marks scenarios whose start page
   did not load as infrastructure errors; see `raqa/runs/repeats-manifest.json`.
 - Rating files set aside before analysis: see the manuscript (Method, Ablation and Human Verification). These
   decisions were made when the files arrived and were not pre-registered.
 - The manual timing pilot in `raqa/review/manual-timing.csv` is not reported in the manuscript (one tester, different
   device and deployment, tester had seen the agent's output).
 
-## Note on the seeded-fault patches
+## Note on the seeded-fault patches and the repository history
 
-The manuscript states that the SIMASIS code and database are not public. The files `faults/patches/F01–F25.patch`
-contain diff excerpts of SIMASIS source code. If the application owner does not agree to publish these excerpts, the
-patches should be removed from the public repository (including its history) and `faults/faults.csv` kept as the
-public description.
+The manuscript states that the SIMASIS code and database are not public. The patch files of the 25 seeded faults
+contained diff excerpts of SIMASIS source code, so on 27 October 2026 they were removed from the repository and from
+its whole git history. `faults/faults.csv` remains as the public description of each fault, and the fault-detection
+results in `results/` are unchanged.
+
+Removing the files rewrote the history, so every commit hash changed. File contents, author dates, and commit dates
+were kept; only the patch files are missing. Hashes written into run logs before the rewrite refer to the old
+history. In particular, `raqa/runs/abl-manifest.json` records the pre-registration commit as `7b08f799…`; this is
+commit `9a71508` in the current history, and `scenarios/prereg-ablation.json`, `scenarios/ground-truth.json`, and
+`raqa/src/agent.js` are byte-identical in both.
+
+| Commit | Old hash | Current hash |
+|---|---|---|
+| First commit (self-referential rule already in `raqa/src/agent.js`) | 0eda785 | 939fb70 |
+| Experiment plan (`raqa/EKSPERIMEN-HITL-ABLASI.md`) | 59fd9b2 | 8048b13 |
+| Pre-registration (23 Sep 2026, 21:45 WIB) | 7b08f79 | 9a71508 |
+| HITL and ablation results | 36cdc96 | b03372d |
+| Gate component analysis (H3-K) | 45b4221 | 4400117 |
+| Robustness runs (4B and 8B) | 92ede45 | f7c08a0 |
+| Alignment with the JUITA manuscript | b062e35 | eecfe34 |

@@ -11,7 +11,8 @@
 > - Perbandingan flakiness staging vs lokal di naskah memakai **McNemar eksak berpasangan** (p = 0,0034).
 > - Catatan "Jalur A/B" dan "kontribusi RAQA belum ada datanya" di bagian 7 sudah tidak berlaku; agen sudah
 >   dijalankan (lihat `raqa/HASIL-HITL-ABLASI.md`). Agen tidak dijalankan pada fault yang ditanam.
-> - Patch di `faults/patches/` berisi potongan kode SIMASIS; lihat catatan di `REPLICATION.md`.
+> - File patch di `faults/patches/` yang disebut di bawah sudah dihapus dari repo publik dan riwayatnya (27 Oktober
+>   2026) karena berisi potongan kode SIMASIS. Deskripsi tiap fault tetap ada di `faults/faults.csv`.
 Dokumen ini menggantikan draf sebelumnya. Semua angka di sini berasal dari **pengukuran resmi sesuai prosedur README** (bukan lagi run ad-hoc 1-2 kali): FR dari `run-repeated.js --k 10` terhadap staging, dan FDR dari fault seeding sungguhan pada instance Laravel lokal (`erapor-ppi27` di `/Users/macbookprom3pro/Sites/erapor-ppi27`, database `simasis27prod2`).
 
 **Update terbaru:** menindaklanjuti evaluasi kesiapan manuskrip (3 isu critical, 5 major, 8 minor), FDR diperluas dari 5 fault (CI 95% 23–88%, hampir tidak informatif) menjadi **25 fault** (CI 95% 17.2–51.6%) — lihat bagian 5. Isu critical lain dari evaluasi (kontribusi RAQA belum ada data, etika data PII, kecocokan scope JSC) adalah keputusan strategis penulis naskah, dicatat di bagian 7 tapi tidak dieksekusi di sini.

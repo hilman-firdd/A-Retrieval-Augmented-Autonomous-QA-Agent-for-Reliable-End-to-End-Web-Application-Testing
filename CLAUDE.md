@@ -1,7 +1,8 @@
 # Aturan kerja di repo ini
 
 Repo ini adalah paket replikasi naskah JUITA "Offline Human Review Reveals Overstated Success and Confidence Signals
-in an LLM Web Testing Agent". Naskah merujuk commit b062e35.
+in an LLM Web Testing Agent". Commit yang dirujuk naskah tertulis di Acknowledgement naskah dan di tag
+`juita-submission`. Peta hash lama ke hash baru (setelah riwayat ditulis ulang) ada di REPLICATION.md.
 
 1. Angka di dokumen harus keluar dari skrip di repo (`reanalysis/`, `raqa/scripts/analyze-hitl.js`). Jangan menulis
    angka dari ingatan atau perkiraan. Daftar klaim dan sumbernya ada di `manuscript-claims-verification.md`.
@@ -24,3 +25,6 @@ in an LLM Web Testing Agent". Naskah merujuk commit b062e35.
    (`review-q8`), tidak pernah menimpa `raqa/review/`. Rencananya di-commit sebagai pre-registrasi sebelum run pertama.
 9. Setelah mengubah analisis, jalankan ulang semua perintah di REPLICATION.md dan pastikan angka di
    `manuscript-claims-verification.md` masih sama. Kalau berubah, laporkan ke penulis sebelum commit.
+10. Jangan menulis ulang riwayat git (rebase pada commit yang sudah di-push, filter-repo, force push). Itu mengubah
+    hash commit yang dirujuk naskah. Kalau benar-benar perlu, tanyakan dulu ke penulis dan catat peta hash di
+    REPLICATION.md.

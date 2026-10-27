@@ -1,4 +1,4 @@
-"""Reanalysis of RAQA gate and IRR from the frozen repo data (commit 36cdc96).
+"""Reanalysis of RAQA gate and IRR from the frozen repo data (commit b03372d).
 Run: python3 -I reanalysis.py /home/claude/rr/repo
 Every number printed here comes from files in the repo; nothing is simulated except the
 explicitly labelled random-escalation baseline (exact hypergeometric, no sampling)."""

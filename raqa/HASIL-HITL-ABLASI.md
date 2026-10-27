@@ -138,10 +138,10 @@ mengambil langkah, menyelesaikan skenario, dan menghasilkan skrip yang berbeda).
 tanpa aturan κ −0,027). Angkanya sah tetapi satu langkah bisa terhitung beberapa kali. Naskah memakai **langkah unik**
 (n = 57). Jangan mencampur kedua set angka dalam satu klaim.
 
-**Asal aturan self-referential.** Aturan ini ada di `raqa/src/agent.js` sejak commit pertama repo (`0eda785`,
+**Asal aturan self-referential.** Aturan ini ada di `raqa/src/agent.js` sejak commit pertama repo (`939fb70`,
 22 September 2026) dan sudah aktif pada run pilot `raqa/runs/raqa-v3`. Jadi aturan ini dibuat saat pengembangan pilot,
 untuk pola kegagalan Qwen3 4B yang menaruh nama atribut sebagai nilainya, dan sudah ada sebelum pre-registrasi
-(`7b08f79`, 23 September 2026, 21.45 WIB) dan sebelum semua run ablasi. Aturan ini tidak dijelaskan di versi naskah
+(`9a71508`, 23 September 2026, 21.45 WIB) dan sebelum semua run ablasi. Aturan ini tidak dijelaskan di versi naskah
 sebelumnya (JSC) dan sekarang menjadi Persamaan (5).
 
 **Parameter gate lain.** Stub menerima langkah bila c_t ≥ τ − 0,2 (= 0,6) dan menolak bila tidak. Audit acak 5%
@@ -155,7 +155,7 @@ Sumber: `review/analysis-repeats.md`, `runs/repeats-manifest.json`, `../reanalys
 **Cara run.** Qwen3 4B pengulangan 1 = run asli (`abl-*`, 23 September). Pengulangan 2–3 (`abl4b-r2/r3-*`) dan Qwen3 8B
 pengulangan 1–3 (`abl8b-r1/r2/r3-*`) dijalankan 26–27 Oktober 2026 pada salinan beku SIMASIS `91db4a96`, dengan
 pengaturan agen yang sama. Perbedaan dengan run asli:
-- kode agen di commit `92ede45`: batas 5 menit per panggilan model (run asli tanpa batas), dan skenario yang halaman
+- kode agen di commit `f7c08a0`: batas 5 menit per panggilan model (run asli tanpa batas), dan skenario yang halaman
   awalnya gagal dimuat ditandai sebagai error infrastruktur;
 - server `php artisan serve` diberi `PHP_CLI_SERVER_WORKERS=4` mulai sesi 27 Oktober 04.33;
 - rencana run ulang **tidak di-commit sebelum run** (tidak ada pre-registrasi), dan analisisnya dibuat setelah hasil
@@ -198,7 +198,7 @@ Ini keberhasilan **otomatis** (dengan stub), bukan terverifikasi manusia.
 - **8B belum dinilai manusia.** Tidak satu pun dari 107 langkah unik 8B identik dengan langkah yang sudah dinilai,
   sehingga κ gate dan keberhasilan terverifikasi untuk 8B belum ada.
 - Waktu: 8B kira-kira dua kali lebih lambat (A0 15,7–17,5 menit per 17 skenario; 4B 8,6–12,8 menit).
-- Versi model 8B (ID Ollama) belum tercatat di repo.
+- Versi model: `qwen3:8b` ID Ollama `500a1f067a9f` (5,2 GB), Ollama 0.33.3 (`runs/repeats-manifest.json` → `models`).
 
 ### RQ4 — Reliabilitas label manusia (Tabel V naskah)
 

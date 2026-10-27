@@ -12,7 +12,7 @@ SIMASIS, aplikasi Laravel milik Pesantren Persatuan Islam 27 Situaksan, Bandung.
 | Menghitung ulang setiap angka, tabel, dan gambar di naskah | [`REPLICATION.md`](REPLICATION.md) |
 | Ringkasan hasil yang sudah selaras dengan naskah | [`raqa/HASIL-HITL-ABLASI.md`](raqa/HASIL-HITL-ABLASI.md) |
 | Daftar klaim naskah beserta file dan perintah pengeceknya | [`manuscript-claims-verification.md`](manuscript-claims-verification.md) |
-| Rencana eksperimen sebelum run (pre-registrasi) | [`raqa/EKSPERIMEN-HITL-ABLASI.md`](raqa/EKSPERIMEN-HITL-ABLASI.md), `scenarios/prereg-ablation.json`, `scenarios/ground-truth.json` (commit `7b08f79`) |
+| Rencana eksperimen sebelum run (pre-registrasi) | [`raqa/EKSPERIMEN-HITL-ABLASI.md`](raqa/EKSPERIMEN-HITL-ABLASI.md), `scenarios/prereg-ablation.json`, `scenarios/ground-truth.json` (commit `9a71508`) |
 | Rincian baseline suite B1 (kalibrasi, flakiness, fault) | [`result.md`](result.md) |
 | Rancangan dan riwayat pengembangan agen (pilot) | [`RAQA.md`](RAQA.md) |
 
@@ -41,7 +41,7 @@ playwright.config.js, src/, tests/ baseline suite B1 (retries 0, implicit oracle
 scenarios/                         katalog 31 skenario, 17 skenario pra-registrasi, ground truth
 scripts/                           run-repeated, compute-metrics, fault-detection, env-info
 results/                           log run B1 dan ringkasan metrik
-faults/                            daftar 25 fault (faults.csv) dan patch-nya (lihat catatan di REPLICATION.md)
+faults/                            daftar 25 fault (faults.csv); file patch tidak publik (lihat REPLICATION.md)
 raqa/src/                          agen: prompt dan gate (agent.js), retrieval, skor locator, oracle, stub reviewer
 raqa/scripts/                      runner ablasi, ekspor item review, analyze-hitl.js, compare_runs.py
 raqa/runs/abl-A0 … abl-A7/         log per langkah (skor c_act, c_loc, c_orc, c_t, keputusan gate, jawaban stub)
