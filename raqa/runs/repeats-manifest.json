@@ -398,5 +398,13 @@
       "modelTimeouts": 1,
       "minutes": 18.7
     }
-  ]
+  ],
+  "models": {
+    "ollamaVersion": "0.33.3",
+    "qwen3_8b": {
+      "name": "qwen3:8b",
+      "id": "500a1f067a9f",
+      "size": "5.2 GB"
+    }
+  }
 }
